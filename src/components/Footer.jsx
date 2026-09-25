@@ -2,159 +2,188 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050d18] text-white">
+    <footer className="site-footer">
 
-      <div className="mx-auto max-w-[1400px] px-5 py-16 sm:px-8 lg:px-10">
+      {/* =====================================================
+          FOOTER MAIN
+      ===================================================== */}
 
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_0.7fr_0.9fr_1fr]">
+      <div className="footer-main">
 
-          {/* Brand */}
-          <div>
-            <Link href="/" className="inline-block">
-              <img
-                src="/logo.png"
-                alt="Cheque Bounce Advisor"
-                className="h-[62px] w-auto object-contain"
-              />
-            </Link>
+        {/* BRAND */}
+        <div className="footer-brand">
 
-            <p className="mt-6 max-w-md text-[15px] leading-7 text-white/60">
-              Professional assistance for cheque bounce, cheque recovery and
-              cheque misuse matters.
-            </p>
-
-            <Link
-              href="/talk-to-cba/"
-              className="mt-7 inline-flex rounded-full bg-[#e50909] px-6 py-3 text-sm font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff1717]"
-            >
-              Talk To CBA
-            </Link>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em]">
-              Navigation
-            </h3>
-
-            <div className="mt-5 flex flex-col gap-3">
-              <Link
-                href="/"
-                className="text-sm text-white/60 transition hover:text-white"
-              >
-                Home
-              </Link>
-
-              <Link
-                href="/service/"
-                className="text-sm text-white/60 transition hover:text-white"
-              >
-                Service
-              </Link>
-
-              <Link
-                href="/about-us/"
-                className="text-sm text-white/60 transition hover:text-white"
-              >
-                About Us
-              </Link>
-
-              <Link
-                href="/blog/"
-                className="text-sm text-white/60 transition hover:text-white"
-              >
-                Blog
-              </Link>
-
-              <Link
-                href="/faq/"
-                className="text-sm text-white/60 transition hover:text-white"
-              >
-                FAQ
-              </Link>
-            </div>
-          </div>
-
-          {/* Assistance */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em]">
-              Assistance
-            </h3>
-
-            <div className="mt-5 flex flex-col gap-3">
-              <span className="text-sm text-white/60">
-                Cheque Bounce Assistance
-              </span>
-
-              <span className="text-sm text-white/60">
-                Cheque Recovery Assistance
-              </span>
-
-              <span className="text-sm text-white/60">
-                Cheque Misuse Assistance
-              </span>
-
-              <span className="text-sm text-white/60">
-                Notice Assistance
-              </span>
-            </div>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-[0.18em]">
-              Contact
-            </h3>
-
-            <p className="mt-5 text-sm leading-6 text-white/60">
-              Have a cheque-related matter or payment issue? Get in touch with
-              Cheque Bounce Advisor.
-            </p>
-
-            <Link
-              href="/talk-to-cba/"
-              className="mt-5 inline-block text-sm font-bold text-[#ff3333] transition hover:text-white"
-            >
-              Get in touch →
-            </Link>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-4 px-5 py-6 text-xs text-white/45 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
+          <Link href="/" className="footer-logo-link">
+            <img
+              src="/logo.png"
+              alt="Cheque Bounce Advisor"
+              className="footer-logo"
+            />
+          </Link>
 
           <p>
-            © {new Date().getFullYear()} Cheque Bounce Advisor. All rights
-            reserved.
+            Professional assistance for cheque bounce,
+            cheque recovery and cheque misuse matters.
           </p>
 
-          <div className="flex flex-wrap gap-5">
-            <Link
-              href="/privacy-policy/"
-              className="transition hover:text-white"
-            >
-              Privacy Policy
-            </Link>
+          {/* SOCIAL */}
+          <div className="footer-social">
 
-            <Link
-              href="/terms-and-conditions/"
-              className="transition hover:text-white"
-            >
-              Terms & Conditions
-            </Link>
+            {/* Replace # with your actual Instagram URL */}
+             <a
+    href="https://www.instagram.com/chequebounceadvisor.in/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+  >
+    <img
+      src="/instagram-icon.png"
+      alt="Instagram"
+    />
+  </a>
 
-            <Link
-              href="/disclaimer/"
-              className="transition hover:text-white"
-            >
-              Disclaimer
-            </Link>
+            {/* Replace # with your actual Facebook URL */}
+             <a
+    href="https://www.facebook.com/Chequebounceadvisor"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+  >
+    <img
+      src="/facebook-icon.png"
+      alt="Facebook"
+    />
+  </a>
+
           </div>
 
         </div>
+
+
+        {/* MENU */}
+        <div className="footer-column">
+
+          <h3>Quick Links</h3>
+
+          <Link href="/">Home</Link>
+
+          <Link href="/service/">
+            Service
+          </Link>
+
+          <Link href="/about-us/">
+            About Us
+          </Link>
+
+          <Link href="/blog/">
+            Blog
+          </Link>
+
+          <Link href="/faq/">
+            FAQ
+          </Link>
+
+        </div>
+
+
+        {/* CONTACT */}
+        <div className="footer-column footer-contact">
+
+          <h3>Contact</h3>
+
+          <a href="tel:+919891188400">
+            +91 9891188400
+          </a>
+
+          <a href="mailto:contact@chequebounceadvisor.com">
+            contact@chequebounceadvisor.com
+          </a>
+
+          <a
+            href="https://maps.app.goo.gl/t3Kmn7y6Ps49JFT56"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-address"
+          >
+            UGF 1, E-108, Haji Colony,
+            <br />
+            Block D, Pandav Nagar,
+            <br />
+            Delhi, 110092
+          </a>
+
+        </div>
+
+
+        {/* WHATSAPP */}
+        <div className="footer-action">
+
+          <h3>Need Assistance?</h3>
+
+          <p>
+            Speak with our team about your
+            cheque bounce matter.
+          </p>
+
+          <a
+    href="https://wa.me/919891188400"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+  >
+    <img
+      src="/whatsapp-icon.png"
+      alt="WhatsApp"
+    />
+  </a>
+            
+
+        </div>
+
+      </div>
+
+
+      {/* =====================================================
+          DISCLAIMER
+      ===================================================== */}
+
+      <div className="footer-disclaimer">
+
+        <p>
+          <strong>Disclaimer – </strong>
+          This platform is not a law firm. It is an educational
+          resource and public knowledge initiative for Negotiable
+          Instruments Act compliance and does not constitute an
+          offer for legal representation, a solicitation, or an
+          invitation to create an attorney-client relationship
+          under Rule 36 of the Bar Council of India Rules.
+        </p>
+
+      </div>
+
+
+      {/* =====================================================
+          FOOTER BOTTOM
+      ===================================================== */}
+
+      <div className="footer-bottom">
+
+        <p>
+          ©2024 ChequeBounceAdvisor, all rights reserved.
+        </p>
+
+        <div className="footer-legal">
+
+          <Link href="/terms-and-conditions/">
+            Terms &amp; Conditions
+          </Link>
+
+          <Link href="/privacy-policy/">
+            Privacy Policy
+          </Link>
+
+        </div>
+
       </div>
 
     </footer>
