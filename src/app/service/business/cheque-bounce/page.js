@@ -1,68 +1,45 @@
 "use client";
 
 import { useState } from "react";
+import "./page.css";
+
 
 /* =========================================================
-   STATE → CITY / DISTRICT DATA
-========================================================= */
+   LOCATION DATA
+   Add your complete existing locationData here.
+   ========================================================= */
 
 const locationData = {
   "Andhra Pradesh": [
-    "Alluri Sitharama Raju",
-    "Anakapalli",
-    "Ananthapuramu",
-    "Annamayya",
-    "Bapatla",
+    "Anantapur",
     "Chittoor",
-    "Dr. B.R. Ambedkar Konaseema",
     "East Godavari",
-    "Eluru",
     "Guntur",
-    "Kakinada",
+    "Kadapa",
     "Krishna",
     "Kurnool",
-    "Nandyal",
-    "NTR",
-    "Palnadu",
-    "Parvathipuram Manyam",
+    "Nellore",
     "Prakasam",
     "Srikakulam",
-    "Sri Potti Sriramulu Nellore",
-    "Sri Sathya Sai",
-    "Tirupati",
     "Visakhapatnam",
     "Vizianagaram",
     "West Godavari",
-    "YSR Kadapa",
   ],
 
   "Arunachal Pradesh": [
-    "Anjaw",
-    "Changlang",
-    "Dibang Valley",
-    "East Kameng",
-    "East Siang",
     "Itanagar",
-    "Kamle",
-    "Kra Daadi",
-    "Kurung Kumey",
-    "Lepa Rada",
-    "Lohit",
-    "Longding",
-    "Lower Dibang Valley",
-    "Lower Siang",
-    "Lower Subansiri",
-    "Namsai",
-    "Pakke Kessang",
-    "Papum Pare",
-    "Shi Yomi",
-    "Siang",
     "Tawang",
-    "Tirap",
-    "Upper Siang",
-    "Upper Subansiri",
     "West Kameng",
+    "East Kameng",
+    "Papum Pare",
+    "Lower Subansiri",
+    "Upper Subansiri",
     "West Siang",
+    "East Siang",
+    "Changlang",
+    "Tirap",
+    "Lohit",
+    "Namsai",
   ],
 
   Assam: [
@@ -72,22 +49,17 @@ const locationData = {
     "Bongaigaon",
     "Cachar",
     "Charaideo",
-    "Chirang",
     "Darrang",
     "Dhemaji",
     "Dhubri",
     "Dibrugarh",
-    "Dima Hasao",
     "Goalpara",
     "Golaghat",
+    "Guwahati",
     "Hailakandi",
-    "Hojai",
     "Jorhat",
     "Kamrup",
-    "Kamrup Metropolitan",
     "Karbi Anglong",
-    "Karimganj",
-    "Kokrajhar",
     "Lakhimpur",
     "Majuli",
     "Morigaon",
@@ -95,11 +67,7 @@ const locationData = {
     "Nalbari",
     "Sivasagar",
     "Sonitpur",
-    "South Salmara-Mankachar",
-    "Tamulpur",
     "Tinsukia",
-    "Udalguri",
-    "West Karbi Anglong",
   ],
 
   Bihar: [
@@ -143,10 +111,14 @@ const locationData = {
     "West Champaran",
   ],
 
+  Chandigarh: [
+    "Chandigarh",
+  ],
+
   Chhattisgarh: [
     "Balod",
     "Baloda Bazar",
-    "Balrampur-Ramanujganj",
+    "Balrampur",
     "Bastar",
     "Bemetara",
     "Bijapur",
@@ -155,36 +127,41 @@ const locationData = {
     "Dhamtari",
     "Durg",
     "Gariaband",
-    "Gaurela-Pendra-Marwahi",
     "Janjgir-Champa",
     "Jashpur",
-    "Kanker",
     "Kabirdham",
+    "Kanker",
     "Kondagaon",
     "Korba",
     "Koriya",
     "Mahasamund",
-    "Manendragarh-Chirmiri-Bharatpur",
-    "Mohla-Manpur-Ambagarh Chowki",
     "Mungeli",
     "Narayanpur",
     "Raigarh",
     "Raipur",
     "Rajnandgaon",
-    "Sakti",
-    "Sarangarh-Bilaigarh",
     "Sukma",
     "Surajpur",
     "Surguja",
   ],
 
+  Delhi: [
+    "Central Delhi",
+    "East Delhi",
+    "New Delhi",
+    "North Delhi",
+    "North East Delhi",
+    "North West Delhi",
+    "Shahdara",
+    "South Delhi",
+    "South East Delhi",
+    "South West Delhi",
+    "West Delhi",
+  ],
+
   Goa: [
     "North Goa",
     "South Goa",
-    "Panaji",
-    "Margao",
-    "Vasco da Gama",
-    "Mapusa",
   ],
 
   Gujarat: [
@@ -284,7 +261,7 @@ const locationData = {
     "Palamu",
     "Ramgarh",
     "Ranchi",
-    "Sahebganj",
+    "Sahibganj",
     "Seraikela Kharsawan",
     "Simdega",
     "West Singhbhum",
@@ -293,12 +270,13 @@ const locationData = {
   Karnataka: [
     "Bagalkot",
     "Ballari",
+    "Bangalore Rural",
+    "Bangalore Urban",
     "Belagavi",
-    "Bengaluru Rural",
-    "Bengaluru Urban",
+    "Bengaluru",
     "Bidar",
     "Chamarajanagar",
-    "Chikkaballapur",
+    "Chikballapur",
     "Chikkamagaluru",
     "Chitradurga",
     "Dakshina Kannada",
@@ -320,7 +298,6 @@ const locationData = {
     "Udupi",
     "Uttara Kannada",
     "Vijayapura",
-    "Vijayanagara",
     "Yadgir",
   ],
 
@@ -362,21 +339,18 @@ const locationData = {
     "Guna",
     "Gwalior",
     "Harda",
+    "Hoshangabad",
     "Indore",
     "Jabalpur",
     "Jhabua",
     "Katni",
     "Khandwa",
     "Khargone",
-    "Maihar",
     "Mandla",
     "Mandsaur",
-    "Mauganj",
     "Morena",
-    "Narmadapuram",
     "Narsinghpur",
     "Neemuch",
-    "Niwari",
     "Panna",
     "Raisen",
     "Rajgarh",
@@ -437,77 +411,13 @@ const locationData = {
     "Yavatmal",
   ],
 
-  Manipur: [
-    "Bishnupur",
-    "Chandel",
-    "Churachandpur",
-    "Imphal East",
-    "Imphal West",
-    "Jiribam",
-    "Kakching",
-    "Kamjong",
-    "Kangpokpi",
-    "Noney",
-    "Pherzawl",
-    "Senapati",
-    "Tamenglong",
-    "Tengnoupal",
-    "Thoubal",
-    "Ukhrul",
-  ],
-
-  Meghalaya: [
-    "East Garo Hills",
-    "East Jaintia Hills",
-    "East Khasi Hills",
-    "Eastern West Khasi Hills",
-    "North Garo Hills",
-    "Ri Bhoi",
-    "South Garo Hills",
-    "South West Garo Hills",
-    "South West Khasi Hills",
-    "West Garo Hills",
-    "West Jaintia Hills",
-    "West Khasi Hills",
-  ],
-
-  Mizoram: [
-    "Aizawl",
-    "Champhai",
-    "Hnahthial",
-    "Khawzawl",
-    "Kolasib",
-    "Lawngtlai",
-    "Lunglei",
-    "Mamit",
-    "Saitual",
-    "Serchhip",
-  ],
-
-  Nagaland: [
-    "Chumoukedima",
-    "Dimapur",
-    "Kiphire",
-    "Kohima",
-    "Longleng",
-    "Mokokchung",
-    "Mon",
-    "Niuland",
-    "Noklak",
-    "Peren",
-    "Phek",
-    "Shamator",
-    "Tuensang",
-    "Wokha",
-    "Zunheboto",
-  ],
-
   Odisha: [
     "Angul",
-    "Boudh",
     "Balangir",
-    "Bargarh",
     "Balasore",
+    "Bargarh",
+    "Bhadrak",
+    "Boudh",
     "Cuttack",
     "Deogarh",
     "Dhenkanal",
@@ -563,12 +473,9 @@ const locationData = {
   Rajasthan: [
     "Ajmer",
     "Alwar",
-    "Anupgarh",
-    "Balotra",
     "Banswara",
     "Baran",
     "Barmer",
-    "Beawar",
     "Bharatpur",
     "Bhilwara",
     "Bikaner",
@@ -576,10 +483,7 @@ const locationData = {
     "Chittorgarh",
     "Churu",
     "Dausa",
-    "Deeg",
     "Dholpur",
-    "Didwana-Kuchamana",
-    "Dudu",
     "Dungarpur",
     "Hanumangarh",
     "Jaipur",
@@ -589,31 +493,17 @@ const locationData = {
     "Jhunjhunu",
     "Jodhpur",
     "Karauli",
-    "Khairthal-Tijara",
     "Kota",
-    "Kotputli-Behror",
     "Nagaur",
-    "Neem Ka Thana",
     "Pali",
-    "Phalodi",
     "Pratapgarh",
     "Rajsamand",
-    "Salumbar",
     "Sawai Madhopur",
     "Sikar",
     "Sirohi",
     "Sri Ganganagar",
     "Tonk",
     "Udaipur",
-  ],
-
-  Sikkim: [
-    "Gangtok",
-    "Gyalshing",
-    "Mangan",
-    "Namchi",
-    "Pakyong",
-    "Soreng",
   ],
 
   "Tamil Nadu": [
@@ -659,7 +549,6 @@ const locationData = {
   Telangana: [
     "Adilabad",
     "Bhadradri Kothagudem",
-    "Hanamkonda",
     "Hyderabad",
     "Jagtial",
     "Jangaon",
@@ -668,7 +557,7 @@ const locationData = {
     "Kamareddy",
     "Karimnagar",
     "Khammam",
-    "Komaram Bheem Asifabad",
+    "Komaram Bheem",
     "Mahabubabad",
     "Mahbubnagar",
     "Mancherial",
@@ -690,17 +579,6 @@ const locationData = {
     "Wanaparthy",
     "Warangal",
     "Yadadri Bhuvanagiri",
-  ],
-
-  Tripura: [
-    "Dhalai",
-    "Gomati",
-    "Khowai",
-    "North Tripura",
-    "Sepahijala",
-    "South Tripura",
-    "Unakoti",
-    "West Tripura",
   ],
 
   "Uttar Pradesh": [
@@ -749,8 +627,8 @@ const locationData = {
     "Kanpur Nagar",
     "Kasganj",
     "Kaushambi",
+    "Kheri",
     "Kushinagar",
-    "Lakhimpur Kheri",
     "Lalitpur",
     "Lucknow",
     "Maharajganj",
@@ -800,8 +678,6 @@ const locationData = {
   "West Bengal": [
     "Alipurduar",
     "Bankura",
-    "Paschim Bardhaman",
-    "Purba Bardhaman",
     "Birbhum",
     "Cooch Behar",
     "Dakshin Dinajpur",
@@ -812,242 +688,192 @@ const locationData = {
     "Jhargram",
     "Kalimpong",
     "Kolkata",
-    "Maldah",
+    "Malda",
     "Murshidabad",
     "Nadia",
     "North 24 Parganas",
+    "Paschim Bardhaman",
+    "Paschim Medinipur",
+    "Purba Bardhaman",
+    "Purba Medinipur",
+    "Purulia",
     "South 24 Parganas",
     "Uttar Dinajpur",
-    "Paschim Medinipur",
-    "Purba Medinipur",
-  ],
-
-  "Andaman and Nicobar Islands": [
-    "Nicobar",
-    "North and Middle Andaman",
-    "South Andaman",
-    "Port Blair",
-  ],
-
-  Chandigarh: [
-    "Chandigarh",
-  ],
-
-  "Dadra and Nagar Haveli and Daman and Diu": [
-    "Dadra and Nagar Haveli",
-    "Daman",
-    "Diu",
-  ],
-
-  Delhi: [
-    "Central Delhi",
-    "East Delhi",
-    "New Delhi",
-    "North Delhi",
-    "North East Delhi",
-    "North West Delhi",
-    "Shahdara",
-    "South Delhi",
-    "South East Delhi",
-    "South West Delhi",
-    "West Delhi",
-  ],
-
-  "Jammu and Kashmir": [
-    "Anantnag",
-    "Bandipora",
-    "Baramulla",
-    "Budgam",
-    "Doda",
-    "Ganderbal",
-    "Jammu",
-    "Kathua",
-    "Kishtwar",
-    "Kulgam",
-    "Kupwara",
-    "Poonch",
-    "Pulwama",
-    "Rajouri",
-    "Ramban",
-    "Reasi",
-    "Samba",
-    "Shopian",
-    "Srinagar",
-    "Udhampur",
-  ],
-
-  Ladakh: [
-    "Kargil",
-    "Leh",
-  ],
-
-  Lakshadweep: [
-    "Agatti",
-    "Amini",
-    "Andrott",
-    "Bitra",
-    "Chetlat",
-    "Kadmat",
-    "Kalpeni",
-    "Kavaratti",
-    "Kiltan",
-    "Minicoy",
-  ],
-
-  Puducherry: [
-    "Karaikal",
-    "Mahe",
-    "Puducherry",
-    "Yanam",
   ],
 };
 
 
-/* =========================================================
-   PAGE
-========================================================= */
-
-export default function IndividualChequeBouncePage() {
+export default function BusinessChequeBouncePage() {
 
   const [selectedState, setSelectedState] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+
   const [documents, setDocuments] = useState([]);
+
   const [isDragging, setIsDragging] = useState(false);
 
+  const [submitted, setSubmitted] = useState(false);
+
+
+  /* =========================================================
+     DOCUMENT HANDLERS
+  ========================================================= */
 
   const addDocuments = (files) => {
-  const newFiles = Array.from(files);
 
-  if (!newFiles.length) return;
+    const newFiles = Array.from(files || []);
 
-  setDocuments((prev) => [
-    ...prev,
-    ...newFiles,
-  ]);
-};
+    if (!newFiles.length) return;
 
-
-const handleDocumentsChange = (e) => {
-  addDocuments(e.target.files);
-
-  // Same file ko dobara select karne ki permission
-  e.target.value = "";
-};
-
-
-const handleDragOver = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  setIsDragging(true);
-};
-
-
-const handleDragLeave = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  setIsDragging(false);
-};
-
-
-const handleDrop = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  setIsDragging(false);
-
-  addDocuments(e.dataTransfer.files);
-};
-
-
-const removeDocument = (index) => {
-  setDocuments((prev) =>
-    prev.filter((_, i) => i !== index)
-  );
-};
-
-  const cities = selectedState
-    ? locationData[selectedState] || []
-    : [];
-
-
-  const handleStateChange = (event) => {
-    setSelectedState(event.target.value);
+    setDocuments((prev) => [
+      ...prev,
+      ...newFiles,
+    ]);
   };
 
 
+  const handleDocumentsChange = (e) => {
+
+    addDocuments(e.target.files);
+
+    e.target.value = "";
+  };
+
+
+  const handleDrop = (e) => {
+
+    e.preventDefault();
+
+    setIsDragging(false);
+
+    addDocuments(e.dataTransfer.files);
+  };
+
+
+  const removeDocument = (index) => {
+
+    setDocuments((prev) =>
+      prev.filter((_, i) => i !== index)
+    );
+  };
+
+
+  /* =========================================================
+     SUBMIT
+  ========================================================= */
+
   const handleSubmit = (event) => {
+
     event.preventDefault();
 
     setSubmitted(true);
   };
 
 
+  const cities = selectedState
+    ? locationData[selectedState] || []
+    : [];
+
+
   return (
-    <main className="bounce-page">
+
+    <main className="business-bounce-page">
 
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
-      <section className="bounce-hero">
+      <section className="business-bounce-hero">
 
-        <div className="bounce-hero-content">
+        <div className="business-bounce-hero-content">
 
-          <span className="service-eyebrow">
-            INDIVIDUAL • CHEQUE BOUNCE
+          <span className="business-bounce-eyebrow">
+            BUSINESS & CORPORATE CHEQUE ASSISTANCE
           </span>
 
           <h1>
-            Cheque Bounced?
-            <br />
-            <span>Understand Your Options.</span>
+            Protect Your
+            <span> Business Receivables.</span>
           </h1>
 
           <p>
-            Share the details of your cheque bounce matter and get
-            assistance in understanding the situation and possible
-            next steps.
+            A bounced cheque can affect business cash flow,
+            collections and ongoing commercial relationships.
+            Share your matter with us for assistance regarding
+            the next steps.
           </p>
 
-          <a
-            href="#bounce-form"
-            className="bounce-hero-btn"
-          >
-            Get Assistance
-            <span>↓</span>
-          </a>
+
+          <div className="business-bounce-hero-buttons">
+
+            <a
+              href="#business-bounce-form"
+              className="business-bounce-primary-btn"
+            >
+              GET BUSINESS ASSISTANCE
+              <span>→</span>
+            </a>
+
+            <a
+              href="#business-bounce-info"
+              className="business-bounce-secondary-btn"
+            >
+              KNOW MORE
+              <span>↓</span>
+            </a>
+
+          </div>
 
         </div>
 
 
-        <div className="bounce-hero-visual">
+        {/* ===================================================
+            RIGHT VISUAL
+        =================================================== */}
 
-          <div className="bounce-document-card">
+        <div className="business-bounce-hero-visual">
 
-            <div className="bounce-document-top">
-              <span>CHEQUE</span>
-              <span>INDIVIDUAL</span>
+          <div className="business-bounce-visual-card">
+
+            <div className="business-bounce-visual-top">
+
+              <span>
+                CORPORATE RECEIVABLE
+              </span>
+
+              <span>
+                CHEQUE BOUNCE
+              </span>
+
             </div>
 
-            <div className="bounce-document-body">
 
-              <div className="document-line large"></div>
+            <div className="business-bounce-cheque">
 
-              <div className="document-line"></div>
+              <div className="business-bounce-cheque-title">
+                BUSINESS PAYMENT
+              </div>
 
-              <div className="document-line medium"></div>
+              <div className="business-bounce-line large"></div>
 
-              <div className="document-amount">
-                ₹
+              <div className="business-bounce-line"></div>
+
+              <div className="business-bounce-line short"></div>
+
+
+              <div className="business-bounce-stamp">
+                BOUNCED
               </div>
 
             </div>
 
-            <div className="bounce-stamp">
-              BOUNCED
+
+            <div className="business-bounce-visual-footer">
+
+              <span>!</span>
+
+              BUSINESS PAYMENT ISSUE
+
             </div>
 
           </div>
@@ -1058,74 +884,33 @@ const removeDocument = (index) => {
 
 
       {/* =====================================================
-          ASSISTANCE
+          INFORMATION
       ===================================================== */}
 
-      <section className="bounce-assistance">
+      <section
+        id="business-bounce-info"
+        className="business-bounce-info"
+      >
 
-        <div className="bounce-container">
+        <div className="business-bounce-container">
 
-          <div className="bounce-heading">
+          <div className="business-bounce-info-heading">
 
-            <span className="service-eyebrow">
-              INDIVIDUAL ASSISTANCE
+            <span className="business-bounce-eyebrow">
+              BUSINESS CHEQUE BOUNCE
             </span>
 
             <h2>
-              Understand Your
-              <span> Situation</span>
+              When Business
+              <span> Payments Go Wrong.</span>
             </h2>
 
             <p>
-              Provide the relevant information so the nature of your
-              cheque bounce matter can be understood properly.
+              Whether the cheque was issued against an invoice,
+              commercial transaction, service payment or another
+              business obligation, accurate information helps us
+              understand the matter and the assistance required.
             </p>
-
-          </div>
-
-
-          <div className="bounce-assistance-grid">
-
-            <div className="bounce-info-card">
-              <span>01</span>
-
-              <h3>
-                Case Details
-              </h3>
-
-              <p>
-                Share the basic information about the bounced cheque
-                and the amount involved.
-              </p>
-            </div>
-
-
-            <div className="bounce-info-card">
-              <span>02</span>
-
-              <h3>
-                Bank Information
-              </h3>
-
-              <p>
-                Provide the relevant bank or cooperative bank details
-                connected with the cheque.
-              </p>
-            </div>
-
-
-            <div className="bounce-info-card">
-              <span>03</span>
-
-              <h3>
-                Documents
-              </h3>
-
-              <p>
-                Upload relevant documents that can help in understanding
-                your matter.
-              </p>
-            </div>
 
           </div>
 
@@ -1139,95 +924,107 @@ const removeDocument = (index) => {
       ===================================================== */}
 
       <section
-        id="bounce-form"
-        className="bounce-form-section"
+        id="business-bounce-form"
+        className="business-bounce-form-section"
       >
 
-        <div className="bounce-form-container">
+        <div className="business-bounce-form-container">
 
-          <div className="bounce-form-heading">
+          <div className="business-bounce-form-heading">
 
-            <span className="service-eyebrow">
-              CHEQUE BOUNCE ASSISTANCE FORM
+            <span className="business-bounce-eyebrow">
+              BUSINESS CHEQUE BOUNCE ASSISTANCE FORM
             </span>
 
             <h2>
               Tell Us About Your
-              <span> Matter</span>
+              <span> Business Matter</span>
             </h2>
 
             <p>
               Please provide accurate information. This helps us
-              understand your enquiry and contact you regarding the
-              assistance requested.
+              understand your business enquiry and contact you
+              regarding the assistance requested.
             </p>
 
           </div>
 
 
           <form
-            className="bounce-form"
+            className="business-bounce-form"
             onSubmit={handleSubmit}
           >
 
 
-            {/* =================================================
-                HIDDEN LEAD IDENTIFICATION
-            ================================================= */}
+            {/* HIDDEN IDENTIFICATION */}
 
             <input
               type="hidden"
               name="category"
-              value="Individual"
+              value="Business / Corporate"
             />
 
             <input
               type="hidden"
               name="matter"
-              value="Cheque Bounce"
+              value="Business Cheque Bounce"
             />
 
             <input
               type="hidden"
               name="source"
-              value="Individual Cheque Bounce Assistance"
+              value="Business Cheque Bounce Assistance"
             />
 
 
             {/* =================================================
-                01 PERSONAL DETAILS
+                01 BUSINESS DETAILS
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="business-bounce-section-title">
 
-              <span>
-                01
-              </span>
+              <span>01</span>
 
-              Personal Details
+              Business Details
 
             </div>
 
 
-            <div className="form-grid">
+            <div className="business-bounce-form-grid">
 
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
-                  Full Name *
+                  Business / Company Name *
                 </label>
 
                 <input
                   type="text"
-                  name="fullName"
-                  placeholder="Enter your full name"
+                  name="businessName"
+                  placeholder="Enter business or company name"
                   required
                 />
 
               </div>
 
 
-              <div className="form-field">
+              <div className="business-bounce-field">
+
+                <label>
+                  Contact Person *
+                </label>
+
+                <input
+                  type="text"
+                  name="contactPerson"
+                  placeholder="Enter contact person's name"
+                  required
+                />
+
+              </div>
+
+
+              <div className="business-bounce-field">
 
                 <label>
                   Mobile Number *
@@ -1243,7 +1040,7 @@ const removeDocument = (index) => {
               </div>
 
 
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
                   Email Address *
@@ -1252,7 +1049,7 @@ const removeDocument = (index) => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Enter email address"
+                  placeholder="Enter business email"
                   required
                 />
 
@@ -1262,26 +1059,21 @@ const removeDocument = (index) => {
 
 
             {/* =================================================
-                02 LOCATION
+                02 BUSINESS LOCATION
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="business-bounce-section-title">
 
-              <span>
-                02
-              </span>
+              <span>02</span>
 
-              Location
+              Business Location
 
             </div>
 
 
-            <div className="form-grid">
+            <div className="business-bounce-form-grid">
 
-
-              {/* STATE */}
-
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
                   State *
@@ -1290,7 +1082,9 @@ const removeDocument = (index) => {
                 <select
                   name="state"
                   value={selectedState}
-                  onChange={handleStateChange}
+                  onChange={(e) =>
+                    setSelectedState(e.target.value)
+                  }
                   required
                 >
 
@@ -1314,9 +1108,7 @@ const removeDocument = (index) => {
               </div>
 
 
-              {/* CITY */}
-
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
                   City / District *
@@ -1357,21 +1149,18 @@ const removeDocument = (index) => {
                 03 CHEQUE DETAILS
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="business-bounce-section-title">
 
-              <span>
-                03
-              </span>
+              <span>03</span>
 
               Cheque Details
 
             </div>
 
 
-            <div className="form-grid">
+            <div className="business-bounce-form-grid">
 
-
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
                   Cheque Amount *
@@ -1388,7 +1177,7 @@ const removeDocument = (index) => {
               </div>
 
 
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
                   Bank / Cooperative Bank Name *
@@ -1404,7 +1193,7 @@ const removeDocument = (index) => {
               </div>
 
 
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
                   Cheque Bounce Date
@@ -1418,7 +1207,7 @@ const removeDocument = (index) => {
               </div>
 
 
-              <div className="form-field">
+              <div className="business-bounce-field">
 
                 <label>
                   Have You Received A Notice?
@@ -1453,24 +1242,116 @@ const removeDocument = (index) => {
 
 
             {/* =================================================
-                04 MATTER DETAILS
+                04 TRANSACTION DETAILS
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="business-bounce-section-title">
 
-              <span>
-                04
-              </span>
+              <span>04</span>
+
+              Transaction Details
+
+            </div>
+
+
+            <div className="business-bounce-form-grid">
+
+              <div className="business-bounce-field">
+
+                <label>
+                  Nature of Transaction
+                </label>
+
+                <select
+                  name="transactionType"
+                  defaultValue=""
+                >
+
+                  <option value="">
+                    Choose transaction type
+                  </option>
+
+                  <option value="Invoice Payment">
+                    Invoice Payment
+                  </option>
+
+                  <option value="Goods / Supply">
+                    Goods / Supply
+                  </option>
+
+                  <option value="Services">
+                    Services
+                  </option>
+
+                  <option value="Loan / Advance">
+                    Loan / Advance
+                  </option>
+
+                  <option value="Other Business Transaction">
+                    Other Business Transaction
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div className="business-bounce-field">
+
+                <label>
+                  Counterparty Type
+                </label>
+
+                <select
+                  name="counterpartyType"
+                  defaultValue=""
+                >
+
+                  <option value="">
+                    Choose an option
+                  </option>
+
+                  <option value="Individual">
+                    Individual
+                  </option>
+
+                  <option value="Business">
+                    Business
+                  </option>
+
+                  <option value="Company">
+                    Company
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                05 MATTER DETAILS
+            ================================================= */}
+
+            <div className="business-bounce-section-title">
+
+               <span>05</span>
 
               Matter Details
 
             </div>
 
 
-            <div className="form-field full-field">
+            <div className="business-bounce-field business-bounce-full-field">
 
               <label>
-                Tell Us About Your Matter <span>(Optional)</span>
+                Tell Us About Your Matter
+                <span> (Optional)</span>
               </label>
 
               <textarea
@@ -1483,19 +1364,16 @@ const removeDocument = (index) => {
 
 
             {/* =================================================
-                05 DOCUMENTS
+                06 DOCUMENTS
             ================================================= */}
+{/* =================================================
+    05 SUPPORTING DOCUMENTS
+================================================= */}
 
-            <div className="form-section-title">
-
-  <span>
-    05
-  </span>
-
+<div className="form-section-title">
+  <span>06</span>
   Supporting Documents
-
 </div>
-
 
 <div className="form-field full-field">
 
@@ -1503,62 +1381,61 @@ const removeDocument = (index) => {
     Upload Relevant Documents <span>(Optional)</span>
   </label>
 
+  <div
+    className="document-upload-box"
+    onDragOver={(e) => {
+      e.preventDefault();
+      e.currentTarget.classList.add("drag-active");
+    }}
+    onDragLeave={(e) => {
+      e.currentTarget.classList.remove("drag-active");
+    }}
+    onDrop={(e) => {
+      e.preventDefault();
+      e.currentTarget.classList.remove("drag-active");
 
-  {/* Hidden actual file input */}
+      const droppedFiles = Array.from(e.dataTransfer.files);
 
-  <input
-    id="bounce-documents"
-    type="file"
-    multiple
-    hidden
-    onChange={handleDocumentsChange}
-  />
-
-
-  {/* Upload Box */}
-
- <input
-  id="bounce-documents"
-  type="file"
-  multiple
-  hidden
-  onChange={handleDocumentsChange}
-/>
-
-
-<div
-  className={`document-upload-box ${
-    isDragging ? "document-upload-box-dragging" : ""
-  }`}
-  onDragOver={handleDragOver}
-  onDragEnter={handleDragOver}
-  onDragLeave={handleDragLeave}
-  onDrop={handleDrop}
->
-
-  <label
-    htmlFor="bounce-documents"
-    className="document-upload-content"
+      setDocuments((prev) => [
+        ...prev,
+        ...droppedFiles,
+      ]);
+    }}
   >
 
-    <div className="document-upload-icon">
-      +
-    </div>
+    <input
+      id="businessDocuments"
+      type="file"
+      multiple
+      hidden
+      onChange={handleDocumentsChange}
+    />
 
-    <strong>
-      Drag & Drop Documents Here
-    </strong>
+    <label
+      htmlFor="businessDocuments"
+      className="document-upload-content"
+    >
 
-    <span>
-      or click to browse files
-    </span>
+      <div className="document-upload-icon">
+        +
+      </div>
 
-  </label>
+      <strong>
+        Drag & Drop Documents Here
+      </strong>
 
-</div>
+      <span>
+        or click to browse files
+      </span>
+
+      
+
+    </label>
+
+  </div>
 
 
-  {/* Selected Documents */}
+  {/* SELECTED DOCUMENTS */}
 
   {documents.length > 0 && (
 
@@ -1584,7 +1461,7 @@ const removeDocument = (index) => {
               </strong>
 
               <small>
-                {(file.size / 1024 / 1024).toFixed(2)} MB
+                {(file.size / 1024).toFixed(1)} KB
               </small>
 
             </div>
@@ -1596,7 +1473,6 @@ const removeDocument = (index) => {
             type="button"
             className="document-remove-btn"
             onClick={() => removeDocument(index)}
-            aria-label={`Remove ${file.name}`}
           >
             ×
           </button>
@@ -1610,33 +1486,29 @@ const removeDocument = (index) => {
   )}
 
 
-  <small className="document-help-text">
-    You may upload multiple relevant documents.
-    Each document can be added separately using the +
-    button.
+  <small className="document-upload-note">
+    You may upload relevant cheque copies, bank statements,
+    notices, agreements or other supporting documents.
   </small>
 
 </div>
 
-
             {/* =================================================
-                06 CONSENT
+                07 CONFIRMATION
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="business-bounce-section-title">
 
-              <span>
-                06
-              </span>
+              <span>07</span>
 
               Confirmation
 
             </div>
 
 
-            <div className="form-consent">
+            <div className="business-bounce-consent">
 
-              <label className="consent-label">
+              <label>
 
                 <input
                   type="checkbox"
@@ -1664,7 +1536,7 @@ const removeDocument = (index) => {
 
             <button
               type="submit"
-              className="bounce-submit-btn"
+              className="business-bounce-submit"
             >
 
               Submit Assistance Request
@@ -1678,7 +1550,7 @@ const removeDocument = (index) => {
 
             {submitted && (
 
-              <div className="bounce-success">
+              <div className="business-bounce-success">
 
                 Your assistance request has been recorded.
                 We will review the information provided.

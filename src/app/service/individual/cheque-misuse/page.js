@@ -390,10 +390,64 @@ export default function IndividualChequeMisusePage() {
 
   const [selectedState, setSelectedState] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [documents, setDocuments] = useState([]);
+  const [isDragging, setIsDragging] = useState(false);
 
   const cities = selectedState
     ? locationData[selectedState] || []
     : [];
+
+
+    const addDocuments = (files) => {
+  const newFiles = Array.from(files);
+
+  if (!newFiles.length) return;
+
+  setDocuments((prev) => [
+    ...prev,
+    ...newFiles,
+  ]);
+};
+
+
+const handleDocumentsChange = (e) => {
+  addDocuments(e.target.files);
+
+  e.target.value = "";
+};
+
+
+const handleDragOver = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  setIsDragging(true);
+};
+
+
+const handleDragLeave = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  setIsDragging(false);
+};
+
+
+const handleDrop = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  setIsDragging(false);
+
+  addDocuments(e.dataTransfer.files);
+};
+
+
+const removeDocument = (index) => {
+  setDocuments((prev) =>
+    prev.filter((_, i) => i !== index)
+  );
+};
 
 
   const handleStateChange = (event) => {
@@ -923,24 +977,104 @@ export default function IndividualChequeMisusePage() {
             </div>
 
 
-            <div className="form-field full-field">
+           <div className="form-field full-field">
 
-              <label>
-                Upload Relevant Documents <span>(Optional)</span>
-              </label>
+  <label>
+    Upload Relevant Documents <span>(Optional)</span>
+  </label>
 
-              <input
-                type="file"
-                name="documents"
-                multiple
-              />
+  <input
+    id="misuse-documents"
+    type="file"
+    multiple
+    hidden
+    onChange={handleDocumentsChange}
+  />
 
-              <small>
-                You may upload the cheque, bank documents,
-                agreements, correspondence or other relevant documents.
-              </small>
+  <div
+    className={`document-upload-box ${
+      isDragging ? "document-upload-box-dragging" : ""
+    }`}
+    onDragOver={handleDragOver}
+    onDragEnter={handleDragOver}
+    onDragLeave={handleDragLeave}
+    onDrop={handleDrop}
+  >
 
-            </div>
+    <label
+      htmlFor="misuse-documents"
+      className="document-upload-content"
+    >
+
+      <div className="document-upload-icon">
+        +
+      </div>
+
+      <strong>
+        Drag & Drop Documents Here
+      </strong>
+
+      <span>
+        or click to browse files
+      </span>
+
+    </label>
+
+  </div>
+
+  <small>
+    You may upload relevant cheque, bank statement,
+    notice or other supporting documents.
+  </small>
+
+</div>
+
+{documents.length > 0 && (
+
+  <div className="document-list">
+
+    {documents.map((file, index) => (
+
+      <div
+        className="document-item"
+        key={`${file.name}-${index}`}
+      >
+
+        <div className="document-file-info">
+
+          <span className="document-file-icon">
+            📄
+          </span>
+
+          <div>
+
+            <strong>
+              {file.name}
+            </strong>
+
+            <small>
+              {(file.size / 1024 / 1024).toFixed(2)} MB
+            </small>
+
+          </div>
+
+        </div>
+
+        <button
+          type="button"
+          className="document-remove-btn"
+          onClick={() => removeDocument(index)}
+        >
+          ×
+        </button>
+
+      </div>
+
+    ))}
+
+  </div>
+
+)}
 
 
             {/* =================================================

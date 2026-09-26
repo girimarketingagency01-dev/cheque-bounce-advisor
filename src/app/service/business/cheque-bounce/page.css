@@ -1,0 +1,1192 @@
+/* =========================================================
+   BUSINESS CHEQUE BOUNCE PAGE
+========================================================= */
+
+.business-bounce-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.business-bounce-hero {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  padding: 150px 7vw 80px;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  align-items: center;
+  gap: 70px;
+
+  background:
+    radial-gradient(
+      circle at 80% 45%,
+      rgba(201, 21, 27, 0.08),
+      transparent 35%
+    ),
+    #ffffff;
+}
+
+.business-bounce-hero-content {
+  max-width: 680px;
+}
+
+.business-bounce-eyebrow {
+  display: inline-block;
+
+  color: #c9151b;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.business-bounce-hero h1 {
+  margin: 14px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 0.98;
+
+  letter-spacing: -3.5px;
+  font-weight: 400;
+}
+
+.business-bounce-hero h1 span {
+  color: #c9151b;
+}
+
+.business-bounce-hero-content > p {
+  max-width: 590px;
+
+  margin: 24px 0 0;
+
+  color: #667085;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.business-bounce-hero-buttons {
+  display: flex;
+
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.business-bounce-primary-btn,
+.business-bounce-secondary-btn {
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+.business-bounce-primary-btn {
+  background: #c9151b;
+  color: #ffffff;
+}
+
+.business-bounce-primary-btn:hover {
+  background: #dfb72f;
+  color: #111111;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(223, 183, 47, 0.22);
+}
+
+.business-bounce-secondary-btn {
+  border: 1px solid #d0d5dd;
+
+  background: #ffffff;
+  color: #101828;
+}
+
+.business-bounce-secondary-btn:hover {
+  border-color: #c9151b;
+  color: #c9151b;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.business-bounce-hero-visual {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.business-bounce-visual-card {
+  width: min(100%, 500px);
+
+  min-height: 390px;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: #101828;
+
+  box-shadow:
+    0 30px 80px rgba(16, 24, 40, 0.18);
+
+  transform: rotate(1.5deg);
+}
+
+.business-bounce-visual-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -100px;
+  bottom: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(201, 21, 27, 0.25);
+
+  filter: blur(5px);
+
+  pointer-events: none;
+}
+
+.business-bounce-visual-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  letter-spacing: 1.5px;
+}
+
+.business-bounce-visual-top span:last-child {
+  color: #dfb72f;
+}
+
+
+/* =========================================================
+   CHEQUE
+========================================================= */
+
+.business-bounce-cheque {
+  position: relative;
+
+  margin-top: 55px;
+
+  padding: 35px;
+
+  min-height: 185px;
+
+  box-sizing: border-box;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  transform: rotate(-2deg);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+.business-bounce-cheque-title {
+  color: #101828;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.business-bounce-line {
+  width: 55%;
+  height: 7px;
+
+  margin-top: 13px;
+
+  border-radius: 10px;
+
+  background: #d0d5dd;
+}
+
+.business-bounce-line.large {
+  width: 75%;
+  margin-top: 18px;
+}
+
+.business-bounce-line.short {
+  width: 35%;
+}
+
+.business-bounce-stamp {
+  position: absolute;
+
+  right: 24px;
+  bottom: 25px;
+
+  padding: 9px 12px;
+
+  border: 2px solid #c9151b;
+
+  color: #c9151b;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  transform: rotate(-8deg);
+}
+
+.business-bounce-visual-footer {
+  position: absolute;
+
+  left: 28px;
+  bottom: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.business-bounce-visual-footer span {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #c9151b;
+
+  color: #ffffff;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.business-bounce-info {
+  padding: 100px 7vw;
+
+  background: #f8f9fb;
+}
+
+.business-bounce-container {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
+}
+
+.business-bounce-info-heading {
+  max-width: 720px;
+}
+
+.business-bounce-info-heading h2 {
+  margin: 12px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(38px, 4vw, 54px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+
+  font-weight: 400;
+}
+
+.business-bounce-info-heading h2 span {
+  color: #c9151b;
+}
+
+.business-bounce-info-heading p {
+  max-width: 600px;
+
+  margin: 15px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM SECTION
+========================================================= */
+
+.business-bounce-form-section {
+  padding: 100px 7vw;
+
+  background: #ffffff;
+}
+
+.business-bounce-form-container {
+  width: 100%;
+  max-width: 1180px;
+
+  margin: 0 auto;
+}
+
+.business-bounce-form-heading {
+  max-width: 720px;
+
+  margin-bottom: 50px;
+}
+
+.business-bounce-form-heading h2 {
+  margin: 12px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(38px, 4vw, 54px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+
+  font-weight: 400;
+}
+
+.business-bounce-form-heading h2 span {
+  color: #c9151b;
+}
+
+.business-bounce-form-heading p {
+  max-width: 620px;
+
+  margin: 15px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM BOX
+========================================================= */
+
+.business-bounce-form {
+  width: 100%;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 20px 60px rgba(16, 24, 40, 0.06);
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.business-bounce-section-title {
+  width: 100%;
+
+  margin: 35px 0 22px;
+
+  padding-bottom: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border-bottom: 1px solid #eaecf0;
+
+  color: #101828;
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+.business-bounce-section-title:first-child {
+  margin-top: 0;
+}
+
+.business-bounce-section-title span {
+  color: #c9151b;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.business-bounce-form-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+.business-bounce-field {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.business-bounce-field label {
+  margin-bottom: 8px;
+
+  color: #344054;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.business-bounce-field label span {
+  color: #98a2b3;
+
+  font-weight: 500;
+}
+
+.business-bounce-field input,
+.business-bounce-field select,
+.business-bounce-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d0d5dd;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #101828;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.business-bounce-field input,
+.business-bounce-field select {
+  height: 48px;
+
+  padding: 0 14px;
+}
+
+.business-bounce-field textarea {
+  min-height: 150px;
+
+  padding: 14px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+.business-bounce-field input::placeholder,
+.business-bounce-field textarea::placeholder {
+  color: #98a2b3;
+}
+
+.business-bounce-field input:focus,
+.business-bounce-field select:focus,
+.business-bounce-field textarea:focus {
+  border-color: #c9151b;
+
+  box-shadow:
+    0 0 0 3px rgba(201, 21, 27, 0.08);
+}
+
+.business-bounce-field select:disabled {
+  cursor: not-allowed;
+
+  background: #f2f4f7;
+
+  color: #98a2b3;
+}
+
+
+/* =========================================================
+   DOCUMENT DROPZONE
+========================================================= */
+
+.business-document-dropzone {
+  width: 100%;
+
+  min-height: 190px;
+
+  box-sizing: border-box;
+
+  padding: 28px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: 1.5px dashed #d0d5dd;
+
+  border-radius: 14px;
+
+  background: #fafafa;
+
+  text-align: center;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.business-document-dropzone.dragging {
+  border-color: #c9151b;
+
+  background: #fff5f5;
+
+  transform: scale(1.01);
+}
+
+.business-document-plus {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff1f1;
+
+  color: #c9151b;
+
+  font-size: 27px;
+}
+
+.business-document-dropzone strong {
+  color: #101828;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.business-document-dropzone > span {
+  color: #98a2b3;
+
+  font-size: 11px;
+}
+
+.business-document-add-btn {
+  min-height: 38px;
+
+  padding: 0 17px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50px;
+
+  background: #c9151b;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.business-document-add-btn:hover {
+  background: #dfb72f;
+
+  color: #111111;
+
+  transform: translateY(-2px);
+}
+
+.business-document-dropzone small {
+  max-width: 500px;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   DOCUMENT LIST
+========================================================= */
+
+.business-document-list {
+  width: 100%;
+
+  margin-top: 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.business-document-item {
+  width: 100%;
+
+  min-height: 58px;
+
+  padding: 10px 12px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.business-document-info {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.business-document-icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #fff1f1;
+
+  font-size: 15px;
+}
+
+.business-document-info div {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.business-document-info strong {
+  max-width: 500px;
+
+  overflow: hidden;
+
+  color: #344054;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.business-document-info small {
+  color: #98a2b3;
+
+  font-size: 9px;
+}
+
+.business-document-remove {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #fff1f1;
+
+  color: #c9151b;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.business-document-remove:hover {
+  background: #c9151b;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   CONSENT
+========================================================= */
+
+.business-bounce-consent {
+  width: 100%;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  border-radius: 10px;
+
+  background: #f8f9fb;
+}
+
+.business-bounce-consent label {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+.business-bounce-consent input {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  accent-color: #00ff15;
+}
+
+.business-bounce-consent span {
+  color: #667085;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.business-bounce-submit {
+  width: 100%;
+
+  min-height: 52px;
+
+  margin-top: 30px;
+
+  padding: 0 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid #c9151b;
+
+  border-radius: 6px;
+
+  background: #c9151b;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.business-bounce-submit:hover {
+  background: #dfb72f;
+
+  border-color: #dfb72f;
+
+  color: #111111;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(223, 183, 47, 0.22);
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.business-bounce-success {
+  margin-top: 20px;
+
+  padding: 15px 18px;
+
+  border-radius: 8px;
+
+  background: #ecfdf3;
+
+  color: #027a48;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .business-bounce-hero {
+    min-height: auto;
+
+    padding: 120px 35px 75px;
+
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .business-bounce-hero-visual {
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+  }
+
+  .business-bounce-info,
+  .business-bounce-form-section {
+    padding: 80px 35px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .business-bounce-hero {
+    padding: 120px 20px 60px;
+
+    gap: 40px;
+
+    text-align: center;
+  }
+
+  .business-bounce-hero h1 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+  }
+
+  .business-bounce-hero-content > p {
+    font-size: 13px;
+  }
+
+  .business-bounce-hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .business-bounce-primary-btn,
+  .business-bounce-secondary-btn {
+    width: 100%;
+
+    max-width: 400px;
+  }
+
+  .business-bounce-visual-card {
+    min-height: 330px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+  .business-bounce-cheque {
+    margin-top: 40px;
+
+    padding: 25px;
+
+    min-height: 150px;
+  }
+
+  .business-bounce-info,
+  .business-bounce-form-section {
+    padding: 70px 20px;
+  }
+
+  .business-bounce-info-heading h2,
+  .business-bounce-form-heading h2 {
+    font-size: 38px;
+
+    letter-spacing: -1.8px;
+  }
+
+  .business-bounce-form {
+    padding: 26px 20px;
+
+    border-radius: 20px;
+  }
+
+  .business-bounce-form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .business-bounce-hero {
+    padding: 120px 17px 50px;
+  }
+
+  .business-bounce-hero h1 {
+    font-size: 36px;
+
+    letter-spacing: -1.6px;
+  }
+
+  .business-bounce-visual-card {
+    min-height: 300px;
+  }
+
+  .business-bounce-form {
+    padding: 23px 16px;
+  }
+
+  .business-document-dropzone {
+    min-height: 180px;
+
+    padding: 25px 15px;
+  }
+
+  .business-document-info strong {
+    max-width: 190px;
+  }
+
+}
+/* =========================================================
+   SECTION NUMBER CIRCLES
+   01 / 02 / 03 / 04 / 05 / 06
+========================================================= */
+
+.business-bounce-section-title span {
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border-radius: 50%;
+
+  background: #c9151b;
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  line-height: 1;
+  letter-spacing: 0;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   MOBILE SECTION NUMBER CIRCLES
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .business-bounce-section-title {
+    gap: 10px;
+  }
+
+  .business-bounce-section-title span {
+    width: 28px;
+    height: 28px;
+
+    flex-basis: 28px;
+
+    font-size: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .business-bounce-section-title {
+    gap: 9px;
+  }
+
+  .business-bounce-section-title span {
+    width: 27px;
+    height: 27px;
+
+    flex-basis: 27px;
+
+    font-size: 9px;
+  }
+
+}
