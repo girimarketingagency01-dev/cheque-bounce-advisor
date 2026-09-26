@@ -58,55 +58,21 @@ export default function ServicePage() {
 
         {/* RIGHT SIDE VISUAL */}
 
-        <div className="service-hero-visual">
+       {/* RIGHT SIDE VISUAL */}
 
-          <div className="service-visual-card">
+<div className="service-hero-visual">
 
-            <div className="service-visual-top">
-              <span>ASSISTANCE</span>
-              <span className="service-status">
-                ● AVAILABLE
-              </span>
-            </div>
+  <div className="service-hero-image-wrap">
 
-            <div className="service-visual-line"></div>
+    <img
+      src="/service-hero-woman.png"
+      alt="Cheque Assistance"
+      className="service-hero-image"
+    />
 
-            <div className="service-visual-item">
-              <div className="service-visual-number">
-                01
-              </div>
+  </div>
 
-              <div>
-                <strong>Individual</strong>
-                <p>Personal cheque-related matters</p>
-              </div>
-            </div>
-
-            <div className="service-visual-item">
-              <div className="service-visual-number">
-                02
-              </div>
-
-              <div>
-                <strong>Business</strong>
-                <p>Recurring cheque-related matters</p>
-              </div>
-            </div>
-
-            <div className="service-visual-item">
-              <div className="service-visual-number">
-                03
-              </div>
-
-              <div>
-                <strong>Bank / NBFC</strong>
-                <p>Institutional assistance requirements</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
+</div>
 
       </section>
 

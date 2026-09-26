@@ -52,40 +52,21 @@ export default function IndividualServicePage() {
 
         {/* VISUAL */}
 
-        <div className="individual-hero-visual">
+<div className="individual-hero-visual">
 
-          <div className="individual-visual-card">
+  <div className="individual-hero-image-wrap">
 
-            <div className="visual-card-top">
-              <span>INDIVIDUAL</span>
-              <span className="visual-status">
-                ASSISTANCE
-              </span>
-            </div>
+    <img
+      src="/individual-cheque-assistance.png"
+      alt="Individual cheque assistance"
+      className="individual-hero-image"
+    />
 
-            <div className="visual-cheque">
+  </div>
 
-              <div className="visual-cheque-line large"></div>
-              <div className="visual-cheque-line"></div>
-              <div className="visual-cheque-line short"></div>
+</div>
 
-              <div className="visual-cheque-amount">
-                ₹
-              </div>
-
-            </div>
-
-            <div className="visual-warning">
-              <span>!</span>
-              Cheque-related assistance
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
+</section>
 
       {/* =====================================================
           OPTIONS

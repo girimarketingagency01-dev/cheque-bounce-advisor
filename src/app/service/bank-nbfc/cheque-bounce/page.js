@@ -1,16 +1,17 @@
 "use client";
 
 import { useState } from "react";
-
+import Link from "next/link";
+import "./page.css";
 /* =========================================================
-   STATE → CITY / DISTRICT DATA
-========================================================= */
+   LOCATION DATA
+   ========================================================= */
 
 const locationData = {
   "Andhra Pradesh": [
     "Alluri Sitharama Raju",
     "Anakapalli",
-    "Ananthapuramu",
+    "Anantapur",
     "Annamayya",
     "Bapatla",
     "Chittoor",
@@ -27,7 +28,6 @@ const locationData = {
     "Parvathipuram Manyam",
     "Prakasam",
     "Srikakulam",
-    "Sri Potti Sriramulu Nellore",
     "Sri Sathya Sai",
     "Tirupati",
     "Visakhapatnam",
@@ -38,11 +38,12 @@ const locationData = {
 
   "Arunachal Pradesh": [
     "Anjaw",
+    "Bichom",
     "Changlang",
     "Dibang Valley",
     "East Kameng",
     "East Siang",
-    "Itanagar",
+    "Itanagar Capital Complex",
     "Kamle",
     "Kra Daadi",
     "Kurung Kumey",
@@ -67,6 +68,7 @@ const locationData = {
 
   Assam: [
     "Baksa",
+    "Bajali",
     "Barpeta",
     "Biswanath",
     "Bongaigaon",
@@ -158,11 +160,12 @@ const locationData = {
     "Gaurela-Pendra-Marwahi",
     "Janjgir-Champa",
     "Jashpur",
-    "Kanker",
     "Kabirdham",
+    "Kanker",
+    "Khairagarh-Chhuikhadan-Gandai",
     "Kondagaon",
     "Korba",
-    "Koriya",
+    "Korea",
     "Mahasamund",
     "Manendragarh-Chirmiri-Bharatpur",
     "Mohla-Manpur-Ambagarh Chowki",
@@ -181,10 +184,6 @@ const locationData = {
   Goa: [
     "North Goa",
     "South Goa",
-    "Panaji",
-    "Margao",
-    "Vasco da Gama",
-    "Mapusa",
   ],
 
   Gujarat: [
@@ -204,8 +203,8 @@ const locationData = {
     "Gir Somnath",
     "Jamnagar",
     "Junagadh",
+    "Kachchh",
     "Kheda",
-    "Kutch",
     "Mahisagar",
     "Mehsana",
     "Morbi",
@@ -284,7 +283,7 @@ const locationData = {
     "Palamu",
     "Ramgarh",
     "Ranchi",
-    "Sahebganj",
+    "Sahibganj",
     "Seraikela Kharsawan",
     "Simdega",
     "West Singhbhum",
@@ -319,8 +318,8 @@ const locationData = {
     "Tumakuru",
     "Udupi",
     "Uttara Kannada",
-    "Vijayapura",
     "Vijayanagara",
+    "Vijayapura",
     "Yadgir",
   ],
 
@@ -402,11 +401,12 @@ const locationData = {
     "Ahmednagar",
     "Akola",
     "Amravati",
-    "Aurangabad",
     "Beed",
     "Bhandara",
     "Buldhana",
     "Chandrapur",
+    "Chhatrapati Sambhajinagar",
+    "Dharashiv",
     "Dhule",
     "Gadchiroli",
     "Gondia",
@@ -421,7 +421,6 @@ const locationData = {
     "Nanded",
     "Nandurbar",
     "Nashik",
-    "Osmanabad",
     "Palghar",
     "Parbhani",
     "Pune",
@@ -462,7 +461,7 @@ const locationData = {
     "East Khasi Hills",
     "Eastern West Khasi Hills",
     "North Garo Hills",
-    "Ri Bhoi",
+    "Ri-Bhoi",
     "South Garo Hills",
     "South West Garo Hills",
     "South West Khasi Hills",
@@ -490,6 +489,7 @@ const locationData = {
     "Kiphire",
     "Kohima",
     "Longleng",
+    "Meluri",
     "Mokokchung",
     "Mon",
     "Niuland",
@@ -497,6 +497,7 @@ const locationData = {
     "Peren",
     "Phek",
     "Shamator",
+    "Tseminyu",
     "Tuensang",
     "Wokha",
     "Zunheboto",
@@ -504,10 +505,11 @@ const locationData = {
 
   Odisha: [
     "Angul",
-    "Boudh",
     "Balangir",
-    "Bargarh",
     "Balasore",
+    "Bargarh",
+    "Bhadrak",
+    "Boudh",
     "Cuttack",
     "Deogarh",
     "Dhenkanal",
@@ -563,7 +565,6 @@ const locationData = {
   Rajasthan: [
     "Ajmer",
     "Alwar",
-    "Anupgarh",
     "Balotra",
     "Banswara",
     "Baran",
@@ -579,7 +580,6 @@ const locationData = {
     "Deeg",
     "Dholpur",
     "Didwana-Kuchamana",
-    "Dudu",
     "Dungarpur",
     "Hanumangarh",
     "Jaipur",
@@ -593,7 +593,6 @@ const locationData = {
     "Kota",
     "Kotputli-Behror",
     "Nagaur",
-    "Neem Ka Thana",
     "Pali",
     "Phalodi",
     "Pratapgarh",
@@ -800,8 +799,6 @@ const locationData = {
   "West Bengal": [
     "Alipurduar",
     "Bankura",
-    "Paschim Bardhaman",
-    "Purba Bardhaman",
     "Birbhum",
     "Cooch Behar",
     "Dakshin Dinajpur",
@@ -812,21 +809,23 @@ const locationData = {
     "Jhargram",
     "Kalimpong",
     "Kolkata",
-    "Maldah",
+    "Malda",
     "Murshidabad",
     "Nadia",
     "North 24 Parganas",
+    "Paschim Bardhaman",
+    "Paschim Medinipur",
+    "Purba Bardhaman",
+    "Purba Medinipur",
+    "Purulia",
     "South 24 Parganas",
     "Uttar Dinajpur",
-    "Paschim Medinipur",
-    "Purba Medinipur",
   ],
 
   "Andaman and Nicobar Islands": [
     "Nicobar",
     "North and Middle Andaman",
     "South Andaman",
-    "Port Blair",
   ],
 
   Chandigarh: [
@@ -882,16 +881,7 @@ const locationData = {
   ],
 
   Lakshadweep: [
-    "Agatti",
-    "Amini",
-    "Andrott",
-    "Bitra",
-    "Chetlat",
-    "Kadmat",
-    "Kalpeni",
-    "Kavaratti",
-    "Kiltan",
-    "Minicoy",
+    "Lakshadweep",
   ],
 
   Puducherry: [
@@ -907,77 +897,108 @@ const locationData = {
    PAGE
 ========================================================= */
 
-export default function IndividualChequeBouncePage() {
+export default function BankNbfcChequeBouncePage() {
 
   const [selectedState, setSelectedState] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [documents, setDocuments] = useState([]);
-  const [isDragging, setIsDragging] = useState(false);
-
-
-  const addDocuments = (files) => {
-  const newFiles = Array.from(files);
-
-  if (!newFiles.length) return;
-
-  setDocuments((prev) => [
-    ...prev,
-    ...newFiles,
-  ]);
-};
-
-
-const handleDocumentsChange = (e) => {
-  addDocuments(e.target.files);
-
-  // Same file ko dobara select karne ki permission
-  e.target.value = "";
-};
-
-
-const handleDragOver = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  setIsDragging(true);
-};
-
-
-const handleDragLeave = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  setIsDragging(false);
-};
-
-
-const handleDrop = (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-
-  setIsDragging(false);
-
-  addDocuments(e.dataTransfer.files);
-};
-
-
-const removeDocument = (index) => {
-  setDocuments((prev) =>
-    prev.filter((_, i) => i !== index)
-  );
-};
+  const [dragging, setDragging] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const cities = selectedState
     ? locationData[selectedState] || []
     : [];
 
 
+  /* =======================================================
+     STATE CHANGE
+  ======================================================= */
+
   const handleStateChange = (event) => {
     setSelectedState(event.target.value);
   };
 
 
+  /* =======================================================
+     DOCUMENT HANDLING
+  ======================================================= */
+
+  const addDocuments = (files) => {
+
+    const incomingFiles = Array.from(files || []);
+
+    if (!incomingFiles.length) {
+      return;
+    }
+
+    setDocuments((previous) => {
+
+      const existingKeys = new Set(
+        previous.map(
+          (file) =>
+            `${file.name}-${file.size}-${file.lastModified}`
+        )
+      );
+
+      const uniqueFiles = incomingFiles.filter(
+        (file) =>
+          !existingKeys.has(
+            `${file.name}-${file.size}-${file.lastModified}`
+          )
+      );
+
+      return [...previous, ...uniqueFiles];
+    });
+  };
+
+
+  const handleDocumentsChange = (event) => {
+
+    addDocuments(event.target.files);
+
+    event.target.value = "";
+  };
+
+
+  const handleDragOver = (event) => {
+
+    event.preventDefault();
+
+    setDragging(true);
+  };
+
+
+  const handleDragLeave = (event) => {
+
+    event.preventDefault();
+
+    setDragging(false);
+  };
+
+
+  const handleDrop = (event) => {
+
+    event.preventDefault();
+
+    setDragging(false);
+
+    addDocuments(event.dataTransfer.files);
+  };
+
+
+  const removeDocument = (index) => {
+
+    setDocuments((previous) =>
+      previous.filter((_, currentIndex) => currentIndex !== index)
+    );
+  };
+
+
+  /* =======================================================
+     FORM SUBMIT
+  ======================================================= */
+
   const handleSubmit = (event) => {
+
     event.preventDefault();
 
     setSubmitted(true);
@@ -985,131 +1006,86 @@ const removeDocument = (index) => {
 
 
   return (
-    <main className="bounce-page">
+
+    <main className="bank-bounce-page">
 
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
-      <section className="bounce-hero">
+      <section className="bank-bounce-hero">
 
-        <div className="bounce-hero-content">
+        <div className="bank-bounce-hero-content">
 
-          <span className="service-eyebrow">
-            INDIVIDUAL • CHEQUE BOUNCE
+          <Link
+            href="/service/bank-nbfc"
+            className="bank-bounce-back"
+          >
+            ← Bank & NBFC Services
+          </Link>
+
+          <span className="bank-bounce-eyebrow">
+            BANK & NBFC · CHEQUE BOUNCE
           </span>
 
           <h1>
-            Cheque Bounced?
-            <br />
-            <span>Understand Your Options.</span>
+            Cheque Bounce
+            <span> Assistance</span>
           </h1>
 
           <p>
-            Share the details of your cheque bounce matter and get
-            assistance in understanding the situation and possible
-            next steps.
+            Provide the relevant details about the dishonoured
+            cheque, financial institution and matter so the
+            assistance requested can be reviewed appropriately.
           </p>
-
-          <a
-            href="#bounce-form"
-            className="bounce-hero-btn"
-          >
-            Get Assistance
-            <span>↓</span>
-          </a>
 
         </div>
 
 
-        {/* RIGHT SIDE VISUAL */}
+        <div className="bank-bounce-hero-visual">
 
-<div className="individual-bounce-hero-visual">
+          <div className="bank-bounce-visual-card">
 
-  <div className="individual-bounce-hero-image-wrap">
-
-    <img
-      src="/individual-cheque-bounce.png"
-      alt="Individual cheque bounce assistance"
-      className="individual-bounce-hero-image"
-    />
-
-  </div>
-
-</div>
-
-      </section>
-
-
-      {/* =====================================================
-          ASSISTANCE
-      ===================================================== */}
-
-      <section className="bounce-assistance">
-
-        <div className="bounce-container">
-
-          <div className="bounce-heading">
-
-            <span className="service-eyebrow">
-              INDIVIDUAL ASSISTANCE
-            </span>
-
-            <h2>
-              Understand Your
-              <span> Situation</span>
-            </h2>
-
-            <p>
-              Provide the relevant information so the nature of your
-              cheque bounce matter can be understood properly.
-            </p>
-
-          </div>
-
-
-          <div className="bounce-assistance-grid">
-
-            <div className="bounce-info-card">
-              <span>01</span>
-
-              <h3>
-                Case Details
-              </h3>
-
-              <p>
-                Share the basic information about the bounced cheque
-                and the amount involved.
-              </p>
+            <div className="bank-bounce-visual-label">
+              CHEQUE BOUNCE
             </div>
 
+            <div className="bank-bounce-cheque">
 
-            <div className="bounce-info-card">
-              <span>02</span>
+              <div className="bank-bounce-cheque-top">
 
-              <h3>
-                Bank Information
-              </h3>
+                <strong>
+                  BANK / NBFC
+                </strong>
 
-              <p>
-                Provide the relevant bank or cooperative bank details
-                connected with the cheque.
-              </p>
+                <span>
+                  CHEQUE
+                </span>
+
+              </div>
+
+              <div className="bank-bounce-line large"></div>
+
+              <div className="bank-bounce-line"></div>
+
+              <div className="bank-bounce-cheque-row">
+
+                <div className="bank-bounce-line short"></div>
+
+                <div className="bank-bounce-line amount"></div>
+
+              </div>
+
+              <div className="bank-bounce-stamp">
+                BOUNCED
+              </div>
+
             </div>
 
-
-            <div className="bounce-info-card">
-              <span>03</span>
-
-              <h3>
-                Documents
-              </h3>
-
-              <p>
-                Upload relevant documents that can help in understanding
-                your matter.
-              </p>
+            <div className="bank-bounce-visual-footer">
+              <span>!</span>
+              Cheque Bounce Matter
             </div>
 
           </div>
@@ -1123,27 +1099,25 @@ const removeDocument = (index) => {
           FORM
       ===================================================== */}
 
-      <section
-        id="bounce-form"
-        className="bounce-form-section"
-      >
+      <section className="bank-bounce-form-section">
 
-        <div className="bounce-form-container">
+        <div className="bank-bounce-form-container">
 
-          <div className="bounce-form-heading">
 
-            <span className="service-eyebrow">
+          <div className="bank-bounce-form-heading">
+
+            <span className="bank-bounce-section-eyebrow">
               CHEQUE BOUNCE ASSISTANCE FORM
             </span>
 
             <h2>
-              Tell Us About Your
+              Tell Us About The
               <span> Matter</span>
             </h2>
 
             <p>
-              Please provide accurate information. This helps us
-              understand your enquiry and contact you regarding the
+              Please provide accurate information. This helps
+              understand the cheque bounce matter and the
               assistance requested.
             </p>
 
@@ -1151,19 +1125,19 @@ const removeDocument = (index) => {
 
 
           <form
-            className="bounce-form"
+            className="bank-bounce-form"
             onSubmit={handleSubmit}
           >
 
 
             {/* =================================================
-                HIDDEN LEAD IDENTIFICATION
+                HIDDEN IDENTIFICATION
             ================================================= */}
 
             <input
               type="hidden"
               name="category"
-              value="Individual"
+              value="Bank / NBFC"
             />
 
             <input
@@ -1175,44 +1149,152 @@ const removeDocument = (index) => {
             <input
               type="hidden"
               name="source"
-              value="Individual Cheque Bounce Assistance"
+              value="Bank NBFC Cheque Bounce Assistance"
             />
 
 
             {/* =================================================
-                01 PERSONAL DETAILS
+                01 INSTITUTION DETAILS
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="bank-bounce-section-title">
 
               <span>
                 01
               </span>
 
-              Personal Details
+              Institution Details
 
             </div>
 
 
-            <div className="form-grid">
+            <div className="bank-bounce-form-grid">
 
-              <div className="form-field">
+
+              <div className="bank-bounce-field">
 
                 <label>
-                  Full Name *
+                  Institution Type *
+                </label>
+
+                <select
+                  name="institutionType"
+                  required
+                  defaultValue=""
+                >
+
+                  <option value="">
+                    Choose institution type
+                  </option>
+
+                  <option value="Bank">
+                    Bank
+                  </option>
+
+                  <option value="NBFC">
+                    NBFC
+                  </option>
+
+                  <option value="Cooperative Bank">
+                    Cooperative Bank
+                  </option>
+
+                  <option value="Financial Institution">
+                    Financial Institution
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div className="bank-bounce-field">
+
+                <label>
+                  Institution / Bank Name *
                 </label>
 
                 <input
                   type="text"
-                  name="fullName"
-                  placeholder="Enter your full name"
+                  name="institutionName"
+                  placeholder="Enter institution name"
                   required
                 />
 
               </div>
 
 
-              <div className="form-field">
+              <div className="bank-bounce-field">
+
+                <label>
+                  Branch Name
+                </label>
+
+                <input
+                  type="text"
+                  name="branchName"
+                  placeholder="Enter branch name"
+                />
+
+              </div>
+
+
+              <div className="bank-bounce-field">
+
+                <label>
+                  Branch / Reference Number
+                </label>
+
+                <input
+                  type="text"
+                  name="branchReference"
+                  placeholder="Enter branch or reference number"
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                02 CONTACT / LOCATION
+            ================================================= */}
+
+            <div className="bank-bounce-section-title">
+
+              <span>
+                02
+              </span>
+
+              Contact & Location
+
+            </div>
+
+
+            <div className="bank-bounce-form-grid">
+
+
+              <div className="bank-bounce-field">
+
+                <label>
+                  Contact Person *
+                </label>
+
+                <input
+                  type="text"
+                  name="contactPerson"
+                  placeholder="Enter contact person name"
+                  required
+                />
+
+              </div>
+
+
+              <div className="bank-bounce-field">
 
                 <label>
                   Mobile Number *
@@ -1228,7 +1310,7 @@ const removeDocument = (index) => {
               </div>
 
 
-              <div className="form-field">
+              <div className="bank-bounce-field">
 
                 <label>
                   Email Address *
@@ -1243,30 +1325,8 @@ const removeDocument = (index) => {
 
               </div>
 
-            </div>
 
-
-            {/* =================================================
-                02 LOCATION
-            ================================================= */}
-
-            <div className="form-section-title">
-
-              <span>
-                02
-              </span>
-
-              Location
-
-            </div>
-
-
-            <div className="form-grid">
-
-
-              {/* STATE */}
-
-              <div className="form-field">
+              <div className="bank-bounce-field">
 
                 <label>
                   State *
@@ -1299,9 +1359,7 @@ const removeDocument = (index) => {
               </div>
 
 
-              {/* CITY */}
-
-              <div className="form-field">
+              <div className="bank-bounce-field">
 
                 <label>
                   City / District *
@@ -1342,7 +1400,7 @@ const removeDocument = (index) => {
                 03 CHEQUE DETAILS
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="bank-bounce-section-title">
 
               <span>
                 03
@@ -1353,10 +1411,10 @@ const removeDocument = (index) => {
             </div>
 
 
-            <div className="form-grid">
+            <div className="bank-bounce-form-grid">
 
 
-              <div className="form-field">
+              <div className="bank-bounce-field">
 
                 <label>
                   Cheque Amount *
@@ -1367,32 +1425,63 @@ const removeDocument = (index) => {
                   name="chequeAmount"
                   placeholder="Enter cheque amount"
                   min="0"
+                  step="0.01"
                   required
                 />
 
               </div>
 
 
-              <div className="form-field">
+              <div className="bank-bounce-field">
 
                 <label>
-                  Bank / Cooperative Bank Name *
+                  Cheque Number *
                 </label>
 
                 <input
                   type="text"
-                  name="bankName"
-                  placeholder="Enter bank name"
+                  name="chequeNumber"
+                  placeholder="Enter cheque number"
                   required
                 />
 
               </div>
 
 
-              <div className="form-field">
+              <div className="bank-bounce-field">
 
                 <label>
-                  Cheque Bounce Date
+                  Drawer / Borrower Name *
+                </label>
+
+                <input
+                  type="text"
+                  name="drawerName"
+                  placeholder="Enter drawer / borrower name"
+                  required
+                />
+
+              </div>
+
+
+              <div className="bank-bounce-field">
+
+                <label>
+                  Cheque Date
+                </label>
+
+                <input
+                  type="date"
+                  name="chequeDate"
+                />
+
+              </div>
+
+
+              <div className="bank-bounce-field">
+
+                <label>
+                  Bounce Date
                 </label>
 
                 <input
@@ -1403,31 +1492,43 @@ const removeDocument = (index) => {
               </div>
 
 
-              <div className="form-field">
+              <div className="bank-bounce-field">
 
                 <label>
-                  Have You Received A Notice?
+                  Return Reason
                 </label>
 
                 <select
-                  name="noticeReceived"
+                  name="returnReason"
                   defaultValue=""
                 >
 
                   <option value="">
-                    Choose an option
+                    Choose return reason
                   </option>
 
-                  <option value="Yes">
-                    Yes
+                  <option value="Insufficient Funds">
+                    Insufficient Funds
                   </option>
 
-                  <option value="No">
-                    No
+                  <option value="Account Closed">
+                    Account Closed
                   </option>
 
-                  <option value="Not Sure">
-                    Not Sure
+                  <option value="Payment Stopped">
+                    Payment Stopped
+                  </option>
+
+                  <option value="Signature Mismatch">
+                    Signature Mismatch
+                  </option>
+
+                  <option value="Account Blocked">
+                    Account Blocked
+                  </option>
+
+                  <option value="Other">
+                    Other
                   </option>
 
                 </select>
@@ -1438,13 +1539,109 @@ const removeDocument = (index) => {
 
 
             {/* =================================================
-                04 MATTER DETAILS
+                04 MATTER STATUS
             ================================================= */}
 
-            <div className="form-section-title">
+            <div className="bank-bounce-section-title">
 
               <span>
                 04
+              </span>
+
+              Matter Status
+
+            </div>
+
+
+            <div className="bank-bounce-form-grid">
+
+
+              <div className="bank-bounce-field">
+
+                <label>
+                  Notice Status
+                </label>
+
+                <select
+                  name="noticeStatus"
+                  defaultValue=""
+                >
+
+                  <option value="">
+                    Choose an option
+                  </option>
+
+                  <option value="Not Sent">
+                    Not Sent
+                  </option>
+
+                  <option value="Sent">
+                    Sent
+                  </option>
+
+                  <option value="Received">
+                    Received
+                  </option>
+
+                  <option value="Not Sure">
+                    Not Sure
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div className="bank-bounce-field">
+
+                <label>
+                  Current Matter Status
+                </label>
+
+                <select
+                  name="matterStatus"
+                  defaultValue=""
+                >
+
+                  <option value="">
+                    Choose current status
+                  </option>
+
+                  <option value="Initial Review">
+                    Initial Review
+                  </option>
+
+                  <option value="Recovery Pending">
+                    Recovery Pending
+                  </option>
+
+                  <option value="Notice Stage">
+                    Notice Stage
+                  </option>
+
+                  <option value="Legal Proceedings">
+                    Legal Proceedings
+                  </option>
+
+                  <option value="Other">
+                    Other
+                  </option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+
+            {/* =================================================
+                05 MATTER DETAILS
+            ================================================= */}
+
+            <div className="bank-bounce-section-title">
+
+              <span>
+                05
               </span>
 
               Matter Details
@@ -1452,166 +1649,152 @@ const removeDocument = (index) => {
             </div>
 
 
-            <div className="form-field full-field">
+            <div className="bank-bounce-field full-field">
 
               <label>
-                Tell Us About Your Matter <span>(Optional)</span>
+                Tell Us About The Matter
+                <span>
+                  (Optional)
+                </span>
               </label>
 
               <textarea
                 name="matterDetails"
                 rows="6"
-                placeholder="Briefly explain what happened..."
+                placeholder="Briefly explain the cheque bounce matter, recovery status or any other relevant information..."
               ></textarea>
 
             </div>
 
 
             {/* =================================================
-                05 DOCUMENTS
+                06 SUPPORTING DOCUMENTS
             ================================================= */}
 
-            <div className="form-section-title">
-
-  <span>
-    05
-  </span>
-
-  Supporting Documents
-
-</div>
-
-
-<div className="form-field full-field">
-
-  <label>
-    Upload Relevant Documents <span>(Optional)</span>
-  </label>
-
-
-  {/* Hidden actual file input */}
-
-  <input
-    id="bounce-documents"
-    type="file"
-    multiple
-    hidden
-    onChange={handleDocumentsChange}
-  />
-
-
-  {/* Upload Box */}
-
- <input
-  id="bounce-documents"
-  type="file"
-  multiple
-  hidden
-  onChange={handleDocumentsChange}
-/>
-
-
-<div
-  className={`document-upload-box ${
-    isDragging ? "document-upload-box-dragging" : ""
-  }`}
-  onDragOver={handleDragOver}
-  onDragEnter={handleDragOver}
-  onDragLeave={handleDragLeave}
-  onDrop={handleDrop}
->
-
-  <label
-    htmlFor="bounce-documents"
-    className="document-upload-content"
-  >
-
-    <div className="document-upload-icon">
-      +
-    </div>
-
-    <strong>
-      Drag & Drop Documents Here
-    </strong>
-
-    <span>
-      or click to browse files
-    </span>
-
-  </label>
-
-</div>
-
-
-  {/* Selected Documents */}
-
-  {documents.length > 0 && (
-
-    <div className="document-list">
-
-      {documents.map((file, index) => (
-
-        <div
-          className="document-item"
-          key={`${file.name}-${index}`}
-        >
-
-          <div className="document-file-info">
-
-            <span className="document-file-icon">
-              📄
-            </span>
-
-            <div>
-
-              <strong>
-                {file.name}
-              </strong>
-
-              <small>
-                {(file.size / 1024 / 1024).toFixed(2)} MB
-              </small>
-
-            </div>
-
-          </div>
-
-
-          <button
-            type="button"
-            className="document-remove-btn"
-            onClick={() => removeDocument(index)}
-            aria-label={`Remove ${file.name}`}
-          >
-            ×
-          </button>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  )}
-
-
-  <small className="document-help-text">
-    You may upload multiple relevant documents.
-    Each document can be added separately using the +
-    button.
-  </small>
-
-</div>
-
-
-            {/* =================================================
-                06 CONSENT
-            ================================================= */}
-
-            <div className="form-section-title">
+            <div className="bank-bounce-section-title">
 
               <span>
                 06
+              </span>
+
+              Supporting Documents
+
+            </div>
+
+
+            <div className="bank-bounce-field full-field">
+
+              <label>
+                Upload Relevant Documents
+                <span>
+                  (Optional)
+                </span>
+              </label>
+
+
+              <div
+                className={`bank-bounce-document-dropzone ${
+                  dragging ? "dragging" : ""
+                }`}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+              >
+
+                <div className="bank-bounce-document-plus">
+                  +
+                </div>
+
+                <strong>
+                  Drag & Drop Documents Here
+                </strong>
+
+                <span>
+                  or click to browse files
+                </span>
+
+
+                
+
+                <input
+                  id="bank-bounce-document-upload"
+                  type="file"
+                  multiple
+                  hidden
+                  onChange={handleDocumentsChange}
+                  accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
+                />
+
+
+               
+
+              </div>
+
+
+              {/* =================================================
+                  DOCUMENT LIST
+              ================================================= */}
+
+              {documents.length > 0 && (
+
+                <div className="bank-bounce-document-list">
+
+                  {documents.map((file, index) => (
+
+                    <div
+                      className="bank-bounce-document-item"
+                      key={`${file.name}-${file.lastModified}-${index}`}
+                    >
+
+                      <div className="bank-bounce-document-info">
+
+                        <div className="bank-bounce-document-icon">
+                          📄
+                        </div>
+
+                        <div>
+
+                          <strong>
+                            {file.name}
+                          </strong>
+
+                          <small>
+                            {(file.size / 1024 / 1024).toFixed(2)} MB
+                          </small>
+
+                        </div>
+
+                      </div>
+
+
+                      <button
+                        type="button"
+                        className="bank-bounce-document-remove"
+                        onClick={() => removeDocument(index)}
+                        aria-label={`Remove ${file.name}`}
+                      >
+                        ×
+                      </button>
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+              )}
+
+            </div>
+
+
+            {/* =================================================
+                07 CONFIRMATION
+            ================================================= */}
+
+            <div className="bank-bounce-section-title">
+
+              <span>
+                07
               </span>
 
               Confirmation
@@ -1619,9 +1802,9 @@ const removeDocument = (index) => {
             </div>
 
 
-            <div className="form-consent">
+            <div className="bank-bounce-consent">
 
-              <label className="consent-label">
+              <label>
 
                 <input
                   type="checkbox"
@@ -1630,12 +1813,12 @@ const removeDocument = (index) => {
                 />
 
                 <span>
-                  I confirm that the information provided by me is
-                  accurate to the best of my knowledge and I consent
-                  to Cheque Bounce Advisor contacting me regarding
-                  the assistance requested. I understand that
-                  submitting this form does not by itself create an
-                  attorney-client relationship.
+                  I confirm that the information provided by me
+                  is accurate to the best of my knowledge and I
+                  consent to Cheque Bounce Advisor contacting me
+                  regarding the assistance requested. I understand
+                  that submitting this form does not by itself
+                  create an attorney-client relationship.
                 </span>
 
               </label>
@@ -1649,10 +1832,10 @@ const removeDocument = (index) => {
 
             <button
               type="submit"
-              className="bounce-submit-btn"
+              className="bank-bounce-submit"
             >
 
-              Submit Assistance Request
+              Submit Cheque Bounce Request
 
               <span>
                 →
@@ -1663,10 +1846,10 @@ const removeDocument = (index) => {
 
             {submitted && (
 
-              <div className="bounce-success">
+              <div className="bank-bounce-success">
 
-                Your assistance request has been recorded.
-                We will review the information provided.
+                Your cheque bounce assistance request has been
+                recorded. We will review the information provided.
 
               </div>
 

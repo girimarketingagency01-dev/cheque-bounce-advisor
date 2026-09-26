@@ -1,0 +1,1643 @@
+/* =========================================================
+   BANK / NBFC - CHEQUE BOUNCE PAGE
+========================================================= */
+
+.bank-bounce-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #101828;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.bank-bounce-hero {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 150px 7vw 80px;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 70px;
+
+  background:
+    radial-gradient(
+      circle at 80% 45%,
+      rgba(201, 21, 27, 0.08),
+      transparent 35%
+    ),
+    #ffffff;
+}
+
+.bank-bounce-hero-content {
+  max-width: 680px;
+}
+
+.bank-bounce-eyebrow {
+  display: inline-block;
+  color: #c9151b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.bank-bounce-hero h1 {
+  margin: 14px 0 0;
+  color: #101828;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -3.5px;
+  font-weight: 400;
+}
+
+.bank-bounce-hero h1 span {
+  color: #c9151b;
+}
+
+.bank-bounce-hero-content > p {
+  max-width: 600px;
+  margin: 24px 0 0;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.bank-bounce-hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.bank-bounce-primary-btn,
+.bank-bounce-secondary-btn {
+  min-height: 48px;
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 50px;
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.bank-bounce-primary-btn {
+  background: #c9151b;
+  color: #ffffff;
+}
+
+.bank-bounce-primary-btn:hover {
+  background: #dfb72f;
+  color: #111111;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(223, 183, 47, 0.22);
+}
+
+.bank-bounce-secondary-btn {
+  border: 1px solid #d0d5dd;
+  background: #ffffff;
+  color: #101828;
+}
+
+.bank-bounce-secondary-btn:hover {
+  border-color: #c9151b;
+  color: #c9151b;
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.bank-bounce-hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bank-bounce-visual-card {
+  width: min(100%, 500px);
+  min-height: 390px;
+
+  padding: 28px;
+  box-sizing: border-box;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 28px;
+  background: #101828;
+
+  box-shadow:
+    0 30px 80px rgba(16, 24, 40, 0.18);
+
+  transform: rotate(1.5deg);
+}
+
+.bank-bounce-visual-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -100px;
+  bottom: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(201, 21, 27, 0.25);
+
+  filter: blur(5px);
+
+  pointer-events: none;
+}
+
+.bank-bounce-visual-top {
+  display: flex;
+  justify-content: space-between;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.bank-bounce-visual-top span:last-child {
+  color: #dfb72f;
+}
+
+/* =========================================================
+   CHEQUE VISUAL
+========================================================= */
+
+.bank-bounce-cheque {
+  position: relative;
+
+  margin-top: 55px;
+  padding: 35px;
+
+  min-height: 185px;
+
+  box-sizing: border-box;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  transform: rotate(-2deg);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+.bank-bounce-cheque-title {
+  color: #101828;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.bank-bounce-line {
+  width: 55%;
+  height: 7px;
+
+  margin-top: 13px;
+
+  border-radius: 10px;
+
+  background: #d0d5dd;
+}
+
+.bank-bounce-line.large {
+  width: 75%;
+  margin-top: 18px;
+}
+
+.bank-bounce-line.short {
+  width: 35%;
+}
+
+.bank-bounce-stamp {
+  position: absolute;
+
+  right: 24px;
+  bottom: 25px;
+
+  padding: 9px 12px;
+
+  border: 2px solid #c9151b;
+
+  color: #c9151b;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  transform: rotate(-8deg);
+}
+
+.bank-bounce-visual-footer {
+  position: absolute;
+
+  left: 28px;
+  bottom: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.bank-bounce-visual-footer span {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #c9151b;
+  color: #ffffff;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   INTRO / INFO
+========================================================= */
+
+.bank-bounce-info {
+  padding: 100px 7vw;
+  background: #f8f9fb;
+}
+
+.bank-bounce-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.bank-bounce-info-heading {
+  max-width: 720px;
+}
+
+.bank-bounce-info-heading h2 {
+  margin: 12px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(38px, 4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+  font-weight: 400;
+}
+
+.bank-bounce-info-heading h2 span {
+  color: #c9151b;
+}
+
+.bank-bounce-info-heading p {
+  max-width: 620px;
+
+  margin: 15px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FORM SECTION
+========================================================= */
+
+.bank-bounce-form-section {
+  padding: 100px 7vw;
+  background: #ffffff;
+}
+
+.bank-bounce-form-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.bank-bounce-form-heading {
+  max-width: 720px;
+  margin-bottom: 50px;
+}
+
+.bank-bounce-form-heading h2 {
+  margin: 12px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(38px, 4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -2.5px;
+  font-weight: 400;
+}
+
+.bank-bounce-form-heading h2 span {
+  color: #c9151b;
+}
+
+.bank-bounce-form-heading p {
+  max-width: 620px;
+
+  margin: 15px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FORM BOX
+========================================================= */
+
+.bank-bounce-form {
+  width: 100%;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e4e7ec;
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 20px 60px rgba(16, 24, 40, 0.06);
+}
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.bank-bounce-section-title {
+  width: 100%;
+
+  margin: 35px 0 22px;
+  padding-bottom: 13px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-bottom: 1px solid #eaecf0;
+
+  color: #101828;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.bank-bounce-section-title:first-child {
+  margin-top: 0;
+}
+
+.bank-bounce-section-title span {
+  width: 26px;
+  height: 26px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1.5px solid #c9151b;
+  border-radius: 50%;
+
+  color: #c9151b;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.bank-bounce-form-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+.bank-bounce-field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.bank-bounce-field.full {
+  grid-column: 1 / -1;
+}
+
+.bank-bounce-field label {
+  margin-bottom: 8px;
+
+  color: #344054;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.bank-bounce-field label span {
+  color: #98a2b3;
+  font-weight: 500;
+}
+
+.bank-bounce-field input,
+.bank-bounce-field select,
+.bank-bounce-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #101828;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.bank-bounce-field input,
+.bank-bounce-field select {
+  height: 48px;
+  padding: 0 14px;
+}
+
+.bank-bounce-field textarea {
+  min-height: 150px;
+
+  padding: 14px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+.bank-bounce-field input::placeholder,
+.bank-bounce-field textarea::placeholder {
+  color: #98a2b3;
+}
+
+.bank-bounce-field input:focus,
+.bank-bounce-field select:focus,
+.bank-bounce-field textarea:focus {
+  border-color: #c9151b;
+
+  box-shadow:
+    0 0 0 3px rgba(201, 21, 27, 0.08);
+}
+
+.bank-bounce-field select:disabled {
+  cursor: not-allowed;
+
+  background: #f2f4f7;
+  color: #98a2b3;
+}
+
+/* =========================================================
+   DOCUMENT DROPZONE
+========================================================= */
+
+.bank-document-dropzone {
+  width: 100%;
+  min-height: 190px;
+
+  box-sizing: border-box;
+
+  padding: 28px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  border: 1.5px dashed #d0d5dd;
+  border-radius: 14px;
+
+  background: #fafafa;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.bank-document-dropzone:hover {
+  border-color: #c9151b;
+  background: #fffafa;
+  box-shadow: 0 8px 25px rgba(201, 21, 27, 0.06);
+}
+
+.bank-document-dropzone.dragging {
+  border-color: #c9151b;
+
+  background: #fff5f5;
+
+  transform: scale(1.01);
+
+  box-shadow:
+    0 10px 30px rgba(201, 21, 27, 0.08);
+}
+
+.bank-document-plus {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff1f1;
+  color: #c9151b;
+
+  font-size: 27px;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bank-document-dropzone:hover .bank-document-plus {
+  background: #c9151b;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.bank-document-dropzone strong {
+  color: #101828;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.bank-document-dropzone > span {
+  color: #98a2b3;
+  font-size: 11px;
+}
+
+.bank-document-add-btn {
+  min-height: 38px;
+
+  padding: 0 17px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 50px;
+
+  background: #c9151b;
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bank-document-add-btn:hover {
+  background: #dfb72f;
+  color: #111111;
+
+  transform: translateY(-2px);
+}
+
+.bank-document-dropzone small {
+  max-width: 500px;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   DOCUMENT LIST
+========================================================= */
+
+.bank-document-list {
+  width: 100%;
+
+  margin-top: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.bank-document-item {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 10px 12px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid #e4e7ec;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bank-document-item:hover {
+  border-color: #c9151b;
+
+  box-shadow:
+    0 5px 18px rgba(16, 24, 40, 0.05);
+}
+
+.bank-document-info {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.bank-document-icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #fff1f1;
+
+  font-size: 15px;
+}
+
+.bank-document-info div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.bank-document-info strong {
+  max-width: 500px;
+
+  overflow: hidden;
+
+  color: #344054;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bank-document-info small {
+  color: #98a2b3;
+  font-size: 9px;
+}
+
+.bank-document-remove {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #fff1f1;
+  color: #c9151b;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bank-document-remove:hover {
+  background: #c9151b;
+  color: #ffffff;
+
+  transform: rotate(4deg);
+}
+
+/* =========================================================
+   CONSENT
+========================================================= */
+
+.bank-bounce-consent {
+  width: 100%;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  border-radius: 10px;
+
+  background: #f8f9fb;
+}
+
+.bank-bounce-consent label {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+.bank-bounce-consent input {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  accent-color: #c9151b;
+}
+
+.bank-bounce-consent span {
+  color: #667085;
+
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.bank-bounce-submit {
+  width: 100%;
+  min-height: 52px;
+
+  margin-top: 30px;
+
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid #c9151b;
+  border-radius: 50px;
+
+  background: #c9151b;
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.bank-bounce-submit:hover {
+  background: #dfb72f;
+  border-color: #dfb72f;
+  color: #111111;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(223, 183, 47, 0.22);
+}
+
+.bank-bounce-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.bank-bounce-success {
+  margin-top: 20px;
+
+  padding: 15px 18px;
+
+  border-radius: 8px;
+
+  background: #ecfdf3;
+  color: #027a48;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.bank-bounce-error {
+  margin-top: 8px;
+
+  color: #c9151b;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .bank-bounce-hero {
+    min-height: auto;
+
+    padding: 120px 35px 75px;
+
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .bank-bounce-hero-visual {
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+  }
+
+  .bank-bounce-info,
+  .bank-bounce-form-section {
+    padding: 80px 35px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .bank-bounce-hero {
+    padding: 120px 20px 60px;
+
+    gap: 40px;
+
+    text-align: center;
+  }
+
+  .bank-bounce-hero h1 {
+    font-size: 42px;
+    letter-spacing: -2px;
+  }
+
+  .bank-bounce-hero-content > p {
+    font-size: 13px;
+  }
+
+  .bank-bounce-hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .bank-bounce-primary-btn,
+  .bank-bounce-secondary-btn {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .bank-bounce-visual-card {
+    min-height: 330px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+  .bank-bounce-cheque {
+    margin-top: 40px;
+
+    padding: 25px;
+
+    min-height: 150px;
+  }
+
+  .bank-bounce-info,
+  .bank-bounce-form-section {
+    padding: 70px 20px;
+  }
+
+  .bank-bounce-info-heading h2,
+  .bank-bounce-form-heading h2 {
+    font-size: 38px;
+
+    letter-spacing: -1.8px;
+  }
+
+  .bank-bounce-form {
+    padding: 26px 20px;
+
+    border-radius: 20px;
+  }
+
+  .bank-bounce-form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .bank-bounce-field.full {
+    grid-column: auto;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .bank-bounce-hero {
+    padding: 120px 17px 50px;
+  }
+
+  .bank-bounce-hero h1 {
+    font-size: 36px;
+    letter-spacing: -1.6px;
+  }
+
+  .bank-bounce-visual-card {
+    min-height: 300px;
+  }
+
+  .bank-bounce-form {
+    padding: 23px 16px;
+  }
+
+  .bank-document-dropzone {
+    min-height: 180px;
+
+    padding: 25px 15px;
+  }
+
+  .bank-document-info strong {
+    max-width: 190px;
+  }
+
+  .bank-bounce-section-title {
+    font-size: 13px;
+  }
+}
+/* =========================================================
+   ⭐ IMPORTANT OVERRIDE
+   BANK / NBFC CHEQUE BOUNCE
+   SUPPORTING DOCUMENTS - FINAL DESIGN
+   Paste this code at the END of page.css
+========================================================= */
+
+
+/* =========================================================
+   ⭐ DOCUMENT DROPZONE
+========================================================= */
+
+.bank-bounce-document-dropzone {
+  width: 100% !important;
+  min-height: 220px !important;
+
+  box-sizing: border-box !important;
+
+  padding: 32px 24px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 9px !important;
+
+  border: 1.5px dashed #d0d5dd !important;
+  border-radius: 16px !important;
+
+  background: #fafafa !important;
+
+  text-align: center !important;
+
+  cursor: pointer !important;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT DROPZONE HOVER
+========================================================= */
+
+.bank-bounce-document-dropzone:hover {
+  border-color: #c9151b !important;
+
+  background: #fffafa !important;
+
+  box-shadow:
+    0 10px 30px rgba(201, 21, 27, 0.07) !important;
+
+  transform: translateY(-1px) !important;
+}
+
+
+/* =========================================================
+   ⭐ DRAGGING STATE
+========================================================= */
+
+.bank-bounce-document-dropzone.dragging {
+  border-color: #c9151b !important;
+
+  background: #fff3f3 !important;
+
+  box-shadow:
+    0 12px 35px rgba(201, 21, 27, 0.12) !important;
+
+  transform: scale(1.01) !important;
+}
+
+
+/* =========================================================
+   ⭐ PLUS CIRCLE
+========================================================= */
+
+.bank-bounce-document-plus {
+  width: 58px !important;
+  height: 58px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50% !important;
+
+  background: #fff1f1 !important;
+  color: #c9151b !important;
+
+  font-size: 30px !important;
+  font-weight: 400 !important;
+
+  line-height: 1 !important;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+
+/* =========================================================
+   ⭐ PLUS HOVER
+========================================================= */
+
+.bank-bounce-document-dropzone:hover
+.bank-bounce-document-plus {
+  background: #c9151b !important;
+
+  color: #ffffff !important;
+
+  transform: translateY(-2px) !important;
+
+  box-shadow:
+    0 8px 20px rgba(201, 21, 27, 0.18) !important;
+}
+
+
+/* =========================================================
+   ⭐ DRAG & DROP HEADING
+========================================================= */
+
+.bank-bounce-document-dropzone strong {
+  margin-top: 4px !important;
+
+  color: #101828 !important;
+
+  font-size: 14px !important;
+  font-weight: 700 !important;
+
+  line-height: 1.4 !important;
+}
+
+
+/* =========================================================
+   ⭐ "OR"
+========================================================= */
+
+.bank-bounce-document-dropzone > span {
+  color: #98a2b3 !important;
+
+  font-size: 11px !important;
+  font-weight: 500 !important;
+}
+
+
+/* =========================================================
+   ⭐ ADD MORE DOCUMENTS BUTTON
+========================================================= */
+
+.bank-bounce-document-add-btn {
+  min-height: 40px !important;
+
+  padding: 0 20px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 50px !important;
+
+  background: #c9151b !important;
+  color: #ffffff !important;
+
+  font-size: 10px !important;
+  font-weight: 800 !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+
+/* =========================================================
+   ⭐ ADD BUTTON HOVER
+========================================================= */
+
+.bank-bounce-document-add-btn:hover {
+  background: #dfb72f !important;
+
+  color: #111111 !important;
+
+  transform: translateY(-2px) !important;
+
+  box-shadow:
+    0 7px 18px rgba(223, 183, 47, 0.20) !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT DESCRIPTION
+========================================================= */
+
+.bank-bounce-document-dropzone small {
+  max-width: 540px !important;
+
+  margin-top: 3px !important;
+
+  color: #98a2b3 !important;
+
+  font-size: 10px !important;
+
+  line-height: 1.55 !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT LIST
+========================================================= */
+
+.bank-bounce-document-list {
+  width: 100% !important;
+
+  margin-top: 14px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 9px !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT ITEM
+========================================================= */
+
+.bank-bounce-document-item {
+  width: 100% !important;
+  min-height: 64px !important;
+
+  padding: 11px 13px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  border: 1px solid #e4e7ec !important;
+  border-radius: 11px !important;
+
+  background: #ffffff !important;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT ITEM HOVER
+========================================================= */
+
+.bank-bounce-document-item:hover {
+  border-color: #c9151b !important;
+
+  box-shadow:
+    0 7px 20px rgba(16, 24, 40, 0.06) !important;
+
+  transform: translateY(-1px) !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT INFO
+========================================================= */
+
+.bank-bounce-document-info {
+  min-width: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 11px !important;
+}
+
+
+/* =========================================================
+   ⭐ FILE ICON
+========================================================= */
+
+.bank-bounce-document-icon {
+  width: 38px !important;
+  height: 38px !important;
+
+  flex-shrink: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border-radius: 9px !important;
+
+  background: #fff1f1 !important;
+
+  font-size: 17px !important;
+}
+
+
+/* =========================================================
+   ⭐ FILE NAME / SIZE
+========================================================= */
+
+.bank-bounce-document-info > div:last-child {
+  min-width: 0 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 3px !important;
+}
+
+
+.bank-bounce-document-info strong {
+  display: block !important;
+
+  max-width: 550px !important;
+
+  overflow: hidden !important;
+
+  color: #344054 !important;
+
+  font-size: 11px !important;
+  font-weight: 700 !important;
+
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+
+.bank-bounce-document-info small {
+  color: #98a2b3 !important;
+
+  font-size: 9px !important;
+  font-weight: 500 !important;
+}
+
+
+/* =========================================================
+   ⭐ REMOVE BUTTON
+========================================================= */
+
+.bank-bounce-document-remove {
+  width: 32px !important;
+  height: 32px !important;
+
+  flex-shrink: 0 !important;
+
+  margin-left: 12px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 0 !important;
+  border-radius: 50% !important;
+
+  background: #fff1f1 !important;
+  color: #c9151b !important;
+
+  font-family: inherit !important;
+
+  font-size: 20px !important;
+  font-weight: 400 !important;
+
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+
+.bank-bounce-document-remove:hover {
+  background: #c9151b !important;
+
+  color: #ffffff !important;
+
+  transform: rotate(8deg) scale(1.05) !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT SECTION NUMBER
+========================================================= */
+
+.bank-bounce-section-title > span {
+  width: 28px !important;
+  height: 28px !important;
+
+  flex-shrink: 0 !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: 1.5px solid #c9151b !important;
+
+  border-radius: 50% !important;
+
+  background: #ffffff !important;
+
+  color: #c9151b !important;
+
+  font-size: 10px !important;
+  font-weight: 800 !important;
+
+  line-height: 1 !important;
+}
+
+
+/* =========================================================
+   ⭐ FULL WIDTH DOCUMENT FIELD
+========================================================= */
+
+.bank-bounce-field.full-field {
+  width: 100% !important;
+
+  grid-column: 1 / -1 !important;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT LABEL
+========================================================= */
+
+.bank-bounce-field.full-field > label {
+  display: block !important;
+
+  margin-bottom: 9px !important;
+
+  color: #344054 !important;
+
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}
+
+
+.bank-bounce-field.full-field > label span {
+  margin-left: 4px !important;
+
+  color: #98a2b3 !important;
+
+  font-weight: 500 !important;
+}
+
+
+/* =========================================================
+   ⭐ MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .bank-bounce-document-dropzone {
+    min-height: 205px !important;
+
+    padding: 28px 18px !important;
+
+    border-radius: 14px !important;
+  }
+
+  .bank-bounce-document-plus {
+    width: 52px !important;
+    height: 52px !important;
+
+    font-size: 27px !important;
+  }
+
+  .bank-bounce-document-dropzone strong {
+    font-size: 13px !important;
+  }
+
+  .bank-bounce-document-dropzone small {
+    max-width: 360px !important;
+
+    font-size: 9px !important;
+  }
+
+  .bank-bounce-document-item {
+    min-height: 60px !important;
+
+    padding: 10px !important;
+  }
+
+  .bank-bounce-document-icon {
+    width: 35px !important;
+    height: 35px !important;
+
+    font-size: 15px !important;
+  }
+
+  .bank-bounce-document-info strong {
+    max-width: 300px !important;
+  }
+}
+
+
+/* =========================================================
+   ⭐ SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .bank-bounce-document-dropzone {
+    min-height: 195px !important;
+
+    padding: 24px 14px !important;
+  }
+
+  .bank-bounce-document-plus {
+    width: 48px !important;
+    height: 48px !important;
+
+    font-size: 25px !important;
+  }
+
+  .bank-bounce-document-add-btn {
+    min-height: 38px !important;
+
+    padding: 0 17px !important;
+  }
+
+  .bank-bounce-document-item {
+    padding: 9px !important;
+  }
+
+  .bank-bounce-document-info {
+    gap: 8px !important;
+  }
+
+  .bank-bounce-document-info strong {
+    max-width: 190px !important;
+  }
+
+  .bank-bounce-document-remove {
+    width: 29px !important;
+    height: 29px !important;
+
+    margin-left: 8px !important;
+  }
+}

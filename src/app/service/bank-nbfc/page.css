@@ -1,0 +1,1176 @@
+/* =========================================================
+   BANK & NBFC MAIN PAGE
+========================================================= */
+
+.bank-nbfc-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #101828;
+}
+
+
+/* =========================================================
+   COMMON CONTAINER
+========================================================= */
+
+.bank-nbfc-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.bank-nbfc-hero {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  padding: 150px 7vw 90px;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  align-items: center;
+
+  gap: 70px;
+
+  background:
+    radial-gradient(
+      circle at 82% 45%,
+      rgba(201, 21, 27, 0.09),
+      transparent 35%
+    ),
+    #ffffff;
+}
+
+
+.bank-nbfc-hero-content {
+  max-width: 680px;
+}
+
+
+.bank-nbfc-eyebrow,
+.bank-nbfc-section-eyebrow {
+  display: inline-block;
+
+  color: #c9151b;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+
+.bank-nbfc-hero h1 {
+  margin: 14px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(48px, 5vw, 72px);
+
+  line-height: 0.98;
+
+  letter-spacing: -3.5px;
+
+  font-weight: 400;
+}
+
+
+.bank-nbfc-hero h1 span {
+  display: block;
+  color: #c9151b;
+}
+
+
+.bank-nbfc-hero-content > p {
+  max-width: 600px;
+
+  margin: 25px 0 0;
+
+  color: #667085;
+
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.bank-nbfc-hero-buttons,
+.bank-nbfc-cta-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+.bank-nbfc-primary-btn,
+.bank-nbfc-secondary-btn {
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.bank-nbfc-primary-btn {
+  background: #c9151b;
+  color: #ffffff;
+}
+
+
+.bank-nbfc-primary-btn:hover {
+  background: #dfb72f;
+  color: #111111;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 24px rgba(223, 183, 47, 0.22);
+}
+
+
+.bank-nbfc-secondary-btn {
+  border: 1px solid #d0d5dd;
+
+  background: #ffffff;
+
+  color: #101828;
+}
+
+
+.bank-nbfc-secondary-btn:hover {
+  border-color: #c9151b;
+
+  color: #c9151b;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.bank-nbfc-hero-visual {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+.bank-nbfc-visual-card {
+  width: min(100%, 500px);
+
+  min-height: 410px;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: #101828;
+
+  box-shadow:
+    0 30px 80px rgba(16, 24, 40, 0.18);
+
+  transform: rotate(1.5deg);
+}
+
+
+.bank-nbfc-visual-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 330px;
+  height: 330px;
+
+  right: -150px;
+  top: -130px;
+
+  border-radius: 50%;
+
+  background: rgba(201, 21, 27, 0.18);
+
+  filter: blur(2px);
+}
+
+
+.bank-nbfc-visual-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  left: -130px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(223, 183, 47, 0.08);
+
+  pointer-events: none;
+}
+
+
+.bank-nbfc-visual-top {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.bank-nbfc-visual-top span:last-child {
+  color: #dfb72f;
+}
+
+
+/* =========================================================
+   VISUAL DOCUMENT
+========================================================= */
+
+.bank-nbfc-visual-content {
+  position: relative;
+  z-index: 2;
+
+  margin-top: 55px;
+}
+
+
+.bank-nbfc-document {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 205px;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.22);
+
+  transform: rotate(-2deg);
+}
+
+
+.bank-nbfc-document-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color: #101828;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.bank-nbfc-document-header span:last-child {
+  color: #c9151b;
+}
+
+
+.bank-nbfc-document-line {
+  width: 58%;
+
+  height: 7px;
+
+  margin-top: 18px;
+
+  border-radius: 20px;
+
+  background: #d0d5dd;
+}
+
+
+.bank-nbfc-document-line.large {
+  width: 78%;
+  margin-top: 25px;
+}
+
+
+.bank-nbfc-document-row {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.bank-nbfc-document-line.short {
+  width: 32%;
+}
+
+
+.bank-nbfc-document-line.amount {
+  width: 22%;
+}
+
+
+.bank-nbfc-document-stamp {
+  position: absolute;
+
+  right: 25px;
+  bottom: 22px;
+
+  padding: 9px 12px;
+
+  border: 2px solid #c9151b;
+
+  color: #c9151b;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  transform: rotate(-7deg);
+}
+
+
+/* =========================================================
+   VISUAL FOOTER
+========================================================= */
+
+.bank-nbfc-visual-footer {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 28px;
+  bottom: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.bank-nbfc-visual-footer span {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #c9151b;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 900;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.bank-nbfc-intro {
+  padding: 110px 7vw;
+
+  background: #f8f9fb;
+}
+
+
+.bank-nbfc-intro-heading {
+  max-width: 760px;
+
+  margin-bottom: 55px;
+}
+
+
+.bank-nbfc-intro-heading h2,
+.bank-nbfc-process-heading h2 {
+  margin: 13px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(38px, 4vw, 54px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+
+  font-weight: 400;
+}
+
+
+.bank-nbfc-intro-heading h2 span,
+.bank-nbfc-process-heading h2 span,
+.bank-nbfc-cta h2 span {
+  color: #c9151b;
+}
+
+
+.bank-nbfc-intro-heading p,
+.bank-nbfc-process-heading p {
+  max-width: 650px;
+
+  margin: 17px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SERVICE CARDS
+========================================================= */
+
+.bank-nbfc-service-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+
+.bank-nbfc-service-card {
+  position: relative;
+
+  min-height: 500px;
+
+  padding: 38px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 18px 50px rgba(16, 24, 40, 0.05);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.bank-nbfc-service-card:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(201, 21, 27, 0.3);
+
+  box-shadow:
+    0 25px 60px rgba(16, 24, 40, 0.10);
+}
+
+
+.bank-nbfc-service-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 190px;
+  height: 190px;
+
+  right: -90px;
+  bottom: -90px;
+
+  border-radius: 50%;
+
+  background: rgba(201, 21, 27, 0.06);
+
+  pointer-events: none;
+}
+
+
+.bank-nbfc-card-number {
+  position: absolute;
+
+  top: 28px;
+  right: 30px;
+
+  color: #c9151b;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+.bank-nbfc-card-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 30px;
+
+  border-radius: 50%;
+
+  background: #fff1f1;
+
+  color: #c9151b;
+
+  font-size: 24px;
+
+  font-weight: 800;
+}
+
+
+.bank-nbfc-card-eyebrow {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #98a2b3;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+.bank-nbfc-service-card h3 {
+  margin: 0;
+
+  color: #101828;
+
+  font-size: 30px;
+
+  line-height: 1.1;
+
+  letter-spacing: -1px;
+
+  font-weight: 500;
+}
+
+
+.bank-nbfc-service-card > p {
+  max-width: 510px;
+
+  margin: 17px 0 0;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CARD POINTS
+========================================================= */
+
+.bank-nbfc-card-points {
+  margin-top: 25px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+
+.bank-nbfc-card-points span {
+  color: #475467;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+
+.bank-nbfc-card-points span::first-letter {
+  color: #c9151b;
+}
+
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
+
+.bank-nbfc-card-button {
+  position: absolute;
+
+  left: 38px;
+  right: 38px;
+  bottom: 32px;
+
+  min-height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 50px;
+
+  background: #101828;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.bank-nbfc-card-button:hover {
+  background: #c9151b;
+
+  transform: translateY(-2px);
+}
+
+
+.bank-nbfc-service-card.featured .bank-nbfc-card-button {
+  background: #c9151b;
+}
+
+
+.bank-nbfc-service-card.featured .bank-nbfc-card-button:hover {
+  background: #dfb72f;
+
+  color: #111111;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.bank-nbfc-process {
+  padding: 110px 7vw;
+
+  background: #ffffff;
+}
+
+
+.bank-nbfc-process-heading {
+  max-width: 760px;
+
+  margin-bottom: 55px;
+}
+
+
+.bank-nbfc-process-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.bank-nbfc-process-item {
+  padding: 28px;
+
+  border: 1px solid #eaecf0;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.bank-nbfc-process-item:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(201, 21, 27, 0.28);
+
+  box-shadow:
+    0 18px 40px rgba(16, 24, 40, 0.06);
+}
+
+
+.bank-nbfc-process-item > span {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 25px;
+
+  border: 1px solid rgba(201, 21, 27, 0.3);
+
+  border-radius: 50%;
+
+  color: #c9151b;
+
+  font-size: 10px;
+
+  font-weight: 900;
+}
+
+
+.bank-nbfc-process-item h3 {
+  margin: 0;
+
+  color: #101828;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+
+.bank-nbfc-process-item p {
+  margin: 11px 0 0;
+
+  color: #667085;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.bank-nbfc-cta {
+  padding: 85px 7vw;
+
+  background: #101828;
+}
+
+
+.bank-nbfc-cta-inner {
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 50px;
+}
+
+
+.bank-nbfc-cta h2 {
+  max-width: 650px;
+
+  margin: 12px 0 0;
+
+  color: #ffffff;
+
+  font-size: clamp(38px, 4vw, 54px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+
+  font-weight: 400;
+}
+
+
+.bank-nbfc-cta p {
+  max-width: 580px;
+
+  margin: 15px 0 0;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+.bank-nbfc-cta-buttons {
+  flex-shrink: 0;
+
+  margin-top: 0;
+}
+
+
+.bank-nbfc-cta .bank-nbfc-secondary-btn {
+  border-color: rgba(255, 255, 255, 0.25);
+
+  background: transparent;
+
+  color: #ffffff;
+}
+
+
+.bank-nbfc-cta .bank-nbfc-secondary-btn:hover {
+  border-color: #dfb72f;
+
+  color: #dfb72f;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .bank-nbfc-hero {
+    min-height: auto;
+
+    padding: 130px 35px 80px;
+
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+
+
+  .bank-nbfc-hero-content {
+    max-width: 760px;
+  }
+
+
+  .bank-nbfc-hero-visual {
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+  }
+
+
+  .bank-nbfc-intro,
+  .bank-nbfc-process {
+    padding: 85px 35px;
+  }
+
+
+  .bank-nbfc-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .bank-nbfc-process-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .bank-nbfc-cta {
+    padding: 75px 35px;
+  }
+
+
+  .bank-nbfc-cta-inner {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .bank-nbfc-cta-buttons {
+    margin-top: 5px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .bank-nbfc-hero {
+    padding: 120px 20px 65px;
+
+    gap: 45px;
+
+    text-align: center;
+  }
+
+
+  .bank-nbfc-hero h1 {
+    font-size: 43px;
+
+    letter-spacing: -2.2px;
+  }
+
+
+  .bank-nbfc-hero h1 span {
+    display: inline;
+  }
+
+
+  .bank-nbfc-hero-content > p {
+    font-size: 13px;
+  }
+
+
+  .bank-nbfc-hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+
+  .bank-nbfc-primary-btn,
+  .bank-nbfc-secondary-btn {
+    width: 100%;
+
+    max-width: 420px;
+  }
+
+
+  .bank-nbfc-visual-card {
+    min-height: 350px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+
+  .bank-nbfc-visual-content {
+    margin-top: 45px;
+  }
+
+
+  .bank-nbfc-document {
+    min-height: 180px;
+
+    padding: 23px;
+  }
+
+
+  .bank-nbfc-intro,
+  .bank-nbfc-process {
+    padding: 75px 20px;
+  }
+
+
+  .bank-nbfc-intro-heading,
+  .bank-nbfc-process-heading {
+    margin-bottom: 40px;
+  }
+
+
+  .bank-nbfc-intro-heading h2,
+  .bank-nbfc-process-heading h2,
+  .bank-nbfc-cta h2 {
+    font-size: 38px;
+
+    letter-spacing: -1.8px;
+  }
+
+
+  .bank-nbfc-service-card {
+    min-height: 500px;
+
+    padding: 30px 25px;
+  }
+
+
+  .bank-nbfc-card-button {
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+  }
+
+
+  .bank-nbfc-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .bank-nbfc-cta {
+    padding: 70px 20px;
+  }
+
+
+  .bank-nbfc-cta-inner {
+    gap: 35px;
+  }
+
+
+  .bank-nbfc-cta-buttons {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+
+  .bank-nbfc-cta-buttons .bank-nbfc-primary-btn,
+  .bank-nbfc-cta-buttons .bank-nbfc-secondary-btn {
+    max-width: none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .bank-nbfc-hero {
+    padding: 115px 17px 55px;
+  }
+
+
+  .bank-nbfc-hero h1 {
+    font-size: 36px;
+
+    letter-spacing: -1.6px;
+  }
+
+
+  .bank-nbfc-visual-card {
+    min-height: 320px;
+
+    padding: 19px;
+  }
+
+
+  .bank-nbfc-document {
+    padding: 20px;
+
+    min-height: 165px;
+  }
+
+
+  .bank-nbfc-document-header {
+    font-size: 8px;
+  }
+
+
+  .bank-nbfc-service-card {
+    min-height: 520px;
+
+    padding: 27px 22px;
+  }
+
+
+  .bank-nbfc-service-card h3 {
+    font-size: 27px;
+  }
+
+
+  .bank-nbfc-card-button {
+    left: 22px;
+    right: 22px;
+  }
+
+
+  .bank-nbfc-process-item {
+    padding: 24px;
+  }
+
+}

@@ -1,0 +1,1428 @@
+/* =========================================================
+   BANK / NBFC CHEQUE MISUSE PAGE
+========================================================= */
+
+.bank-misuse-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.bank-misuse-hero {
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  padding: 150px 7vw 80px;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+
+  align-items: center;
+
+  gap: 70px;
+
+  background:
+    radial-gradient(
+      circle at 80% 45%,
+      rgba(201, 21, 27, 0.08),
+      transparent 35%
+    ),
+    #ffffff;
+}
+
+
+.bank-misuse-hero-content {
+  max-width: 680px;
+}
+
+
+.bank-misuse-eyebrow {
+  display: inline-block;
+
+  color: #c9151b;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+
+  text-transform: uppercase;
+}
+
+
+.bank-misuse-hero h1 {
+  margin: 14px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(48px, 5vw, 72px);
+
+  line-height: 0.98;
+
+  letter-spacing: -3.5px;
+
+  font-weight: 400;
+}
+
+
+.bank-misuse-hero h1 span {
+  color: #c9151b;
+}
+
+
+.bank-misuse-hero-content > p {
+  max-width: 590px;
+
+  margin: 24px 0 0;
+
+  color: #667085;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.bank-misuse-hero-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+.bank-misuse-primary-btn,
+.bank-misuse-secondary-btn {
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+
+.bank-misuse-primary-btn {
+  background: #c9151b;
+
+  color: #ffffff;
+}
+
+
+.bank-misuse-primary-btn:hover {
+  background: #dfb72f;
+
+  color: #111111;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(223, 183, 47, 0.22);
+}
+
+
+.bank-misuse-secondary-btn {
+  border: 1px solid #d0d5dd;
+
+  background: #ffffff;
+
+  color: #101828;
+}
+
+
+.bank-misuse-secondary-btn:hover {
+  border-color: #c9151b;
+
+  color: #c9151b;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.bank-misuse-hero-visual {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.bank-misuse-visual-card {
+  width: min(100%, 500px);
+
+  min-height: 390px;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: #101828;
+
+  box-shadow:
+    0 30px 80px rgba(16, 24, 40, 0.18);
+
+  transform: rotate(1.5deg);
+}
+
+
+.bank-misuse-visual-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -100px;
+  bottom: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(201, 21, 27, 0.25);
+
+  filter: blur(5px);
+
+  pointer-events: none;
+}
+
+
+.bank-misuse-visual-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 400;
+
+  letter-spacing: 1.5px;
+}
+
+
+.bank-misuse-visual-top span:last-child {
+  color: #dfb72f;
+}
+
+
+/* =========================================================
+   CHEQUE VISUAL
+========================================================= */
+
+.bank-misuse-cheque {
+  position: relative;
+
+  margin-top: 55px;
+
+  padding: 35px;
+
+  min-height: 185px;
+
+  box-sizing: border-box;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  transform: rotate(-2deg);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+
+.bank-misuse-cheque-title {
+  color: #101828;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+.bank-misuse-line {
+  width: 55%;
+
+  height: 7px;
+
+  margin-top: 13px;
+
+  border-radius: 10px;
+
+  background: #d0d5dd;
+}
+
+
+.bank-misuse-line.large {
+  width: 75%;
+
+  margin-top: 18px;
+}
+
+
+.bank-misuse-line.short {
+  width: 35%;
+}
+
+
+.bank-misuse-stamp {
+  position: absolute;
+
+  right: 24px;
+  bottom: 25px;
+
+  padding: 9px 12px;
+
+  border: 2px solid #c9151b;
+
+  color: #c9151b;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  transform: rotate(-8deg);
+}
+
+
+.bank-misuse-visual-footer {
+  position: absolute;
+
+  left: 28px;
+  bottom: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 9px;
+
+  font-weight: 600;
+}
+
+
+.bank-misuse-visual-footer span {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #c9151b;
+
+  color: #ffffff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.bank-misuse-info {
+  padding: 100px 7vw;
+
+  background: #f8f9fb;
+}
+
+
+.bank-misuse-container {
+  width: 100%;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+}
+
+
+.bank-misuse-info-heading {
+  max-width: 720px;
+}
+
+
+.bank-misuse-info-heading h2 {
+  margin: 12px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(38px, 4vw, 54px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+
+  font-weight: 400;
+}
+
+
+.bank-misuse-info-heading h2 span {
+  color: #c9151b;
+}
+
+
+.bank-misuse-info-heading p {
+  max-width: 650px;
+
+  margin: 15px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   INFO CARDS
+========================================================= */
+
+.bank-misuse-info-grid {
+  margin-top: 55px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+.bank-misuse-info-card {
+  padding: 30px;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.bank-misuse-info-card:hover {
+  border-color: #c9151b;
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 15px 35px rgba(16, 24, 40, 0.08);
+}
+
+
+.bank-misuse-card-number {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #c9151b;
+
+  border-radius: 50%;
+
+  color: #c9151b;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.bank-misuse-info-card h3 {
+  margin: 20px 0 0;
+
+  color: #101828;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+
+.bank-misuse-info-card p {
+  margin: 12px 0 0;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   FORM SECTION
+========================================================= */
+
+.bank-misuse-form-section {
+  padding: 100px 7vw;
+
+  background: #ffffff;
+}
+
+
+.bank-misuse-form-container {
+  width: 100%;
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+}
+
+
+.bank-misuse-form-heading {
+  max-width: 720px;
+
+  margin-bottom: 50px;
+}
+
+
+.bank-misuse-form-heading h2 {
+  margin: 12px 0 0;
+
+  color: #101828;
+
+  font-size: clamp(38px, 4vw, 54px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
+
+  font-weight: 400;
+}
+
+
+.bank-misuse-form-heading h2 span {
+  color: #c9151b;
+}
+
+
+.bank-misuse-form-heading p {
+  max-width: 620px;
+
+  margin: 15px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM BOX
+========================================================= */
+
+.bank-misuse-form {
+  width: 100%;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 20px 60px rgba(16, 24, 40, 0.06);
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.bank-misuse-section-title {
+  width: 100%;
+
+  margin: 35px 0 22px;
+
+  padding-bottom: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border-bottom: 1px solid #eaecf0;
+
+  color: #101828;
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+
+.bank-misuse-section-title:first-child {
+  margin-top: 0;
+}
+
+
+.bank-misuse-section-title > span {
+  width: 28px;
+  height: 28px;
+
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #c9151b;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #c9151b;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.bank-misuse-form-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+}
+
+
+.bank-misuse-field {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.bank-misuse-field.full-field {
+  grid-column: 1 / -1;
+}
+
+
+.bank-misuse-field label {
+  margin-bottom: 8px;
+
+  color: #344054;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.bank-misuse-field label span {
+  margin-left: 4px;
+
+  color: #98a2b3;
+
+  font-weight: 500;
+}
+
+
+.bank-misuse-field input,
+.bank-misuse-field select,
+.bank-misuse-field textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d0d5dd;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #101828;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.bank-misuse-field input,
+.bank-misuse-field select {
+  height: 48px;
+
+  padding: 0 14px;
+}
+
+
+.bank-misuse-field textarea {
+  min-height: 150px;
+
+  padding: 14px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+
+.bank-misuse-field input::placeholder,
+.bank-misuse-field textarea::placeholder {
+  color: #98a2b3;
+}
+
+
+.bank-misuse-field input:focus,
+.bank-misuse-field select:focus,
+.bank-misuse-field textarea:focus {
+  border-color: #c9151b;
+
+  box-shadow:
+    0 0 0 3px rgba(201, 21, 27, 0.08);
+}
+
+
+.bank-misuse-field select:disabled {
+  cursor: not-allowed;
+
+  background: #f2f4f7;
+
+  color: #98a2b3;
+}
+
+
+/* =========================================================
+   ⭐ SUPPORTING DOCUMENTS
+========================================================= */
+
+.bank-misuse-document-dropzone {
+  width: 100%;
+
+  min-height: 220px;
+
+  box-sizing: border-box;
+
+  padding: 32px 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1.5px dashed #d0d5dd;
+
+  border-radius: 16px;
+
+  background: #fafafa;
+
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.bank-misuse-document-dropzone:hover {
+  border-color: #c9151b;
+
+  background: #fffafa;
+
+  box-shadow:
+    0 10px 30px rgba(201, 21, 27, 0.07);
+
+  transform: translateY(-1px);
+}
+
+
+.bank-misuse-document-dropzone.dragging {
+  border-color: #c9151b;
+
+  background: #fff3f3;
+
+  box-shadow:
+    0 12px 35px rgba(201, 21, 27, 0.12);
+
+  transform: scale(1.01);
+}
+
+
+.bank-misuse-document-plus {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff1f1;
+
+  color: #c9151b;
+
+  font-size: 30px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.bank-misuse-document-dropzone:hover
+.bank-misuse-document-plus {
+  background: #c9151b;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+
+.bank-misuse-document-dropzone strong {
+  margin-top: 4px;
+
+  color: #101828;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+.bank-misuse-document-dropzone > span {
+  color: #98a2b3;
+
+  font-size: 11px;
+}
+
+
+.bank-misuse-document-add-btn {
+  min-height: 40px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50px;
+
+  background: #c9151b;
+
+  color: #ffffff;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+
+.bank-misuse-document-add-btn:hover {
+  background: #dfb72f;
+
+  color: #111111;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 18px rgba(223, 183, 47, 0.20);
+}
+
+
+.bank-misuse-document-dropzone small {
+  max-width: 540px;
+
+  margin-top: 3px;
+
+  color: #98a2b3;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   ⭐ DOCUMENT LIST
+========================================================= */
+
+.bank-misuse-document-list {
+  width: 100%;
+
+  margin-top: 14px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+
+.bank-misuse-document-item {
+  width: 100%;
+
+  min-height: 64px;
+
+  padding: 11px 13px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border: 1px solid #e4e7ec;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  transition: 0.2s ease;
+}
+
+
+.bank-misuse-document-item:hover {
+  border-color: #c9151b;
+
+  box-shadow:
+    0 7px 20px rgba(16, 24, 40, 0.06);
+
+  transform: translateY(-1px);
+}
+
+
+.bank-misuse-document-info {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.bank-misuse-document-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #fff1f1;
+
+  font-size: 17px;
+}
+
+
+.bank-misuse-document-info > div:last-child {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.bank-misuse-document-info strong {
+  display: block;
+
+  max-width: 550px;
+
+  overflow: hidden;
+
+  color: #344054;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+.bank-misuse-document-info small {
+  color: #98a2b3;
+
+  font-size: 9px;
+}
+
+
+.bank-misuse-document-remove {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  margin-left: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #fff1f1;
+
+  color: #c9151b;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+
+.bank-misuse-document-remove:hover {
+  background: #c9151b;
+
+  color: #ffffff;
+
+  transform: rotate(8deg) scale(1.05);
+}
+
+
+/* =========================================================
+   CONSENT
+========================================================= */
+
+.bank-misuse-consent {
+  width: 100%;
+
+  margin-top: 30px;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  border-radius: 10px;
+
+  background: #f8f9fb;
+}
+
+
+.bank-misuse-consent label {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  cursor: pointer;
+}
+
+
+.bank-misuse-consent input {
+  width: 17px;
+  height: 17px;
+
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  accent-color: #c9151b;
+}
+
+
+.bank-misuse-consent span {
+  color: #667085;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.bank-misuse-submit {
+  width: 100%;
+
+  min-height: 52px;
+
+  margin-top: 30px;
+
+  padding: 0 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #c9151b;
+
+  border-radius: 50px;
+
+  background: #c9151b;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+
+.bank-misuse-submit:hover {
+  background: #dfb72f;
+
+  border-color: #dfb72f;
+
+  color: #111111;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(223, 183, 47, 0.22);
+}
+
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.bank-misuse-success {
+  margin-top: 20px;
+
+  padding: 15px 18px;
+
+  border-radius: 8px;
+
+  background: #ecfdf3;
+
+  color: #027a48;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .bank-misuse-hero {
+    min-height: auto;
+
+    padding: 120px 35px 75px;
+
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+
+  .bank-misuse-hero-visual {
+    width: 100%;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+  }
+
+
+  .bank-misuse-info,
+  .bank-misuse-form-section {
+    padding: 80px 35px;
+  }
+
+
+  .bank-misuse-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .bank-misuse-hero {
+    padding: 120px 20px 60px;
+
+    gap: 40px;
+
+    text-align: center;
+  }
+
+
+  .bank-misuse-hero h1 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+  }
+
+
+  .bank-misuse-hero-content > p {
+    font-size: 13px;
+  }
+
+
+  .bank-misuse-hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+
+  .bank-misuse-primary-btn,
+  .bank-misuse-secondary-btn {
+    width: 100%;
+
+    max-width: 400px;
+  }
+
+
+  .bank-misuse-visual-card {
+    min-height: 330px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+  }
+
+
+  .bank-misuse-cheque {
+    margin-top: 40px;
+
+    padding: 25px;
+
+    min-height: 150px;
+  }
+
+
+  .bank-misuse-info,
+  .bank-misuse-form-section {
+    padding: 70px 20px;
+  }
+
+
+  .bank-misuse-info-heading h2,
+  .bank-misuse-form-heading h2 {
+    font-size: 38px;
+
+    letter-spacing: -1.8px;
+  }
+
+
+  .bank-misuse-form {
+    padding: 26px 20px;
+
+    border-radius: 20px;
+  }
+
+
+  .bank-misuse-form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  .bank-misuse-document-dropzone {
+    min-height: 205px;
+
+    padding: 28px 18px;
+
+    border-radius: 14px;
+  }
+
+
+  .bank-misuse-document-plus {
+    width: 52px;
+    height: 52px;
+
+    font-size: 27px;
+  }
+
+
+  .bank-misuse-document-info strong {
+    max-width: 300px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .bank-misuse-hero {
+    padding: 120px 17px 50px;
+  }
+
+
+  .bank-misuse-hero h1 {
+    font-size: 36px;
+
+    letter-spacing: -1.6px;
+  }
+
+
+  .bank-misuse-visual-card {
+    min-height: 300px;
+  }
+
+
+  .bank-misuse-form {
+    padding: 23px 16px;
+  }
+
+
+  .bank-misuse-document-dropzone {
+    min-height: 195px;
+
+    padding: 24px 14px;
+  }
+
+
+  .bank-misuse-document-plus {
+    width: 48px;
+    height: 48px;
+
+    font-size: 25px;
+  }
+
+
+  .bank-misuse-document-info strong {
+    max-width: 190px;
+  }
+
+
+  .bank-misuse-document-remove {
+    width: 29px;
+    height: 29px;
+
+    margin-left: 8px;
+  }
+
+}
