@@ -110,7 +110,7 @@
 
   gap: 10px;
 
-  border-radius: 50px;
+  border-radius: 7px;
 
   text-decoration: none;
 
@@ -1671,4 +1671,27 @@
 
   font-size: 13px;
   color: #8a91a0;
+}
+
+
+
+
+
+/* =========================================================
+   BUSINESS CHEQUE MISUSE - MOBILE CTA CENTER
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .business-misuse-primary-btn,
+  .business-misuse-secondary-btn {
+    display: flex !important;
+    width: fit-content !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    align-self: center !important;
+  }
+
 }
