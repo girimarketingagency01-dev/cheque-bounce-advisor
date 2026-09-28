@@ -876,7 +876,7 @@
   gap: 10px;
 
   border: 1px solid #c9151b;
-  border-radius: 50px;
+  border-radius: 7px;
 
   background: #c9151b;
   color: #ffffff;
@@ -1639,5 +1639,456 @@
     height: 29px !important;
 
     margin-left: 8px !important;
+  }
+}
+
+
+
+
+
+
+/* =========================================================
+   BANK / NBFC CHEQUE BOUNCE HERO IMAGE
+========================================================= */
+
+.bank-nbfc-cheque-bounce-hero-visual {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.bank-nbfc-cheque-bounce-hero-image-wrap {
+  width: 100% !important;
+  max-width: 560px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: transparent !important;
+}
+
+.bank-nbfc-cheque-bounce-hero-image {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 560px !important;
+  height: auto !important;
+
+  object-fit: contain !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .bank-nbfc-cheque-bounce-hero-image-wrap {
+    max-width: 460px !important;
+  }
+
+  .bank-nbfc-cheque-bounce-hero-image {
+    max-width: 460px !important;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .bank-nbfc-cheque-bounce-hero-visual {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .bank-nbfc-cheque-bounce-hero-image-wrap {
+    width: 100% !important;
+    max-width: 420px !important;
+  }
+
+  .bank-nbfc-cheque-bounce-hero-image {
+    width: 100% !important;
+    max-width: 420px !important;
+  }
+
+}
+
+
+
+
+/* =========================================================
+   BANK BOUNCE DOCUMENT UPLOAD
+========================================================= */
+
+.bank-bounce-document-dropzone {
+  width: 100%;
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 30px 20px;
+
+  border: 1px dashed #d8dce3;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  text-align: center;
+
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* PLUS */
+
+.bank-bounce-document-plus {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 4px;
+
+  border-radius: 50%;
+
+  background: #d71920;
+  color: #ffffff;
+
+  font-size: 28px;
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+
+/* MAIN TEXT */
+
+.bank-bounce-document-dropzone strong {
+  display: block;
+
+  color: #111827;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+
+/* SECONDARY TEXT */
+
+.bank-bounce-document-dropzone > span {
+  display: block;
+
+  color: #8b95a5;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+}
+
+
+/* HOVER */
+
+.bank-bounce-document-dropzone:hover {
+  border-color: #d71920;
+  background: #fffafa;
+}
+
+
+/* DRAGGING */
+
+.bank-bounce-document-dropzone.dragging {
+  border-color: #d71920;
+  background: #fff4f4;
+  transform: scale(1.01);
+}
+
+
+/* =========================================================
+   DOCUMENT LIST
+========================================================= */
+
+.bank-bounce-document-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+
+.bank-bounce-document-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  box-sizing: border-box;
+}
+
+
+.bank-bounce-document-info {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 0;
+}
+
+
+.bank-bounce-document-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #fff1f2;
+
+  font-size: 17px;
+}
+
+
+.bank-bounce-document-info strong {
+  display: block;
+
+  max-width: 500px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #111827;
+
+  font-size: 13px;
+}
+
+
+.bank-bounce-document-info small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #8b95a5;
+
+  font-size: 11px;
+}
+
+
+.bank-bounce-document-remove {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #fff1f2;
+
+  color: #d71920;
+
+  font-size: 20px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.bank-bounce-document-remove:hover {
+  background: #d71920;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .bank-bounce-document-dropzone {
+    min-height: 170px;
+    padding: 28px 18px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .bank-bounce-document-dropzone {
+    min-height: 160px;
+
+    padding: 25px 15px;
+
+    border-radius: 12px;
+  }
+
+
+  .bank-bounce-document-plus {
+    width: 46px;
+    height: 46px;
+
+    font-size: 25px;
+  }
+
+
+  .bank-bounce-document-dropzone strong {
+    font-size: 13px;
+  }
+
+
+  .bank-bounce-document-dropzone > span {
+    font-size: 12px;
+  }
+
+
+  .bank-bounce-document-item {
+    padding: 10px 11px;
+  }
+
+
+  .bank-bounce-document-info strong {
+    max-width: 190px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .bank-bounce-document-dropzone {
+    min-height: 150px;
+  }
+
+
+  .bank-bounce-document-info strong {
+    max-width: 150px;
+  }
+
+}
+/* =================================================
+   BANK BOUNCE DOCUMENT UPLOAD
+   CENTER PLUS ICON + TEXT
+================================================= */
+
+.bank-bounce-document-dropzone {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 8px !important;
+  min-height: 180px !important;
+  position: relative !important;
+}
+
+/* PLUS ICON */
+.bank-bounce-document-plus {
+  width: 50px !important;
+  height: 50px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin: 0 auto 2px auto !important;
+
+  border-radius: 50% !important;
+
+  font-size: 28px !important;
+  line-height: 1 !important;
+
+  text-align: center !important;
+  flex-shrink: 0 !important;
+}
+
+/* MAIN TEXT */
+.bank-bounce-document-dropzone strong {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+/* SECONDARY TEXT */
+.bank-bounce-document-dropzone > span {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .bank-bounce-document-dropzone {
+    min-height: 170px !important;
+    padding: 25px 15px !important;
+  }
+
+  .bank-bounce-document-plus {
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 26px !important;
   }
 }

@@ -504,35 +504,17 @@ const removeDocument = (index) => {
 
         <div className="misuse-hero-visual">
 
-          <div className="misuse-card">
+  <div className="misuse-hero-image-wrap">
 
-            <div className="misuse-card-top">
-              <span>CHEQUE</span>
-              <span>INDIVIDUAL</span>
-            </div>
+    <img
+      src="/individual-cheque-misuse.png"
+      alt="Individual cheque misuse assistance"
+      className="misuse-hero-image"
+    />
 
-            <div className="misuse-card-body">
+  </div>
 
-              <div className="misuse-line large"></div>
-
-              <div className="misuse-line"></div>
-
-              <div className="misuse-line medium"></div>
-
-              <div className="misuse-amount">
-                ₹
-              </div>
-
-            </div>
-
-            <div className="misuse-warning">
-              MISUSE
-            </div>
-
-          </div>
-
-        </div>
-
+</div>
       </section>
 
 

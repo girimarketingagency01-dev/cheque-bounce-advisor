@@ -1018,12 +1018,7 @@ export default function BankNbfcChequeBouncePage() {
 
         <div className="bank-bounce-hero-content">
 
-          <Link
-            href="/service/bank-nbfc"
-            className="bank-bounce-back"
-          >
-            ← Bank & NBFC Services
-          </Link>
+          
 
           <span className="bank-bounce-eyebrow">
             BANK & NBFC · CHEQUE BOUNCE
@@ -1043,54 +1038,23 @@ export default function BankNbfcChequeBouncePage() {
         </div>
 
 
-        <div className="bank-bounce-hero-visual">
+        
 
-          <div className="bank-bounce-visual-card">
+              <div className="bank-nbfc-cheque-bounce-hero-visual">
 
-            <div className="bank-bounce-visual-label">
-              CHEQUE BOUNCE
-            </div>
+  <div className="bank-nbfc-cheque-bounce-hero-image-wrap">
+    <img
+      src="/bank-nbfc-cheque-bounce.png"
+      alt="Cheque bounce assistance"
+      className="bank-nbfc-cheque-bounce-hero-image"
+    />
+  </div>
 
-            <div className="bank-bounce-cheque">
+</div>
 
-              <div className="bank-bounce-cheque-top">
+           
 
-                <strong>
-                  BANK / NBFC
-                </strong>
-
-                <span>
-                  CHEQUE
-                </span>
-
-              </div>
-
-              <div className="bank-bounce-line large"></div>
-
-              <div className="bank-bounce-line"></div>
-
-              <div className="bank-bounce-cheque-row">
-
-                <div className="bank-bounce-line short"></div>
-
-                <div className="bank-bounce-line amount"></div>
-
-              </div>
-
-              <div className="bank-bounce-stamp">
-                BOUNCED
-              </div>
-
-            </div>
-
-            <div className="bank-bounce-visual-footer">
-              <span>!</span>
-              Cheque Bounce Matter
-            </div>
-
-          </div>
-
-        </div>
+       
 
       </section>
 
@@ -1668,123 +1632,116 @@ export default function BankNbfcChequeBouncePage() {
 
 
             {/* =================================================
-                06 SUPPORTING DOCUMENTS
-            ================================================= */}
+    06 SUPPORTING DOCUMENTS
+================================================= */}
 
-            <div className="bank-bounce-section-title">
+<div className="bank-bounce-section-title">
+  <span>06</span>
+  Supporting Documents
+</div>
 
-              <span>
-                06
-              </span>
 
-              Supporting Documents
+<div className="bank-bounce-field full-field">
+
+  <label>
+    Upload Relevant Documents
+    <span>(Optional)</span>
+  </label>
+
+
+  {/* =================================================
+      DOCUMENT UPLOAD
+  ================================================= */}
+
+  <label
+    htmlFor="bank-bounce-document-upload"
+    className={`bank-bounce-document-dropzone ${
+      dragging ? "dragging" : ""
+    }`}
+    onDragOver={handleDragOver}
+    onDragLeave={handleDragLeave}
+    onDrop={handleDrop}
+  >
+
+    <div className="bank-bounce-document-plus">
+      +
+    </div>
+
+    <strong>
+      Drag & Drop Documents Here
+    </strong>
+
+    <span>
+      or click to browse files
+    </span>
+
+
+    <input
+      id="bank-bounce-document-upload"
+      type="file"
+      multiple
+      hidden
+      onChange={handleDocumentsChange}
+      accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
+    />
+
+  </label>
+
+
+  {/* =================================================
+      DOCUMENT LIST
+  ================================================= */}
+
+  {documents.length > 0 && (
+
+    <div className="bank-bounce-document-list">
+
+      {documents.map((file, index) => (
+
+        <div
+          className="bank-bounce-document-item"
+          key={`${file.name}-${file.lastModified}-${index}`}
+        >
+
+          <div className="bank-bounce-document-info">
+
+            <div className="bank-bounce-document-icon">
+              📄
+            </div>
+
+            <div>
+
+              <strong>
+                {file.name}
+              </strong>
+
+              <small>
+                {(file.size / 1024 / 1024).toFixed(2)} MB
+              </small>
 
             </div>
 
-
-            <div className="bank-bounce-field full-field">
-
-              <label>
-                Upload Relevant Documents
-                <span>
-                  (Optional)
-                </span>
-              </label>
+          </div>
 
 
-              <div
-                className={`bank-bounce-document-dropzone ${
-                  dragging ? "dragging" : ""
-                }`}
-                onDragOver={handleDragOver}
-                onDragLeave={handleDragLeave}
-                onDrop={handleDrop}
-              >
+          <button
+            type="button"
+            className="bank-bounce-document-remove"
+            onClick={() => removeDocument(index)}
+            aria-label={`Remove ${file.name}`}
+          >
+            ×
+          </button>
 
-                <div className="bank-bounce-document-plus">
-                  +
-                </div>
+        </div>
 
-                <strong>
-                  Drag & Drop Documents Here
-                </strong>
+      ))}
 
-                <span>
-                  or click to browse files
-                </span>
+    </div>
 
+  )}
 
-                
-
-                <input
-                  id="bank-bounce-document-upload"
-                  type="file"
-                  multiple
-                  hidden
-                  onChange={handleDocumentsChange}
-                  accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
-                />
-
-
-               
-
-              </div>
-
-
-              {/* =================================================
-                  DOCUMENT LIST
-              ================================================= */}
-
-              {documents.length > 0 && (
-
-                <div className="bank-bounce-document-list">
-
-                  {documents.map((file, index) => (
-
-                    <div
-                      className="bank-bounce-document-item"
-                      key={`${file.name}-${file.lastModified}-${index}`}
-                    >
-
-                      <div className="bank-bounce-document-info">
-
-                        <div className="bank-bounce-document-icon">
-                          📄
-                        </div>
-
-                        <div>
-
-                          <strong>
-                            {file.name}
-                          </strong>
-
-                          <small>
-                            {(file.size / 1024 / 1024).toFixed(2)} MB
-                          </small>
-
-                        </div>
-
-                      </div>
-
-
-                      <button
-                        type="button"
-                        className="bank-bounce-document-remove"
-                        onClick={() => removeDocument(index)}
-                        aria-label={`Remove ${file.name}`}
-                      >
-                        ×
-                      </button>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
-              )}
-
-            </div>
+</div>
 
 
             {/* =================================================

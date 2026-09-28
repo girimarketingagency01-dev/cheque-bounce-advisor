@@ -1,0 +1,1698 @@
+/* =========================================================
+   INDIVIDUAL PAGE
+   LOCAL PAGE CSS ONLY
+   ========================================================= */
+
+.individual-page {
+  width: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.individual-hero {
+  width: 100%;
+  min-height: 620px;
+  padding: 90px 7%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  align-items: center;
+  gap: 70px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+
+/* LEFT CONTENT */
+
+.individual-hero-content {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+
+.individual-eyebrow {
+  display: block;
+  margin-bottom: 20px;
+
+  font-size: 11px;
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: #d71920;
+}
+
+
+.individual-hero-content h1 {
+  margin: 0;
+  max-width: 1650px;
+
+  font-size: clamp(48px, 5vw, 76px);
+  line-height: 0.98;
+  font-weight: 400;
+  letter-spacing: -3px;
+
+  color: #111827;
+}
+
+
+.individual-hero-content h1 span {
+  color: #d71920;
+}
+
+
+.individual-hero-content p {
+  max-width: 610px;
+  margin: 28px 0 0;
+
+  font-size: 16px;
+  line-height: 1.7;
+  color: #6b7c93;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.individual-hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 32px;
+}
+
+
+.individual-primary-btn,
+.individual-secondary-btn {
+  min-height: 46px;
+  padding: 0 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border-radius: 6px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+
+  box-sizing: border-box;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+.individual-primary-btn {
+  background: #d71920;
+  color: #ffffff;
+  border: 1px solid #d71920;
+}
+
+
+.individual-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(215, 25, 32, 0.18);
+}
+
+
+.individual-secondary-btn {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #d7dde5;
+}
+
+
+.individual-secondary-btn:hover {
+  transform: translateY(-2px);
+  border-color: #111827;
+}
+
+
+.individual-primary-btn span,
+.individual-secondary-btn span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.individual-hero-visual {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.individual-hero-image-wrap {
+  width: min(100%, 560px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+
+.individual-hero-image {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-height: 500px;
+
+  object-fit: contain;
+
+  border-radius: 18px;
+}
+
+
+/* =========================================================
+   OPTIONS SECTION
+   ========================================================= */
+
+.individual-options {
+  width: 100%;
+  padding: 105px 7% 115px;
+
+  background: #f7f8fa;
+
+  box-sizing: border-box;
+}
+
+
+.individual-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   OPTIONS HEADING
+   ========================================================= */
+
+.individual-heading {
+  width: 100%;
+  max-width: 720px;
+}
+
+
+.individual-heading .individual-eyebrow {
+  margin-bottom: 18px;
+}
+
+
+.individual-heading h2 {
+  margin: 0;
+
+  font-size: clamp(40px, 4.2vw, 62px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -2.5px;
+
+  color: #111827;
+}
+
+
+.individual-heading h2 span {
+  color: #d71920;
+}
+
+
+.individual-heading p {
+  max-width: 650px;
+
+  margin: 24px 0 0;
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  color: #718096;
+}
+
+
+/* =========================================================
+   OPTION GRID
+   ========================================================= */
+
+.individual-option-grid {
+  width: 100%;
+
+  margin-top: 50px;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   OPTION CARD
+   ========================================================= */
+
+.individual-option-card {
+  position: relative;
+
+  min-width: 0;
+  min-height: 350px;
+
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5eb;
+  border-radius: 20px;
+
+  box-sizing: border-box;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.individual-option-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #d8dde5;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+
+/* NUMBER */
+
+.individual-option-number {
+  position: absolute;
+
+  top: 28px;
+  right: 30px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  color: #d71920;
+}
+
+
+/* ICON */
+
+.individual-option-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 24px;
+
+  border-radius: 14px;
+
+  background: #fff0f1;
+
+  color: #d71920;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+.individual-option-icon.misuse {
+  background: #fff8e7;
+  color: #d99b00;
+}
+
+
+/* LABEL */
+
+.individual-option-label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 700;
+
+  letter-spacing: 1.7px;
+
+  color: #8793a6;
+}
+
+
+/* TITLE */
+
+.individual-option-card h3 {
+  margin: 0;
+
+  font-size: 28px;
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -1px;
+
+  color: #111827;
+}
+
+
+/* DESCRIPTION */
+
+.individual-option-card p {
+  max-width: 580px;
+
+  margin: 18px 0 28px;
+
+  font-size: 14px;
+  line-height: 1.65;
+
+  color: #718096;
+}
+
+
+/* =========================================================
+   CARD BUTTON
+   ========================================================= */
+
+.individual-option-btn {
+  width: 100%;
+  min-height: 44px;
+
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 0 18px;
+
+  background: #d71920;
+  color: #ffffff;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.individual-option-btn:hover {
+  background: #bd1118;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 18px rgba(215, 25, 32, 0.18);
+}
+
+
+.individual-option-btn span {
+  font-size: 15px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .individual-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(350px, 0.85fr);
+
+    padding: 80px 5%;
+    gap: 45px;
+  }
+
+
+  .individual-hero-content h1 {
+    font-size: clamp(44px, 5.2vw, 64px);
+  }
+
+
+  .individual-hero-image-wrap {
+    width: min(100%, 480px);
+  }
+
+
+  .individual-options {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .individual-hero {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+
+    padding: 70px 6% 75px;
+
+    gap: 50px;
+  }
+
+
+  .individual-hero-content {
+    max-width: 700px;
+    margin: 0;
+  }
+
+
+  .individual-hero-content h1 {
+    font-size: clamp(46px, 8vw, 64px);
+  }
+
+
+  .individual-hero-visual {
+    justify-content: flex-start;
+  }
+
+
+  .individual-hero-image-wrap {
+    width: min(100%, 600px);
+  }
+
+
+  .individual-option-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .individual-hero {
+    padding: 48px 22px 55px;
+
+    gap: 38px;
+  }
+
+
+  .individual-eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 9px;
+    letter-spacing: 1.6px;
+  }
+
+
+  .individual-hero-content h1 {
+    font-size: clamp(39px, 11vw, 52px);
+
+    line-height: 1.02;
+    letter-spacing: -2px;
+  }
+
+
+  .individual-hero-content p {
+    margin-top: 20px;
+
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+
+  .individual-hero-buttons {
+    width: 100%;
+
+    margin-top: 26px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 10px;
+  }
+
+
+  .individual-primary-btn,
+  .individual-secondary-btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+
+  .individual-hero-visual {
+    width: 100%;
+    justify-content: center;
+  }
+
+
+  .individual-hero-image-wrap {
+    width: 100%;
+    max-width: 420px;
+  }
+
+
+  .individual-hero-image {
+    width: 100%;
+    max-height: 360px;
+  }
+
+
+  /* =====================================================
+     SECOND SECTION
+     ===================================================== */
+
+  .individual-options {
+    padding: 65px 20px 75px;
+  }
+
+
+  .individual-heading {
+    max-width: 100%;
+  }
+
+
+  .individual-heading h2 {
+    font-size: clamp(36px, 10vw, 46px);
+
+    line-height: 1.02;
+    letter-spacing: -1.8px;
+  }
+
+
+  .individual-heading p {
+    margin-top: 18px;
+
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+
+  .individual-option-grid {
+    margin-top: 34px;
+
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+
+  .individual-option-card {
+    min-height: 0;
+
+    padding: 26px 22px 22px;
+
+    border-radius: 17px;
+  }
+
+
+  .individual-option-number {
+    top: 25px;
+    right: 23px;
+  }
+
+
+  .individual-option-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 21px;
+
+    border-radius: 13px;
+  }
+
+
+  .individual-option-card h3 {
+    font-size: 25px;
+    line-height: 1.08;
+  }
+
+
+  .individual-option-card p {
+    margin-top: 15px;
+    margin-bottom: 24px;
+
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+
+  .individual-option-btn {
+    min-height: 46px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .individual-hero {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+
+  .individual-options {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  .individual-hero-content h1 {
+    font-size: 37px;
+  }
+
+
+  .individual-option-card {
+    padding: 23px 19px 19px;
+  }
+
+
+  .individual-option-card h3 {
+    font-size: 23px;
+  }
+
+}
+
+
+
+/* =========================================================
+   INDIVIDUAL PAGE
+   SECOND SECTION OVERRIDE
+   ========================================================= */
+
+/* ---------- SECOND SECTION HEADING LEFT ALIGN ---------- */
+
+.individual-options .individual-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.individual-options .individual-heading {
+  width: 100%;
+  max-width: 760px;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+
+.individual-options .individual-heading .individual-eyebrow {
+  text-align: left;
+  margin-left: 0;
+}
+
+
+.individual-options .individual-heading h2 {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+.individual-options .individual-heading p {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.individual-option-grid {
+  align-items: stretch;
+}
+
+
+.individual-option-card {
+  height: 100%;
+  min-height: 390px;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.individual-option-card p {
+  margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.individual-option-btn {
+  width: 100%;
+  min-height: 46px;
+
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background: #d71920;
+  color: #ffffff;
+
+  border: 1px solid #d71920;
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   GOLD HOVER
+   SAME FEEL AS HEADER "TALK TO CBA"
+   ========================================================= */
+
+.individual-option-btn:hover {
+  background: #e6bf24;
+  border-color: #e6bf24;
+  color: #111827;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 8px 20px rgba(230, 191, 36, 0.20);
+}
+
+
+.individual-option-btn span {
+  transition: transform 0.25s ease;
+}
+
+
+.individual-option-btn:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .individual-options .individual-heading {
+    max-width: 700px;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  .individual-options .individual-heading h2,
+  .individual-options .individual-heading p,
+  .individual-options .individual-heading .individual-eyebrow {
+    text-align: left;
+  }
+
+  .individual-option-card {
+    min-height: 350px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .individual-options .individual-container {
+    width: 100%;
+  }
+
+  .individual-options .individual-heading {
+    width: 100%;
+    max-width: none;
+
+    margin-left: 0;
+    margin-right: 0;
+
+    text-align: left;
+  }
+
+  .individual-options .individual-heading h2,
+  .individual-options .individual-heading p,
+  .individual-options .individual-heading .individual-eyebrow {
+    text-align: left;
+  }
+
+  .individual-option-grid {
+    width: 100%;
+  }
+
+  .individual-option-card {
+    width: 100%;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .individual-option-btn {
+    width: 100%;
+    min-height: 47px;
+
+    margin-top: auto;
+  }
+
+}
+
+
+
+
+
+
+
+/* =========================================================
+   INDIVIDUAL PAGE - FINAL DESKTOP + TABLET + MOBILE OVERRIDE
+   ONLY HERO + SECOND SECTION
+   ========================================================= */
+
+
+/* =========================================================
+   01. HERO SECTION
+   ========================================================= */
+
+.individual-page .individual-hero {
+  width: 100%;
+  min-height: 650px;
+
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.85fr) !important;
+  align-items: left !important;
+
+  gap: 60px !important;
+
+  padding: 200px 6vw !important;
+  box-sizing: border-box !important;
+
+  text-align: left !important;
+}
+
+
+/* LEFT CONTENT */
+
+.individual-page .individual-hero-content {
+  width: 100% !important;
+  max-width: 680px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: left !important;
+
+  justify-self: start !important;
+  align-self: center !important;
+}
+
+
+/* EYEBROW */
+
+.individual-page .individual-hero-content .service-eyebrow {
+  display: block !important;
+
+  margin: 0 0 20px !important;
+
+  text-align: left !important;
+}
+
+
+/* HEADING */
+
+.individual-page .individual-hero-content h1 {
+  margin: 0 0 24px !important;
+
+  text-align: left !important;
+
+  max-width: 680px !important;
+}
+
+
+/* DESCRIPTION */
+
+.individual-page .individual-hero-content > p {
+  max-width: 620px !important;
+
+  margin: 0 0 30px !important;
+
+  text-align: left !important;
+}
+
+
+/* HERO BUTTONS */
+
+.individual-page .individual-hero-buttons {
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  gap: 14px !important;
+
+  margin: 0 !important;
+
+  text-align: left !important;
+}
+
+
+/* PRIMARY BUTTON */
+
+.individual-page .individual-primary-btn {
+  display: inline-flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-height: 48px !important;
+
+  padding: 0 24px !important;
+
+  border-radius: 8px !important;
+
+  white-space: nowrap !important;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+
+/* GOLD HOVER */
+
+.individual-page .individual-primary-btn:hover {
+  background: #e7bf27 !important;
+  color: #111827 !important;
+
+  transform: translateY(-2px) !important;
+}
+
+
+/* SECONDARY BUTTON */
+
+.individual-page .individual-secondary-btn {
+  display: inline-flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-height: 48px !important;
+
+  padding: 0 24px !important;
+
+  border-radius: 8px !important;
+
+  white-space: nowrap !important;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+
+/* SECONDARY GOLD HOVER */
+
+.individual-page .individual-secondary-btn:hover {
+  background: #e7bf27 !important;
+  border-color: #e7bf27 !important;
+  color: #111827 !important;
+
+  transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   HERO RIGHT IMAGE
+   ========================================================= */
+
+.individual-page .individual-hero-visual {
+  width: 100% !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: right !important;
+
+  justify-self: end !important;
+}
+
+
+.individual-page .individual-hero-image-wrap {
+  width: min(100%, 560px) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+
+.individual-page .individual-hero-image {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 560px !important;
+
+  height: auto !important;
+
+  object-fit: contain !important;
+
+  margin: 0 !important;
+}
+
+
+/* =========================================================
+   02. SECOND SECTION
+   ========================================================= */
+
+.individual-page .individual-options {
+  width: 100% !important;
+
+  padding: 90px 6vw !important;
+
+  box-sizing: border-box !important;
+
+  text-align: left !important;
+}
+
+
+/* SECOND SECTION CONTAINER */
+
+.individual-page .individual-container {
+  width: 100% !important;
+
+  max-width: 1320px !important;
+
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  text-align: left !important;
+}
+
+
+/* HEADING */
+
+.individual-page .individual-heading {
+  width: 100% !important;
+
+  max-width: 850px !important;
+
+  margin: 0 0 55px !important;
+
+  text-align: left !important;
+}
+
+
+.individual-page .individual-heading .service-eyebrow {
+  display: block !important;
+
+  margin: 0 0 18px !important;
+
+  text-align: left !important;
+}
+
+
+.individual-page .individual-heading h2 {
+  margin: 0 0 18px !important;
+
+  max-width: 850px !important;
+
+  text-align: left !important;
+}
+
+
+.individual-page .individual-heading p {
+  max-width: 700px !important;
+
+  margin: 0 !important;
+
+  text-align: left !important;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.individual-page .individual-option-grid {
+  width: 100% !important;
+
+  display: grid !important;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+  gap: 22px !important;
+
+  margin: 0 !important;
+}
+
+
+/* CARD */
+
+.individual-page .individual-option-card {
+  position: relative !important;
+
+  width: 100% !important;
+  min-height: 390px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+
+  box-sizing: border-box !important;
+
+  padding: 30px !important;
+
+  border-radius: 20px !important;
+
+  text-align: left !important;
+
+  text-decoration: none !important;
+
+  overflow: hidden !important;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease !important;
+}
+
+
+/* CARD HOVER */
+
+.individual-page .individual-option-card:hover {
+  transform: translateY(-5px) !important;
+
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.10) !important;
+}
+
+
+/* NUMBER */
+
+.individual-page .individual-option-number {
+  position: absolute !important;
+
+  top: 30px !important;
+  right: 30px !important;
+
+  margin: 0 !important;
+}
+
+
+/* ICON */
+
+.individual-page .individual-option-icon {
+  flex-shrink: 0 !important;
+
+  margin: 0 0 28px !important;
+}
+
+
+/* LABEL */
+
+.individual-page .individual-option-label {
+  display: block !important;
+
+  margin: 0 0 12px !important;
+
+  text-align: left !important;
+}
+
+
+/* CARD HEADING */
+
+.individual-page .individual-option-card h3 {
+  margin: 0 0 16px !important;
+
+  max-width: 430px !important;
+
+  text-align: left !important;
+}
+
+
+/* CARD DESCRIPTION */
+
+.individual-page .individual-option-card > p {
+  width: 100% !important;
+
+  max-width: 560px !important;
+
+  margin: 0 !important;
+
+  text-align: left !important;
+
+  line-height: 1.7 !important;
+}
+
+
+/* =========================================================
+   CARD BUTTON
+   ========================================================= */
+
+.individual-page .individual-option-link {
+  width: 100% !important;
+
+  min-height: 52px !important;
+
+  margin-top: auto !important;
+
+  padding: 0 22px !important;
+
+  box-sizing: border-box !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 10px !important;
+
+  border-radius: 7px !important;
+
+  text-align: center !important;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+
+/* CARD BUTTON GOLD HOVER */
+
+.individual-page .individual-option-card:hover .individual-option-link {
+  background: #e7bf27 !important;
+  color: #111827 !important;
+
+  transform: translateY(-1px) !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .individual-page .individual-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.8fr) !important;
+
+    gap: 35px !important;
+
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+
+  .individual-page .individual-hero-image {
+    max-width: 480px !important;
+  }
+
+
+  .individual-page .individual-options {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .individual-page .individual-hero {
+    grid-template-columns: 1fr !important;
+
+    min-height: auto !important;
+
+    gap: 50px !important;
+
+    padding-top: 200px !important;
+    padding-bottom: 70px !important;
+  }
+
+
+  .individual-page .individual-hero-content {
+    max-width: 720px !important;
+
+    justify-self: start !important;
+  }
+
+
+  .individual-page .individual-hero-visual {
+    justify-self: end !important;
+
+    justify-content: flex-end !important;
+  }
+
+
+  .individual-page .individual-hero-image-wrap {
+    max-width: 520px !important;
+  }
+
+
+  .individual-page .individual-option-grid {
+    grid-template-columns: 1fr !important;
+
+    gap: 20px !important;
+  }
+
+
+  .individual-page .individual-option-card {
+    min-height: 350px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  /* HERO */
+
+  .individual-page .individual-hero {
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    gap: 35px !important;
+
+    padding:180px 20px 50px !important;
+
+    text-align: left !important;
+  }
+
+
+  .individual-page .individual-hero-content {
+    width: 100% !important;
+
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    text-align: left !important;
+  }
+
+
+  .individual-page .individual-hero-content .service-eyebrow {
+    margin-bottom: 15px !important;
+  }
+
+
+  .individual-page .individual-hero-content h1 {
+    font-size: clamp(38px, 10vw, 52px) !important;
+
+    line-height: 1.05 !important;
+
+    margin-bottom: 20px !important;
+  }
+
+
+  .individual-page .individual-hero-content > p {
+    font-size: 15px !important;
+
+    line-height: 1.7 !important;
+
+    margin-bottom: 25px !important;
+  }
+
+
+  /* MOBILE BUTTONS */
+
+  .individual-page .individual-hero-buttons {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    gap: 12px !important;
+  }
+
+
+  .individual-page .individual-primary-btn,
+  .individual-page .individual-secondary-btn {
+    width: 100% !important;
+
+    min-height: 50px !important;
+
+    box-sizing: border-box !important;
+  }
+
+
+  /* MOBILE IMAGE */
+
+  .individual-page .individual-hero-visual {
+    width: 100% !important;
+
+    justify-content: center !important;
+
+    justify-self: auto !important;
+
+    margin: 0 !important;
+  }
+
+
+  .individual-page .individual-hero-image-wrap {
+    width: 100% !important;
+
+    max-width: 420px !important;
+
+    margin: 0 auto !important;
+
+    justify-content: center !important;
+  }
+
+
+  .individual-page .individual-hero-image {
+    width: 100% !important;
+
+    max-width: 420px !important;
+  }
+
+
+  /* SECOND SECTION */
+
+  .individual-page .individual-options {
+    padding: 60px 20px !important;
+
+    text-align: left !important;
+  }
+
+
+  .individual-page .individual-heading {
+    margin-bottom: 35px !important;
+
+    text-align: left !important;
+  }
+
+
+  .individual-page .individual-heading h2 {
+    font-size: clamp(34px, 9vw, 46px) !important;
+
+    line-height: 1.08 !important;
+
+    margin-bottom: 16px !important;
+
+    text-align: left !important;
+  }
+
+
+  .individual-page .individual-heading p {
+    font-size: 15px !important;
+
+    line-height: 1.7 !important;
+
+    text-align: left !important;
+  }
+
+
+  /* CARDS */
+
+  .individual-page .individual-option-grid {
+    display: flex !important;
+    flex-direction: column !important;
+
+    gap: 18px !important;
+  }
+
+
+  .individual-page .individual-option-card {
+    width: 100% !important;
+
+    min-height: 390px !important;
+
+    padding: 25px !important;
+
+    border-radius: 18px !important;
+  }
+
+
+  .individual-page .individual-option-number {
+    top: 25px !important;
+    right: 25px !important;
+  }
+
+
+  .individual-page .individual-option-icon {
+    margin-bottom: 25px !important;
+  }
+
+
+  .individual-page .individual-option-card h3 {
+    font-size: 30px !important;
+
+    line-height: 1.1 !important;
+
+    margin-bottom: 14px !important;
+  }
+
+
+  .individual-page .individual-option-card > p {
+    font-size: 14px !important;
+
+    line-height: 1.65 !important;
+  }
+
+
+  /* BUTTON */
+
+  .individual-page .individual-option-link {
+    width: 100% !important;
+
+    min-height: 52px !important;
+
+    margin-top: auto !important;
+
+    font-size: 12px !important;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .individual-page .individual-hero {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+
+  .individual-page .individual-options {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+
+  .individual-page .individual-option-card {
+    padding: 22px !important;
+  }
+
+
+  .individual-page .individual-option-number {
+    top: 22px !important;
+    right: 22px !important;
+  }
+
+
+  .individual-page .individual-option-card h3 {
+    font-size: 27px !important;
+  }
+
+}

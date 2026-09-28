@@ -515,55 +515,17 @@ export default function BusinessChequeMisusePage() {
 
         <div className="business-misuse-hero-visual">
 
-          <div className="business-misuse-visual-card">
+  <div className="business-misuse-hero-image-wrap">
 
-            <div className="business-misuse-visual-top">
+    <img
+      src="/business-cheque-misuse.png"
+      alt="Business cheque misuse assistance"
+      className="business-misuse-hero-image"
+    />
 
-              <span>
-                BUSINESS CHEQUE
-              </span>
+  </div>
 
-              <span>
-                SECURITY / MISUSE
-              </span>
-
-            </div>
-
-
-            <div className="business-misuse-cheque">
-
-              <div className="business-misuse-cheque-title">
-                BUSINESS CHEQUE
-              </div>
-
-
-              <div className="business-misuse-line large" />
-
-              <div className="business-misuse-line" />
-
-              <div className="business-misuse-line short" />
-
-
-              <div className="business-misuse-stamp">
-                MISUSE
-              </div>
-
-            </div>
-
-
-            <div className="business-misuse-visual-footer">
-
-              <span>
-                !
-              </span>
-
-              Cheque-related concern
-
-            </div>
-
-          </div>
-
-        </div>
+</div>
 
       </section>
 
@@ -1100,156 +1062,145 @@ export default function BusinessChequeMisusePage() {
 
 
 
-            {/* =================================================
-                06 DOCUMENTS
-            ================================================= */}
+           {/* =================================================
+    06 DOCUMENTS
+================================================= */}
 
-            <div className="business-misuse-section-title">
+<div className="business-misuse-section-title">
 
-              <span>
-                06
-              </span>
+  <span>
+    06
+  </span>
 
-              Supporting Documents
+  Supporting Documents
+
+</div>
+
+
+<div className="business-misuse-field business-misuse-full-field">
+
+  <label>
+    Upload Relevant Documents
+    <span>
+      (Optional)
+    </span>
+  </label>
+
+
+  {/* =================================================
+      HIDDEN FILE INPUT
+  ================================================= */}
+
+  <input
+    id="business-misuse-documents"
+    type="file"
+    multiple
+    hidden
+    onChange={(e) => {
+      addDocuments(e.target.files);
+
+      // Same file ko dobara select karne ki permission
+      e.target.value = "";
+    }}
+  />
+
+
+  {/* =================================================
+      DRAG & DROP / CLICK AREA
+  ================================================= */}
+
+  <div
+    className={`business-document-dropzone ${
+      isDragging ? "dragging" : ""
+    }`}
+
+    onDragEnter={handleDragEnter}
+
+    onDragOver={handleDragOver}
+
+    onDragLeave={handleDragLeave}
+
+    onDrop={handleDrop}
+  >
+
+    <label
+      htmlFor="business-misuse-documents"
+      className="business-document-upload-content"
+    >
+
+      <div className="business-document-plus">
+        +
+      </div>
+
+      <strong>
+        Drag & Drop Documents Here
+      </strong>
+
+      <span>
+        or click to browse files
+      </span>
+
+    </label>
+
+  </div>
+
+
+  {/* =================================================
+      DOCUMENT LIST
+  ================================================= */}
+
+  {documents.length > 0 && (
+
+    <div className="business-document-list">
+
+      {documents.map((file, index) => (
+
+        <div
+          className="business-document-item"
+          key={`${file.name}-${file.size}-${file.lastModified}-${index}`}
+        >
+
+          <div className="business-document-info">
+
+            <div className="business-document-icon">
+              📄
+            </div>
+
+            <div>
+
+              <strong>
+                {file.name}
+              </strong>
+
+              <small>
+                {(file.size / 1024 / 1024).toFixed(2)}
+                {" "}
+                MB
+              </small>
 
             </div>
 
-
-            <div className="business-misuse-field business-misuse-full-field">
-
-              <label>
-                Upload Relevant Documents
-                <span>
-                  (Optional)
-                </span>
-              </label>
+          </div>
 
 
-              {/* =================================================
-                  DRAG & DROP AREA
-              ================================================= */}
+          <button
+            type="button"
+            className="business-document-remove"
+            onClick={() => removeDocument(index)}
+            aria-label={`Remove ${file.name}`}
+          >
+            ×
+          </button>
 
-              <div
-                className={`business-document-dropzone ${
-                  isDragging
-                    ? "dragging"
-                    : ""
-                }`}
+        </div>
 
-                onDragEnter={
-                  handleDragEnter
-                }
+      ))}
 
-                onDragOver={
-                  handleDragOver
-                }
+    </div>
 
-                onDragLeave={
-                  handleDragLeave
-                }
+  )}
 
-                onDrop={
-                  handleDrop
-                }
-              >
-
-
-                <div className="business-document-plus">
-                  +
-                </div>
-
-
-                <strong>
-                  Drag & Drop Documents Here
-                </strong>
-
-
-                <span>
-                  or click to browse files
-                </span>
-
-
-                
-
-
-                
-
-              </div>
-
-
-
-              {/* =================================================
-                  DOCUMENT LIST
-              ================================================= */}
-
-              {documents.length > 0 && (
-
-                <div className="business-document-list">
-
-
-                  {documents.map(
-                    (file, index) => (
-
-                      <div
-                        className="business-document-item"
-                        key={`${file.name}-${file.size}-${file.lastModified}-${index}`}
-                      >
-
-
-                        <div className="business-document-info">
-
-                          <div className="business-document-icon">
-                            📄
-                          </div>
-
-
-                          <div>
-
-                            <strong>
-                              {file.name}
-                            </strong>
-
-
-                            <small>
-                              {(
-                                file.size /
-                                1024 /
-                                1024
-                              ).toFixed(2)}
-                              {" "}
-                              MB
-                            </small>
-
-                          </div>
-
-                        </div>
-
-
-                        <button
-                          type="button"
-                          className="business-document-remove"
-                          onClick={() =>
-                            removeDocument(index)
-                          }
-                          aria-label={`Remove ${file.name}`}
-                        >
-                          ×
-                        </button>
-
-
-                      </div>
-
-                    )
-                  )}
-
-                </div>
-
-              )}
-
-            </div>
-
-
-
+</div>
             {/* =================================================
                 07 CONFIRMATION
             ================================================= */}

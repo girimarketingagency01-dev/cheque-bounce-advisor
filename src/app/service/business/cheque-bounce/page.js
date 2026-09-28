@@ -827,59 +827,23 @@ export default function BusinessChequeBouncePage() {
         </div>
 
 
-        {/* ===================================================
-            RIGHT VISUAL
-        =================================================== */}
+        {/* =====================================================
+    HERO VISUAL
+===================================================== */}
 
-        <div className="business-bounce-hero-visual">
+<div className="business-bounce-hero-visual">
 
-          <div className="business-bounce-visual-card">
+  <div className="business-bounce-hero-image-wrap">
 
-            <div className="business-bounce-visual-top">
+    <img
+      src="/business-cheque-bounce.png"
+      alt="Business cheque bounce assistance"
+      className="business-bounce-hero-image"
+    />
 
-              <span>
-                CORPORATE RECEIVABLE
-              </span>
+  </div>
 
-              <span>
-                CHEQUE BOUNCE
-              </span>
-
-            </div>
-
-
-            <div className="business-bounce-cheque">
-
-              <div className="business-bounce-cheque-title">
-                BUSINESS PAYMENT
-              </div>
-
-              <div className="business-bounce-line large"></div>
-
-              <div className="business-bounce-line"></div>
-
-              <div className="business-bounce-line short"></div>
-
-
-              <div className="business-bounce-stamp">
-                BOUNCED
-              </div>
-
-            </div>
-
-
-            <div className="business-bounce-visual-footer">
-
-              <span>!</span>
-
-              BUSINESS PAYMENT ISSUE
-
-            </div>
-
-          </div>
-
-        </div>
-
+</div>
       </section>
 
 

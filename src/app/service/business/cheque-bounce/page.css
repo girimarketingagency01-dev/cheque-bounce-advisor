@@ -1190,3 +1190,124 @@
   }
 
 }
+
+
+
+
+
+
+
+/* =========================================================
+   BUSINESS CHEQUE BOUNCE HERO IMAGE
+========================================================= */
+
+.business-bounce-hero-visual {
+  width: 100% !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  overflow: visible !important;
+}
+
+.business-bounce-hero-image-wrap {
+  width: 100% !important;
+  max-width: 620px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+}
+
+.business-bounce-hero-image {
+  display: block !important;
+
+  width: 620px !important;
+  max-width: 100% !important;
+  height: auto !important;
+
+  object-fit: contain !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .business-bounce-hero-image-wrap {
+    max-width: 500px !important;
+  }
+
+  .business-bounce-hero-image {
+    width: 500px !important;
+    max-width: 100% !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .business-bounce-hero-visual {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  .business-bounce-hero-image-wrap {
+    width: 100% !important;
+    max-width: 480px !important;
+
+    justify-content: center !important;
+  }
+
+  .business-bounce-hero-image {
+    width: 100% !important;
+    max-width: 480px !important;
+    height: auto !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .business-bounce-hero-image-wrap {
+    max-width: 100% !important;
+  }
+
+  .business-bounce-hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+}

@@ -1606,3 +1606,69 @@
   box-shadow:
     0 8px 20px rgba(223, 183, 47, 0.22) !important;
 }
+
+/* =================================================
+   BUSINESS MISUSE DOCUMENT UPLOAD
+================================================= */
+
+.business-misuse-page .business-document-upload-content {
+  width: 100%;
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  cursor: pointer;
+}
+
+
+/* PLUS ICON */
+
+.business-misuse-page .business-document-plus {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  border-radius: 50%;
+
+  background: #d71920;
+  color: #fff;
+
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+
+/* MAIN TEXT */
+
+.business-misuse-page .business-document-upload-content strong {
+  display: block;
+
+  margin: 0 0 6px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #151b2b;
+}
+
+
+/* BROWSE TEXT */
+
+.business-misuse-page .business-document-upload-content span {
+  display: block;
+
+  margin: 0;
+
+  font-size: 13px;
+  color: #8a91a0;
+}

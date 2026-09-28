@@ -426,58 +426,23 @@ export default function BankNbfcChequeMisusePage() {
             HERO VISUAL
         ================================================= */}
 
-        <div className="bank-misuse-hero-visual">
+        {/* =====================================================
+    HERO IMAGE
+===================================================== */}
 
-          <div className="bank-misuse-visual-card">
+<div className="bank-misuse-hero-visual">
 
-            <div className="bank-misuse-visual-top">
+  <div className="bank-misuse-hero-image-wrap">
 
-              <span>
-                BANK / NBFC
-              </span>
+    <img
+      src="/bank-nbfc-cheque-misuse.png"
+      alt="Bank and NBFC cheque misuse assistance"
+      className="bank-misuse-hero-image"
+    />
 
-              <span>
-                CASE REVIEW
-              </span>
+  </div>
 
-            </div>
-
-
-            <div className="bank-misuse-cheque">
-
-              <div className="bank-misuse-cheque-title">
-                CHEQUE MISUSE
-              </div>
-
-              <div className="bank-misuse-line" />
-
-              <div className="bank-misuse-line large" />
-
-              <div className="bank-misuse-line short" />
-
-              <div className="bank-misuse-stamp">
-                DISPUTED
-              </div>
-
-            </div>
-
-
-            <div className="bank-misuse-visual-footer">
-
-              <span>01</span>
-              CASE REVIEW
-
-              <span>02</span>
-              DOCUMENT CHECK
-
-              <span>03</span>
-              ACTION SUPPORT
-
-            </div>
-
-          </div>
-
-        </div>
+</div>
 
       </section>
 
@@ -1096,33 +1061,30 @@ export default function BankNbfcChequeMisusePage() {
             ================================================= */}
 
             <div className="bank-misuse-section-title">
-
-              <span>
-                06
-              </span>
-
+              <span>06</span>
               Supporting Documents
-
             </div>
 
-
-            <div className="bank-misuse-field full-field">
+            <div className="bank-misuse-field bank-misuse-full-field">
 
               <label>
                 Upload Relevant Documents
-                <span>
-                  (Optional)
-                </span>
+                <span>(Optional)</span>
               </label>
-
 
               <div
                 className={`bank-misuse-document-dropzone ${
                   dragging ? "dragging" : ""
                 }`}
+                onDragEnter={handleDragOver}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}
                 onDrop={handleDrop}
+                onClick={() =>
+                  document
+                    .getElementById("bank-misuse-document-upload")
+                    ?.click()
+                }
               >
 
                 <div className="bank-misuse-document-plus">
@@ -1134,17 +1096,8 @@ export default function BankNbfcChequeMisusePage() {
                 </strong>
 
                 <span>
-                  or
+                  or click to browse files
                 </span>
-
-
-                <label
-                  htmlFor="bank-misuse-document-upload"
-                  className="bank-misuse-document-add-btn"
-                >
-                  + Add More Documents
-                </label>
-
 
                 <input
                   id="bank-misuse-document-upload"
@@ -1152,22 +1105,10 @@ export default function BankNbfcChequeMisusePage() {
                   multiple
                   hidden
                   onChange={handleDocumentsChange}
-                  accept={ACCEPTED_TYPES}
+                  accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
                 />
 
-
-                <small>
-                  You can upload multiple cheque, return memo,
-                  bank statement, loan documents, notices and
-                  other supporting documents.
-                </small>
-
               </div>
-
-
-              {/* =================================================
-                  DOCUMENT LIST
-              ================================================= */}
 
               {documents.length > 0 && (
 
@@ -1200,11 +1141,13 @@ export default function BankNbfcChequeMisusePage() {
 
                       </div>
 
-
                       <button
                         type="button"
                         className="bank-misuse-document-remove"
-                        onClick={() => removeDocument(index)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          removeDocument(index);
+                        }}
                         aria-label={`Remove ${file.name}`}
                       >
                         ×

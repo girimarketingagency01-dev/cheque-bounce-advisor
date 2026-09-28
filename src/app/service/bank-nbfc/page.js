@@ -33,20 +33,14 @@ export default function BankNbfcPage() {
           <div className="bank-nbfc-hero-buttons">
 
             <Link
-              href="/service/bank-nbfc/cheque-bounce"
+              href="/service/contact/"
               className="bank-nbfc-primary-btn"
             >
-              Cheque Bounce Assistance
+              TALK TO CBA
               <span>→</span>
             </Link>
 
-            <Link
-              href="/service/bank-nbfc/cheque-misuse"
-              className="bank-nbfc-secondary-btn"
-            >
-              Cheque Misuse Assistance
-              <span>→</span>
-            </Link>
+            
 
           </div>
 
@@ -59,72 +53,13 @@ export default function BankNbfcPage() {
 
         <div className="bank-nbfc-hero-visual">
 
-          <div className="bank-nbfc-visual-card">
+  <img
+    src="/bank-nbfc-hero.png"
+    alt="Bank and NBFC cheque assistance"
+    className="bank-nbfc-hero-image"
+  />
 
-            <div className="bank-nbfc-visual-top">
-
-              <span>
-                FINANCIAL INSTITUTION
-              </span>
-
-              <span>
-                CBA
-              </span>
-
-            </div>
-
-
-            <div className="bank-nbfc-visual-content">
-
-              <div className="bank-nbfc-document">
-
-                <div className="bank-nbfc-document-header">
-
-                  <span>
-                    CHEQUE ASSISTANCE
-                  </span>
-
-                  <span>
-                    BANK / NBFC
-                  </span>
-
-                </div>
-
-
-                <div className="bank-nbfc-document-line large"></div>
-
-                <div className="bank-nbfc-document-line"></div>
-
-                <div className="bank-nbfc-document-row">
-
-                  <div className="bank-nbfc-document-line short"></div>
-
-                  <div className="bank-nbfc-document-line amount"></div>
-
-                </div>
-
-
-                <div className="bank-nbfc-document-stamp">
-                  ASSISTANCE
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div className="bank-nbfc-visual-footer">
-
-              <span>✓</span>
-
-              Structured Case Assistance
-
-            </div>
-
-          </div>
-
-        </div>
-
+</div>
       </section>
 
 

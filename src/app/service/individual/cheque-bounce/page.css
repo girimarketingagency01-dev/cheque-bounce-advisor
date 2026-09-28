@@ -1,0 +1,355 @@
+/* =========================================================
+   INDIVIDUAL CHEQUE BOUNCE
+   HERO SECTION - FINAL OVERRIDE
+========================================================= */
+
+.bounce-page .bounce-hero {
+  position: relative !important;
+
+  display: grid !important;
+  grid-template-columns: 52% 48% !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  min-height: 560px !important;
+
+  margin: 100px 0 0 !important;
+  padding: 120px 100px !important;
+
+  align-items: center !important;
+
+  background: #ffffff !important;
+
+  overflow: hidden !important;
+}
+
+
+/* REMOVE ANY GLOBAL HERO EFFECT / GRADIENT */
+
+.bounce-page .bounce-hero::before,
+.bounce-page .bounce-hero::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.bounce-page .bounce-hero-content {
+  position: relative !important;
+  z-index: 2 !important;
+
+  width: 100% !important;
+  max-width: 650px !important;
+
+  margin: -10 !important;
+
+  /* LEFT POSITION */
+  padding-left: clamp(40px, 7vw, 110px) !important;
+  padding-right: 20px !important;
+
+  text-align: left !important;
+
+  justify-self: start !important;
+}
+
+
+/* Eyebrow */
+
+.bounce-page .bounce-hero-content .service-eyebrow {
+  display: block !important;
+
+  margin-bottom: 26px !important;
+
+  text-align: left !important;
+}
+
+
+/* Heading */
+
+.bounce-page .bounce-hero-content h1 {
+  margin: 0 0 22px !important;
+
+  text-align: left !important;
+}
+
+
+/* Paragraph */
+
+.bounce-page .bounce-hero-content p {
+  max-width: 560px !important;
+
+  margin: 0 0 30px !important;
+
+  text-align: left !important;
+}
+
+
+/* Button */
+
+.bounce-page .bounce-hero-btn {
+  display: inline-flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+
+  margin: 0 !important;
+
+  text-decoration: none !important;
+}
+
+
+/* =========================================================
+   RIGHT IMAGE AREA
+========================================================= */
+
+.bounce-page .individual-bounce-hero-visual {
+  position: relative !important;
+  z-index: 1 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  background: #ffffff !important;
+  background-image: none !important;
+
+  border: none !important;
+  box-shadow: none !important;
+
+  justify-self: end !important;
+}
+
+
+/* IMAGE WRAPPER */
+
+.bounce-page .individual-bounce-hero-image-wrap {
+  position: relative !important;
+
+  width: 100% !important;
+
+  /* IMAGE SIZE */
+  max-width: 650px !important;
+
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  background: #ffffff !important;
+  background-image: none !important;
+
+  border: none !important;
+  box-shadow: none !important;
+
+  overflow: visible !important;
+}
+
+
+/* ACTUAL IMAGE */
+
+.bounce-page img.individual-bounce-hero-image {
+  display: block !important;
+
+  width: 100% !important;
+
+  /* BADA IMAGE */
+  max-width: 650px !important;
+
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: contain !important;
+
+  background: transparent !important;
+  background-color: transparent !important;
+
+  border: none !important;
+  box-shadow: none !important;
+
+  transform: none !important;
+}
+
+
+/* =========================================================
+   EXTRA LARGE SCREEN
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .bounce-page .bounce-hero {
+    grid-template-columns: 51% 49% !important;
+
+    min-height: 600px !important;
+
+    padding-top: 70px !important;
+    padding-bottom: 80px !important;
+  }
+
+
+  .bounce-page .bounce-hero-content {
+    padding-left: 7vw !important;
+  }
+
+
+  .bounce-page .individual-bounce-hero-image-wrap {
+    max-width: 700px !important;
+  }
+
+
+  .bounce-page img.individual-bounce-hero-image {
+    max-width: 700px !important;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .bounce-page .bounce-hero {
+    grid-template-columns: 52% 48% !important;
+
+    min-height: 500px !important;
+
+    padding: 55px 0 !important;
+  }
+
+
+  .bounce-page .bounce-hero-content {
+    padding-left: 45px !important;
+    padding-right: 15px !important;
+  }
+
+
+  .bounce-page .individual-bounce-hero-image-wrap {
+    max-width: 520px !important;
+  }
+
+
+  .bounce-page img.individual-bounce-hero-image {
+    max-width: 520px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .bounce-page .bounce-hero {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    min-height: auto !important;
+
+    padding: 50px 25px 60px !important;
+
+    gap: 45px !important;
+
+    align-items: stretch !important;
+
+    background: #ffffff !important;
+  }
+
+
+  .bounce-page .bounce-hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding: 0 !important;
+
+    text-align: left !important;
+  }
+
+
+  .bounce-page .bounce-hero-content h1 {
+    text-align: left !important;
+  }
+
+
+  .bounce-page .bounce-hero-content p {
+    text-align: left !important;
+  }
+
+
+  .bounce-page .individual-bounce-hero-visual {
+    width: 100% !important;
+
+    height: auto !important;
+
+    justify-content: center !important;
+
+    background: #ffffff !important;
+  }
+
+
+  .bounce-page .individual-bounce-hero-image-wrap {
+    width: 100% !important;
+
+    max-width: 500px !important;
+
+    justify-content: center !important;
+
+    background: #ffffff !important;
+  }
+
+
+  .bounce-page img.individual-bounce-hero-image {
+    width: 100% !important;
+
+    max-width: 500px !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .bounce-page .bounce-hero {
+    padding: 40px 20px 50px !important;
+
+    gap: 35px !important;
+  }
+
+
+  .bounce-page .individual-bounce-hero-image-wrap {
+    max-width: 100% !important;
+  }
+
+
+  .bounce-page img.individual-bounce-hero-image {
+    max-width: 100% !important;
+  }
+
+}

@@ -1426,3 +1426,368 @@
   }
 
 }
+
+/* =========================================================
+   BANK / NBFC CHEQUE MISUSE HERO IMAGE
+========================================================= */
+
+.bank-misuse-hero-visual {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  overflow: visible !important;
+}
+
+.bank-misuse-hero-image-wrap {
+  width: 100% !important;
+  max-width: 560px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  overflow: visible !important;
+}
+
+.bank-misuse-hero-image {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 560px !important;
+  height: auto !important;
+
+  object-fit: contain !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  transform: none !important;
+}
+
+
+
+
+/* =========================================================
+   BANK / NBFC CHEQUE MISUSE
+   DOCUMENT UPLOAD
+========================================================= */
+
+.bank-misuse-document-dropzone {
+  width: 100%;
+  min-height: 210px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1.5px dashed #d6d6d6;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  padding: 35px 25px;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bank-misuse-document-dropzone:hover {
+  border-color: #b99245;
+  background: #fffdf8;
+}
+
+
+/* DRAGGING */
+
+.bank-misuse-document-dropzone.dragging {
+  border-color: #b99245;
+  background: #fffaf0;
+}
+
+
+/* PLUS ICON */
+
+.bank-misuse-document-plus {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 50%;
+
+  background: #f5f5f5;
+
+  color: #b99245;
+
+  font-size: 30px;
+  font-weight: 300;
+
+  line-height: 1;
+}
+
+
+/* MAIN TEXT */
+
+.bank-misuse-document-dropzone strong {
+  display: block;
+
+  margin: 0 0 7px;
+
+  color: #202020;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+/* SECONDARY TEXT */
+
+.bank-misuse-document-dropzone > span {
+  display: block;
+
+  color: #888;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   DOCUMENT LIST
+========================================================= */
+
+.bank-misuse-document-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+
+/* DOCUMENT ITEM */
+
+.bank-misuse-document-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 14px 16px;
+
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+
+/* FILE INFO */
+
+.bank-misuse-document-info {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* FILE ICON */
+
+.bank-misuse-document-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #f7f7f7;
+
+  font-size: 17px;
+}
+
+
+/* FILE NAME + SIZE */
+
+.bank-misuse-document-info > div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.bank-misuse-document-info strong {
+  overflow: hidden;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bank-misuse-document-info small {
+  color: #888;
+
+  font-size: 12px;
+}
+
+
+/* REMOVE BUTTON */
+
+.bank-misuse-document-remove {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #777;
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.bank-misuse-document-remove:hover {
+  background: #f1f1f1;
+  color: #222;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .bank-misuse-document-dropzone {
+    min-height: 190px;
+    padding: 30px 20px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .bank-misuse-document-dropzone {
+    min-height: 180px;
+
+    padding: 28px 18px;
+
+    border-radius: 12px;
+  }
+
+  .bank-misuse-document-plus {
+    width: 44px;
+    height: 44px;
+
+    font-size: 27px;
+
+    margin-bottom: 12px;
+  }
+
+  .bank-misuse-document-dropzone strong {
+    font-size: 14px;
+  }
+
+  .bank-misuse-document-dropzone > span {
+    font-size: 12px;
+  }
+
+  .bank-misuse-document-item {
+    padding: 12px;
+  }
+
+  .bank-misuse-document-info {
+    gap: 9px;
+  }
+
+  .bank-misuse-document-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .bank-misuse-document-dropzone {
+    min-height: 165px;
+  }
+
+  .bank-misuse-document-info strong {
+    max-width: 170px;
+  }
+
+}

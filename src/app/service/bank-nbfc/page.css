@@ -29,7 +29,7 @@
   min-height: 100vh;
   box-sizing: border-box;
 
-  padding: 150px 7vw 90px;
+  padding: 120px 7vw 90px;
 
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -127,7 +127,7 @@
 
   gap: 10px;
 
-  border-radius: 50px;
+  border-radius: 7px;
 
   text-decoration: none;
 
@@ -1174,3 +1174,656 @@
   }
 
 }
+
+
+
+/* =================================================
+   BANK / NBFC HERO IMAGE
+================================================= */
+
+.bank-nbfc-hero-visual {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.bank-nbfc-hero-image {
+  display: block;
+
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+
+  object-fit: contain;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   BANK / NBFC SERVICE CARDS - FINAL OVERRIDE
+========================================================= */
+
+.bank-nbfc-service-card {
+  position: relative !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  width: 100% !important;
+  min-height: 450px !important;
+
+  padding: 34px 34px 28px !important;
+
+  background: #ffffff !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 24px !important;
+
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06) !important;
+
+  overflow: hidden !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.bank-nbfc-card-number {
+  position: absolute !important;
+
+  top: 28px !important;
+  right: 28px !important;
+
+  font-size: 12px !important;
+  font-weight: 700 !important;
+
+  color: #d71920 !important;
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.bank-nbfc-card-icon {
+  width: 50px !important;
+  height: 50px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin-bottom: 28px !important;
+
+  border-radius: 50% !important;
+
+  background: #fff1f2 !important;
+  color: #d71920 !important;
+
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.bank-nbfc-card-eyebrow {
+  display: block !important;
+
+  margin-bottom: 12px !important;
+
+  font-size: 10px !important;
+  font-weight: 700 !important;
+
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+
+  color: #9aa3b2 !important;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.bank-nbfc-service-card h3 {
+  margin: 0 0 14px !important;
+
+  font-size: 27px !important;
+  line-height: 1.15 !important;
+  font-weight: 500 !important;
+
+  color: #111827 !important;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.bank-nbfc-service-card > p {
+  margin: 0 !important;
+
+  max-width: 520px !important;
+
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+
+  color: #697386 !important;
+}
+
+
+/* =========================================================
+   POINTS
+========================================================= */
+
+.bank-nbfc-card-points {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 9px !important;
+
+  margin-top: 22px !important;
+  margin-bottom: 28px !important;
+}
+
+
+.bank-nbfc-card-points span {
+  display: block !important;
+
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+
+  color: #374151 !important;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.bank-nbfc-card-button {
+  display: flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 100% !important;
+  min-height: 52px !important;
+
+  margin-top: auto !important;
+
+  padding: 14px 24px !important;
+
+  border-radius: 28px !important;
+
+  background: #111827 !important;
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+
+  font-size: 12px !important;
+  font-weight: 600 !important;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   BUTTON ARROW
+========================================================= */
+
+.bank-nbfc-card-button span {
+  margin-left: 8px !important;
+
+  font-size: 15px !important;
+
+  transition: transform 0.25s ease !important;
+}
+
+
+/* =========================================================
+   MISUSE CARD BUTTON
+========================================================= */
+
+.bank-nbfc-service-card.featured
+.bank-nbfc-card-button {
+  background: #d71920 !important;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.bank-nbfc-card-button:hover {
+  background: #e5bf2f !important;
+  color: #111827 !important;
+
+  transform: translateY(-2px) !important;
+}
+
+
+.bank-nbfc-card-button:hover span {
+  transform: translateX(4px) !important;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.bank-nbfc-service-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+
+.bank-nbfc-service-card:hover {
+  transform: translateY(-4px) !important;
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.09) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .bank-nbfc-service-card {
+    min-height: 0 !important;
+
+    padding: 28px 24px 24px !important;
+
+    border-radius: 22px !important;
+  }
+
+  .bank-nbfc-card-number {
+    top: 24px !important;
+    right: 24px !important;
+  }
+
+  .bank-nbfc-card-icon {
+    width: 46px !important;
+    height: 46px !important;
+
+    margin-bottom: 24px !important;
+  }
+
+  .bank-nbfc-service-card h3 {
+    font-size: 24px !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .bank-nbfc-service-card {
+    padding: 24px 20px 20px !important;
+
+    border-radius: 20px !important;
+  }
+
+  .bank-nbfc-card-number {
+    top: 20px !important;
+    right: 20px !important;
+  }
+
+  .bank-nbfc-service-card h3 {
+    font-size: 23px !important;
+  }
+
+  .bank-nbfc-service-card > p {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  .bank-nbfc-card-points {
+    margin-top: 20px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .bank-nbfc-card-button {
+    min-height: 50px !important;
+  }
+
+}
+
+
+
+/* =========================================================
+   BANK / NBFC SERVICE CARDS - FINAL OVERRIDE
+========================================================= */
+
+.bank-nbfc-service-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+
+  box-sizing: border-box !important;
+
+  overflow: hidden !important;
+}
+
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
+
+.bank-nbfc-service-card .bank-nbfc-card-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 95% !important;
+  max-width: 100% !important;
+  
+
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+
+  margin-top: 50px !important;
+
+  padding: 14px 10px !important;
+
+  background: #d71920 !important;
+  color: #ffffff !important;
+
+  border: none !important;
+  border-radius: 7px !important;
+
+  text-decoration: none !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+
+  position: relative !important;
+  z-index: 5 !important;
+
+  overflow: hidden !important;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+
+/* Arrow */
+
+.bank-nbfc-service-card .bank-nbfc-card-button span {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  margin-left: 12px !important;
+
+  color: inherit !important;
+
+  transition: transform 0.25s ease !important;
+}
+
+
+/* =========================================================
+   SAME HOVER FOR BOTH CARDS
+========================================================= */
+
+.bank-nbfc-service-card .bank-nbfc-card-button:hover {
+  background: #e6bf2a !important;
+  color: #111827 !important;
+
+  transform: translateY(-2px) !important;
+}
+
+
+.bank-nbfc-service-card .bank-nbfc-card-button:hover span {
+  transform: translateX(4px) !important;
+}
+
+
+/* =========================================================
+   CARD BOTTOM SPACING
+========================================================= */
+
+.bank-nbfc-service-card {
+  padding-bottom: 2px !important;
+}
+
+
+/* =========================================================
+   REMOVE DIFFERENT RED FROM FEATURED CARD
+========================================================= */
+
+.bank-nbfc-service-card.featured .bank-nbfc-card-button {
+  background: #d71920 !important;
+  color: #ffffff !important;
+}
+
+.bank-nbfc-service-card.featured .bank-nbfc-card-button:hover {
+  background: #e6bf2a !important;
+  color: #111827 !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .bank-nbfc-service-card {
+    width: 100% !important;
+    min-width: 0 !important;
+
+    padding-bottom: 24px !important;
+  }
+
+  .bank-nbfc-service-card .bank-nbfc-card-button {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding: 14px 18px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .bank-nbfc-service-card {
+    width: 100% !important;
+    min-width: 0 !important;
+
+    padding: 28px 22px 24px !important;
+  }
+
+  .bank-nbfc-service-card .bank-nbfc-card-button {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding: 14px 16px !important;
+
+    font-size: 12px !important;
+  }
+
+  .bank-nbfc-service-card .bank-nbfc-card-button span {
+    margin-left: 9px !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .bank-nbfc-service-card {
+    padding: 24px 18px 22px !important;
+  }
+
+  .bank-nbfc-service-card .bank-nbfc-card-button {
+    width: 100% !important;
+
+    padding: 13px 14px !important;
+
+    font-size: 11px !important;
+  }
+
+}
+
+
+/* =========================================================
+   BANK / NBFC BUTTON - FORCE POSITION & SIZE
+========================================================= */
+
+.bank-nbfc-service-card .bank-nbfc-card-button,
+.bank-nbfc-service-card.featured .bank-nbfc-card-button {
+  position: relative !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  /* FIX POSITION */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  /* FIX WIDTH */
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  /* IMPORTANT */
+  box-sizing: border-box !important;
+
+  /* REMOVE ANY OFFSET */
+  left: 0 !important;
+  right: auto !important;
+  transform: none !important;
+
+  /* SIZE */
+  min-height: 48px !important;
+  padding: 14px 20px !important;
+
+  /* COLOR */
+  background: #d71920 !important;
+  color: #ffffff !important;
+
+  border: none !important;
+  border-radius: 7px !important;
+
+  overflow: hidden !important;
+
+  text-decoration: none !important;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.bank-nbfc-service-card .bank-nbfc-card-button:hover,
+.bank-nbfc-service-card.featured .bank-nbfc-card-button:hover {
+  background: #e6bf2a !important;
+  color: #111827 !important;
+
+  transform: translateY(-2px) !important;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.bank-nbfc-service-card .bank-nbfc-card-button span {
+  margin-left: 12px !important;
+
+  position: static !important;
+
+  transform: none !important;
+}
+
+.bank-nbfc-service-card .bank-nbfc-card-button:hover span {
+  transform: translateX(4px) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .bank-nbfc-service-card .bank-nbfc-card-button {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    padding: 13px 18px !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .bank-nbfc-service-card .bank-nbfc-card-button {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    min-height: 46px !important;
+
+    padding: 12px 14px !important;
+
+    font-size: 11px !important;
+  }
+
+}
+
+
+
+
+
+
+

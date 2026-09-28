@@ -54,66 +54,24 @@ export default function BusinessPage() {
         </div>
 
 
-        {/* =====================================================
-            HERO VISUAL
-            Image will be added here later
-        ===================================================== */}
+       {/* =====================================================
+    HERO VISUAL
+===================================================== */}
 
-        <div className="business-hero-visual">
+<div className="business-hero-visual">
 
-          <div className="business-visual-card">
+  <div className="business-hero-image-wrap">
 
-            <div className="business-visual-top">
+    <img
+      src="/business-cheque-assistance.png"
+      alt="Business cheque assistance"
+      className="business-hero-image"
+    />
 
-              <span>
-                BUSINESS CHEQUE SUPPORT
-              </span>
+  </div>
 
-              <span className="business-visual-status">
-                ASSISTANCE
-              </span>
+</div>
 
-            </div>
-
-
-            <div className="business-document">
-
-              <div className="business-document-header">
-
-                <span>
-                  BUSINESS DOCUMENT
-                </span>
-
-                <span className="business-document-badge">
-                  REVIEW
-                </span>
-
-              </div>
-
-              <div className="business-document-line"></div>
-
-              <div className="business-document-line large"></div>
-
-              <div className="business-document-line short"></div>
-
-              <div className="business-document-amount">
-                ₹
-              </div>
-
-            </div>
-
-
-            <div className="business-visual-footer">
-
-              <span>✓</span>
-
-              Structured Business Assistance
-
-            </div>
-
-          </div>
-
-        </div>
 
       </section>
 
@@ -353,7 +311,7 @@ export default function BusinessPage() {
 
 
           <Link
-            href="/service/business/customized-assistance/"
+            href="/service/business/contact/"
             className="business-custom-btn"
           >
             GET CUSTOMIZED ASSISTANCE

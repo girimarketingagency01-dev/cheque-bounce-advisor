@@ -9138,3 +9138,829 @@ footer {
   }
 
 }
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   INDIVIDUAL PAGE
+   RESPONSIVE OVERRIDE
+   ONLY HERO + OPTIONS SECTION
+   THIRD SECTION IS NOT TOUCHED
+   ========================================================= */
+
+
+/* =========================================================
+   01. HERO SECTION
+   ========================================================= */
+
+.individual-page .individual-hero {
+  width: 100%;
+  max-width: 1400px;
+  min-height: 680px;
+  margin: 0 auto;
+  padding: 200px 70px;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, 0.85fr);
+  align-items: center;
+  gap: 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+/* HERO CONTENT */
+
+.individual-page .individual-hero-content {
+  width: 100%;
+  max-width: 650px;
+  min-width: 0;
+}
+
+
+/* HERO HEADING */
+
+.individual-page .individual-hero-content h1 {
+  margin: 18px 0 24px;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  overflow-wrap: break-word;
+}
+
+.individual-page .individual-hero-content h1 span {
+  color: #d71920;
+}
+
+
+/* HERO PARAGRAPH */
+
+.individual-page .individual-hero-content > p {
+  max-width: 600px;
+  margin: 0 0 32px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #687386;
+}
+
+
+/* HERO BUTTONS */
+
+.individual-page .individual-hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+
+/* PRIMARY BUTTON */
+
+.individual-page .individual-primary-btn,
+.individual-page .individual-secondary-btn {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+
+/* HERO VISUAL */
+
+.individual-page .individual-hero-visual {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* IMAGE WRAPPER */
+
+.individual-page .individual-hero-image-wrap {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+/* HERO IMAGE */
+
+.individual-page .individual-hero-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   02. OPTIONS SECTION
+   ========================================================= */
+
+.individual-page .individual-options {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+
+.individual-page .individual-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 100px 40px;
+  box-sizing: border-box;
+}
+
+
+/* OPTIONS HEADING */
+
+.individual-page .individual-heading {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 55px;
+}
+
+
+.individual-page .individual-heading h2 {
+  margin: 16px 0 18px;
+  font-size: clamp(38px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+
+.individual-page .individual-heading h2 span {
+  color: #d71920;
+}
+
+
+.individual-page .individual-heading p {
+  max-width: 650px;
+  margin: 0;
+  color: #687386;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   OPTION CARDS
+   ========================================================= */
+
+.individual-page .individual-option-grid {
+  width: 100%;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+
+.individual-page .individual-option-card {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 440px;
+  padding: 36px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+/* CARD NUMBER */
+
+.individual-page .individual-option-number {
+  position: absolute;
+  top: 34px;
+  right: 36px;
+}
+
+
+/* ICON */
+
+.individual-page .individual-option-icon {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+
+/* LABEL */
+
+.individual-page .individual-option-label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+
+/* CARD HEADING */
+
+.individual-page .individual-option-card h3 {
+  max-width: 390px;
+  margin: 0 0 18px;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  overflow-wrap: break-word;
+}
+
+
+/* CARD DESCRIPTION */
+
+.individual-page .individual-option-card p {
+  max-width: 480px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #687386;
+}
+
+
+/* CARD BOTTOM LINK */
+
+.individual-page .individual-option-link {
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+
+/* =========================================================
+   LARGE TABLETS / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .individual-page .individual-hero {
+    padding: 75px 45px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
+    gap: 40px;
+  }
+
+  .individual-page .individual-hero-image-wrap {
+    max-width: 430px;
+  }
+
+  .individual-page .individual-container {
+    padding: 80px 35px;
+  }
+
+  .individual-page .individual-option-card {
+    padding: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  /* HERO */
+
+  .individual-page .individual-hero {
+    min-height: auto;
+    padding: 200px 30px;
+    grid-template-columns: 1fr;
+    gap: 45px;
+    text-align: center;
+  }
+
+  .individual-page .individual-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .individual-page .individual-hero-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .individual-page .individual-hero-buttons {
+    justify-content: center;
+  }
+
+  .individual-page .individual-hero-visual {
+    width: 100%;
+  }
+
+  .individual-page .individual-hero-image-wrap {
+    max-width: 440px;
+  }
+
+
+  /* OPTIONS */
+
+  .individual-page .individual-container {
+    padding: 75px 30px;
+  }
+
+  .individual-page .individual-heading {
+    margin-bottom: 42px;
+  }
+
+  .individual-page .individual-option-grid {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+
+  .individual-page .individual-option-card {
+    min-height: 400px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  /* -------------------------------------------------------
+     HERO
+     ------------------------------------------------------- */
+
+  .individual-page .individual-hero {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    padding: 150px 20px 55px;
+    gap: 34px;
+  }
+
+
+  .individual-page .individual-hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+  .individual-page .individual-content .service-eyebrow,
+  .individual-page .individual-hero .service-eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+
+  .individual-page .individual-hero-content h1 {
+    margin: 15px 0 18px;
+    font-size: 40px;
+    line-height: 1.08;
+    letter-spacing: -1.7px;
+  }
+
+
+  .individual-page .individual-hero-content > p {
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+
+  /* BUTTONS */
+
+  .individual-page .individual-hero-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+
+  .individual-page .individual-primary-btn,
+  .individual-page .individual-secondary-btn {
+    width: 100%;
+    min-height: 50px;
+  }
+
+
+  /* IMAGE */
+
+  .individual-page .individual-hero-visual {
+    width: 100%;
+    min-height: 0;
+  }
+
+
+  .individual-page .individual-hero-image-wrap {
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+  }
+
+
+  .individual-page .individual-hero-image {
+    width: 100%;
+    max-width: 330px;
+    max-height: 350px;
+    object-fit: contain;
+  }
+
+
+  /* -------------------------------------------------------
+     OPTIONS SECTION
+     ------------------------------------------------------- */
+
+  .individual-page .individual-container {
+    width: 100%;
+    padding: 58px 20px 65px;
+  }
+
+
+  .individual-page .individual-heading {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+
+  .individual-page .individual-heading h2 {
+    margin: 14px 0 15px;
+    font-size: 36px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+  }
+
+
+  .individual-page .individual-heading p {
+    width: 100%;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+
+  /* CARDS */
+
+  .individual-page .individual-option-grid {
+    width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+
+  .individual-page .individual-option-card {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 28px 24px 25px;
+    box-sizing: border-box;
+    border-radius: 24px;
+  }
+
+
+  .individual-page .individual-option-number {
+    top: 27px;
+    right: 24px;
+    font-size: 12px;
+  }
+
+
+  .individual-page .individual-option-icon {
+    width: 50px;
+    height: 50px;
+    flex-basis: 50px;
+    margin-bottom: 25px;
+  }
+
+
+  .individual-page .individual-option-label {
+    margin-bottom: 11px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+
+  .individual-page .individual-option-card h3 {
+    max-width: 85%;
+    margin-bottom: 15px;
+    font-size: 30px;
+    line-height: 1.08;
+    letter-spacing: -1px;
+  }
+
+
+  .individual-page .individual-option-card p {
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+
+  .individual-page .individual-option-link {
+    margin-top: 25px;
+    padding-top: 18px;
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .individual-page .individual-hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  .individual-page .individual-hero-content h1 {
+    font-size: 35px;
+  }
+
+
+  .individual-page .individual-hero-image-wrap,
+  .individual-page .individual-hero-image {
+    max-width: 290px;
+  }
+
+
+  .individual-page .individual-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+
+  .individual-page .individual-heading h2 {
+    font-size: 32px;
+  }
+
+
+  .individual-page .individual-option-card {
+    padding: 25px 20px 23px;
+  }
+
+
+  .individual-page .individual-option-number {
+    right: 20px;
+    top: 24px;
+  }
+
+
+  .individual-page .individual-option-card h3 {
+    font-size: 27px;
+  }
+
+}
+
+
+/* =========================================================
+   BUSINESS CHEQUE MISUSE
+   HERO BUTTON SPACING + RESPONSIVE FIX
+   Paste at the END of page.css
+   ========================================================= */
+
+
+/* =========================
+   DESKTOP
+   ========================= */
+
+.business-misuse-page .business-misuse-hero-buttons {
+  display: flex !important;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px !important;
+  margin-top: 28px !important;
+}
+
+
+/* Individual buttons */
+
+.business-misuse-page .business-misuse-primary-btn,
+.business-misuse-page .business-misuse-secondary-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   LAPTOP / TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .business-misuse-page .business-misuse-hero-buttons {
+    gap: 12px !important;
+    margin-top: 25px !important;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .business-misuse-page .business-misuse-hero-buttons {
+    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+
+
+  .business-misuse-page .business-misuse-primary-btn,
+  .business-misuse-page .business-misuse-secondary-btn {
+    width: 100% !important;
+    min-height: 50px;
+    margin: 0 !important;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 380px) {
+
+  .business-misuse-page .business-misuse-hero-buttons {
+    gap: 10px !important;
+    margin-top: 20px !important;
+  }
+
+  .business-misuse-page .business-misuse-primary-btn,
+  .business-misuse-page .business-misuse-secondary-btn {
+    min-height: 48px;
+  }
+
+}
+
+/* =========================================================
+   CHEQUE MISUSE HERO IMAGE
+========================================================= */
+
+.bounce-page .misuse-hero-visual {
+  width: 100% !important;
+  height: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  background: #fff !important;
+  background-image: none !important;
+
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.bounce-page .misuse-hero-image-wrap {
+  width: 100% !important;
+  max-width: 650px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  background: #fff !important;
+  background-image: none !important;
+
+  overflow: visible !important;
+}
+
+.bounce-page .misuse-hero-image {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: 650px !important;
+
+  height: auto !important;
+
+  object-fit: contain !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+
+  border: none !important;
+  box-shadow: none !important;
+}
+.misuse-hero-image {
+  width: 720px !important;
+  max-width: none !important;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .misuse-hero-image-wrap {
+    max-width: 500px !important;
+  }
+
+  .misuse-hero-image {
+    width: 500px !important;
+    max-width: 100% !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .misuse-hero-visual {
+    width: 100% !important;
+
+    justify-content: center !important;
+
+    overflow: visible !important;
+  }
+
+  .misuse-hero-image-wrap {
+    width: 100% !important;
+    max-width: 480px !important;
+
+    justify-content: center !important;
+
+    overflow: visible !important;
+  }
+
+  .misuse-hero-image {
+    width: 100% !important;
+    max-width: 480px !important;
+    height: auto !important;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .misuse-hero-visual {
+    width: 100% !important;
+  }
+
+  .misuse-hero-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .misuse-hero-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+}

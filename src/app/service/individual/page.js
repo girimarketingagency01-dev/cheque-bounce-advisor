@@ -1,25 +1,25 @@
 import Link from "next/link";
+import "./page.css";
 
 export default function IndividualServicePage() {
   return (
     <main className="individual-page">
 
       {/* =====================================================
-          HERO
+          INDIVIDUAL HERO
       ===================================================== */}
 
       <section className="individual-hero">
 
         <div className="individual-hero-content">
 
-          <span className="service-eyebrow">
+          <span className="individual-eyebrow">
             INDIVIDUAL ASSISTANCE
           </span>
 
           <h1>
             Cheque Problems?
-            <br />
-            <span>Know What To Do Next.</span>
+            <span> Know What To Do Next.</span>
           </h1>
 
           <p>
@@ -34,15 +34,16 @@ export default function IndividualServicePage() {
               href="#individual-options"
               className="individual-primary-btn"
             >
-              Explore Your Options
-              <span>↓</span>
+              EXPLORE YOUR OPTIONS
+              <span>→</span>
             </a>
 
             <Link
               href="/service/"
               className="individual-secondary-btn"
             >
-              Back To Services
+              BACK TO SERVICES
+              <span>→</span>
             </Link>
 
           </div>
@@ -50,26 +51,29 @@ export default function IndividualServicePage() {
         </div>
 
 
-        {/* VISUAL */}
+        {/* =================================================
+            HERO VISUAL
+        ================================================= */}
 
-<div className="individual-hero-visual">
+        <div className="individual-hero-visual">
 
-  <div className="individual-hero-image-wrap">
+          <div className="individual-hero-image-wrap">
 
-    <img
-      src="/individual-cheque-assistance.png"
-      alt="Individual cheque assistance"
-      className="individual-hero-image"
-    />
+            <img
+              src="/individual-cheque-assistance.png"
+              alt="Individual cheque assistance"
+              className="individual-hero-image"
+            />
 
-  </div>
+          </div>
 
-</div>
+        </div>
 
-</section>
+      </section>
+
 
       {/* =====================================================
-          OPTIONS
+          INDIVIDUAL OPTIONS
       ===================================================== */}
 
       <section
@@ -81,17 +85,19 @@ export default function IndividualServicePage() {
 
           <div className="individual-heading">
 
-            <span className="service-eyebrow">
+            <span className="individual-eyebrow">
               WHAT DO YOU NEED HELP WITH?
             </span>
 
             <h2>
-              Choose Your <span>Situation</span>
+              Choose the situation
+              <span> you are dealing with</span>
             </h2>
 
             <p>
-              Select the option that best describes your cheque-related
-              situation. You will then be guided to the relevant form.
+              Select the type of cheque-related issue you are
+              dealing with. We will collect the relevant details
+              according to your situation.
             </p>
 
           </div>
@@ -100,78 +106,87 @@ export default function IndividualServicePage() {
           <div className="individual-option-grid">
 
 
-            {/* CHEQUE BOUNCE */}
+            {/* =================================================
+                CHEQUE BOUNCE
+            ================================================= */}
 
-            <Link
-              href="/service/individual/cheque-bounce/"
-              className="individual-option-card"
-            >
+            <div className="individual-option-card">
 
               <div className="individual-option-number">
                 01
               </div>
 
-              <div className="individual-option-icon bounce-icon">
+              <div className="individual-option-icon">
                 ₹
               </div>
 
               <span className="individual-option-label">
-                PAYMENT / RECOVERY
+                CHEQUE BOUNCE
               </span>
 
               <h3>
-                My Cheque Has Bounced
+                My Cheque Has
+                <br />
+                Bounced
               </h3>
 
               <p>
-                Get assistance in understanding your bounced cheque,
-                recovery options, notice-related requirements and
-                possible next steps.
+                For individuals dealing with an unpaid or bounced
+                cheque and looking to understand recovery,
+                notice-related requirements and possible next steps.
               </p>
 
-              <div className="individual-option-link">
-                Get Bounce Assistance
+              <Link
+                href="/service/individual/cheque-bounce/"
+                className="individual-option-btn"
+              >
+                GET BOUNCE ASSISTANCE
                 <span>→</span>
-              </div>
+              </Link>
 
-            </Link>
+            </div>
 
 
-            {/* CHEQUE MISUSE */}
+            {/* =================================================
+                CHEQUE MISUSE
+            ================================================= */}
 
-            <Link
-              href="/service/individual/cheque-misuse/"
-              className="individual-option-card misuse-card"
-            >
+            <div className="individual-option-card">
 
               <div className="individual-option-number">
                 02
               </div>
 
-              <div className="individual-option-icon misuse-icon">
+              <div className="individual-option-icon misuse">
                 !
               </div>
 
               <span className="individual-option-label">
-                SECURITY / MISUSE
+                CHEQUE MISUSE
               </span>
 
               <h3>
-                My Cheque Has Been Misused
+                My Cheque Has
+                <br />
+                Been Misused
               </h3>
 
               <p>
-                If a cheque was given as security, left blank or may have
-                been used beyond your intended purpose, share your details
-                to understand the available assistance.
+                For individuals concerned about a cheque issued
+                as security, left blank, or potentially used
+                beyond the intended purpose.
               </p>
 
-              <div className="individual-option-link">
-                Get Misuse Assistance
+              <Link
+                href="/service/individual/cheque-misuse/"
+                className="individual-option-btn"
+              >
+                GET MISUSE ASSISTANCE
                 <span>→</span>
-              </div>
+              </Link>
 
-            </Link>
+            </div>
+
 
           </div>
 
@@ -182,6 +197,7 @@ export default function IndividualServicePage() {
 
       {/* =====================================================
           CUSTOM ASSISTANCE
+          Existing third section can remain below this.
       ===================================================== */}
 
       <section className="individual-custom">
@@ -190,7 +206,7 @@ export default function IndividualServicePage() {
 
           <div>
 
-            <span className="service-eyebrow">
+            <span className="individual-eyebrow">
               NEED SOMETHING DIFFERENT?
             </span>
 
@@ -199,8 +215,9 @@ export default function IndividualServicePage() {
             </h2>
 
             <p>
-              If your cheque-related matter does not fit into the options
-              above, you can share your situation and request assistance.
+              If your cheque-related matter does not fit into the
+              options above, you can share your situation and
+              request assistance.
             </p>
 
           </div>
@@ -209,7 +226,7 @@ export default function IndividualServicePage() {
             href="/contact/"
             className="individual-custom-btn"
           >
-            Request Assistance
+            REQUEST ASSISTANCE
             <span>→</span>
           </Link>
 
