@@ -31,13 +31,13 @@ export default function Home() {
 
           <div className="hero-buttons">
 
-            <a href="#contact" className="primary-btn">
+            <a href="/contact" className="primary-btn">
               Talk To CBA
               <span>→</span>
             </a>
 
             <a
-              href="/cheque-bounce-case-expert/"
+              href="/service/"
               className="secondary-btn"
             >
               Explore Services
@@ -177,7 +177,7 @@ export default function Home() {
 
             </div>
 
-            <a href="#contact" className="problem-cta-button">
+            <a href="/contact" className="problem-cta-button">
               Talk To CBA
               <span>→</span>
             </a>
@@ -893,7 +893,7 @@ export default function Home() {
         and take the next step with greater clarity.
       </p>
 
-      <a href="#contact" className="final-cta-button">
+      <a href="/contact" className="final-cta-button">  
         Get Assistance Now
         <span>→</span>
       </a>
