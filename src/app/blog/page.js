@@ -1,213 +1,239 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import blogs from "../../data/blogs";
 import "./page.css";
 
-const BLOGS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 6;
 
-export default function BlogPage() {
-  const [currentPage, setCurrentPage] = useState(1);
+async function getBlogs(page = 1) {
+  const apiUrl = `https://chequebounceadvisor.com/wp-json/wp/v2/posts?_embed&per_page=${POSTS_PER_PAGE}&page=${page}&orderby=date&order=desc`;
 
-  const sortedBlogs = [...blogs].sort(
-    (a, b) =>
-      new Date(b.publishedAt).getTime() -
-      new Date(a.publishedAt).getTime()
-  );
-
-  const totalPages = Math.ceil(sortedBlogs.length / BLOGS_PER_PAGE);
-
-  const startIndex = (currentPage - 1) * BLOGS_PER_PAGE;
-  const currentBlogs = sortedBlogs.slice(
-    startIndex,
-    startIndex + BLOGS_PER_PAGE
-  );
-
-  const changePage = (page) => {
-    if (page < 1 || page > totalPages) return;
-
-    setCurrentPage(page);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+  try {
+    const response = await fetch(apiUrl, {
+      next: {
+        revalidate: 60,
+      },
     });
-  };
+
+    if (!response.ok) {
+      return {
+        posts: [],
+        totalPages: 0,
+      };
+    }
+
+    const posts = await response.json();
+
+    return {
+      posts,
+      totalPages: Number(response.headers.get("X-WP-TotalPages")) || 1,
+    };
+  } catch (error) {
+    console.error("WordPress API Error:", error);
+
+    return {
+      posts: [],
+      totalPages: 0,
+    };
+  }
+}
+
+function getFeaturedImage(post) {
+  return (
+    post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    "/blog-placeholder.jpg"
+  );
+}
+
+function getCategory(post) {
+  return (
+    post?._embedded?.["wp:term"]?.[0]?.find(
+      (term) => term.taxonomy === "category"
+    )?.name || "Cheque Bounce"
+  );
+}
+
+function getExcerpt(post) {
+  return (post?.excerpt?.rendered || "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&#8217;/g, "'")
+    .replace(/&#8211;/g, "-")
+    .replace(/&amp;/g, "&")
+    .trim();
+}
+
+function formatDate(date) {
+  return new Date(date).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
+function getPageNumbers(currentPage, totalPages) {
+  const pages = [];
+
+  const start = Math.max(1, currentPage - 2);
+  const end = Math.min(totalPages, currentPage + 2);
+
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+
+  return pages;
+}
+
+export default async function BlogPage({ searchParams }) {
+  const params = await searchParams;
+
+  const currentPage = Math.max(
+    1,
+    Number(params?.page) || 1
+  );
+
+  const { posts, totalPages } = await getBlogs(currentPage);
+
+  const pageNumbers = getPageNumbers(
+    currentPage,
+    totalPages
+  );
 
   return (
-    <main className="blog-page">
-      {/* HERO */}
-      <section className="blog-hero">
-        <div className="blog-hero-overlay">
-          <div className="blog-container">
-            <span className="blog-hero-label">CHEQUE BOUNCE ADVISOR</span>
+    <main className="blogPage">
 
-            <h1>Blog</h1>
+      <section className="blogSection">
+        <div className="blogContainer">
 
-            <div className="breadcrumb">
-              <Link href="/">Home</Link>
-              <span>/</span>
-              <span>Blog</span>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div className="blogHeading">
+            <span className="blogSmallTitle">
+              CHEQUE BOUNCE ADVISOR
+            </span>
 
-      {/* BLOG SECTION */}
-      <section className="blog-section">
-        <div className="blog-container">
-
-          {/* SECTION HEADER */}
-          <div className="blog-heading">
-            <div>
-              <span className="section-label">LATEST ARTICLES</span>
-
-              <h2>
-                Legal Insights &amp;
-                <br />
-                <span>Cheque Bounce Guides</span>
-              </h2>
-            </div>
+            <h1>Latest Articles</h1>
 
             <p>
-              Stay informed with practical guides, legal updates and
-              important information related to cheque bounce matters,
-              Section 138 and cheque misuse.
+              Stay informed with practical guides, legal updates
+              and useful information about cheque bounce matters.
             </p>
           </div>
 
-          {/* CATEGORY BAR */}
-          <div className="blog-category-bar">
-            <span className="category-active">All Articles</span>
-            <span>Legal Guides</span>
-            <span>Legal Updates</span>
-            <span>Practical Guides</span>
-          </div>
+          {posts.length > 0 ? (
+            <div className="blogGrid">
 
-          {/* BLOG GRID */}
-          {currentBlogs.length > 0 ? (
-            <div className="blog-grid">
-              {currentBlogs.map((blog) => (
-                <article className="blog-card" key={blog.id}>
+              {posts.map((post) => (
+                <article
+                  className="blogCard"
+                  key={post.id}
+                >
+
                   <Link
-                    href={`/blog/${blog.slug}`}
-                    className="blog-card-link"
+                    href={`/blog/${post.slug}`}
+                    className="blogImageLink"
                   >
-                    {/* IMAGE */}
-                    <div className="blog-image-wrapper">
-                      {blog.image ? (
-                        <img
-                          src={blog.image}
-                          alt={blog.title}
-                          className="blog-image"
-                        />
-                      ) : (
-                        <div className="blog-image-placeholder">
-                          CHEQUE BOUNCE
-                        </div>
-                      )}
-
-                      <div className="blog-category">
-                        {blog.category}
-                      </div>
-                    </div>
-
-                    {/* CONTENT */}
-                    <div className="blog-card-content">
-                      <div className="blog-meta">
-                        <span>
-                          {new Date(blog.publishedAt).toLocaleDateString(
-                            "en-IN",
-                            {
-                              day: "2-digit",
-                              month: "short",
-                              year: "numeric",
-                            }
-                          )}
-                        </span>
-
-                        <span className="meta-dot">•</span>
-
-                        <span>{blog.readTime}</span>
-                      </div>
-
-                      <h3>{blog.title}</h3>
-
-                      <p>{blog.excerpt}</p>
-
-                      <div className="read-more">
-                        <span>Read Article</span>
-                        <span className="arrow">→</span>
-                      </div>
+                    <div className="blogImageWrapper">
+                      <img
+                        src={getFeaturedImage(post)}
+                        alt={post.title.rendered.replace(
+                          /<[^>]*>/g,
+                          ""
+                        )}
+                      />
                     </div>
                   </Link>
+
+                  <div className="blogCardContent">
+
+                    <div className="blogMeta">
+                      <span className="blogCategory">
+                        {getCategory(post)}
+                      </span>
+
+                      <span className="blogDate">
+                        {formatDate(post.date)}
+                      </span>
+                    </div>
+
+                    <h2>
+                      <Link href={`/blog/${post.slug}`}>
+                        {post.title.rendered.replace(
+                          /<[^>]*>/g,
+                          ""
+                        )}
+                      </Link>
+                    </h2>
+
+                    <p>
+                      {getExcerpt(post)}
+                    </p>
+
+                    <div className="blogButtonWrapper">
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="readArticleButton"
+                      >
+                        Read Article
+                      </Link>
+                    </div>
+
+                  </div>
+
                 </article>
               ))}
+
             </div>
           ) : (
-            <div className="no-blogs">
-              <h3>No articles found</h3>
-              <p>New articles will appear here soon.</p>
+            <div className="noBlogs">
+              <h3>No blog posts found.</h3>
+
+              <p>
+                Please check back soon for new articles.
+              </p>
             </div>
           )}
 
-          {/* PAGINATION */}
           {totalPages > 1 && (
-            <div className="pagination">
-              <button
-                type="button"
-                className="pagination-arrow"
-                onClick={() => changePage(currentPage - 1)}
-                disabled={currentPage === 1}
-                aria-label="Previous page"
-              >
-                ←
-              </button>
+            <nav
+              className="pagination"
+              aria-label="Blog pagination"
+            >
 
-              <div className="pagination-numbers">
-                {Array.from(
-                  { length: totalPages },
-                  (_, index) => index + 1
-                ).map((page) => (
-                  <button
-                    type="button"
-                    key={page}
-                    className={
-                      currentPage === page
-                        ? "pagination-number active"
-                        : "pagination-number"
-                    }
-                    onClick={() => changePage(page)}
-                  >
-                    {page}
-                  </button>
-                ))}
-              </div>
+              {currentPage > 1 && (
+                <Link
+                  href={`/blog?page=${currentPage - 1}`}
+                  className="paginationArrow"
+                >
+                  ←
+                </Link>
+              )}
 
-              <button
-                type="button"
-                className="pagination-arrow"
-                onClick={() => changePage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                aria-label="Next page"
-              >
-                →
-              </button>
-            </div>
+              {pageNumbers.map((pageNumber) => (
+                <Link
+                  key={pageNumber}
+                  href={`/blog?page=${pageNumber}`}
+                  className={
+                    pageNumber === currentPage
+                      ? "paginationNumber active"
+                      : "paginationNumber"
+                  }
+                >
+                  {pageNumber}
+                </Link>
+              ))}
+
+              {currentPage < totalPages && (
+                <Link
+                  href={`/blog?page=${currentPage + 1}`}
+                  className="paginationArrow"
+                >
+                  →
+                </Link>
+              )}
+
+            </nav>
           )}
 
-          {/* ARTICLE COUNT */}
-          <div className="blog-count">
-            Showing{" "}
-            <strong>
-              {startIndex + 1}-
-              {Math.min(startIndex + BLOGS_PER_PAGE, sortedBlogs.length)}
-            </strong>{" "}
-            of <strong>{sortedBlogs.length}</strong> articles
-          </div>
         </div>
       </section>
+
     </main>
   );
 }

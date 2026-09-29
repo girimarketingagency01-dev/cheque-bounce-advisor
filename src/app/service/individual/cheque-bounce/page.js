@@ -979,12 +979,186 @@ const removeDocument = (index) => {
   };
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    setSubmitted(true);
-  };
+  try {
+    const form = event.currentTarget;
 
+    const formData = new FormData(form);
+
+    /*
+    |--------------------------------------------------------------------------
+    | BASIC LEAD INFORMATION
+    |--------------------------------------------------------------------------
+    */
+
+    formData.set(
+      "name",
+      formData.get("fullName") || ""
+    );
+
+    formData.set(
+      "phone",
+      formData.get("mobile") || ""
+    );
+
+    formData.set(
+      "matter",
+      formData.get("matterDetails") || ""
+    );
+
+    formData.set(
+      "form_name",
+      "Individual Cheque Bounce"
+    );
+
+    formData.set(
+      "page_url",
+      window.location.href
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADDITIONAL FORM DATA
+    |--------------------------------------------------------------------------
+    */
+
+    const additionalFields = {
+
+      category:
+        formData.get("category") || "",
+
+      matter:
+        formData.get("matter") || "",
+
+      state:
+        formData.get("state") || "",
+
+      city:
+        formData.get("city") || "",
+
+      chequeAmount:
+        formData.get("chequeAmount") || "",
+
+      bankName:
+        formData.get("bankName") || "",
+
+      bounceDate:
+        formData.get("bounceDate") || "",
+
+      noticeReceived:
+        formData.get("noticeReceived") || "",
+
+      matterDetails:
+        formData.get("matterDetails") || ""
+
+    };
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | REMOVE DUPLICATE FIELD
+    |--------------------------------------------------------------------------
+    */
+
+    formData.delete("fields");
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADDITIONAL DATA AS JSON
+    |--------------------------------------------------------------------------
+    */
+
+    formData.append(
+      "fields",
+      JSON.stringify(additionalFields)
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | DOCUMENTS
+    |--------------------------------------------------------------------------
+    */
+
+    documents.forEach((file) => {
+
+      formData.append(
+        "documents[]",
+        file
+      );
+
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SEND TO WORDPRESS
+    |--------------------------------------------------------------------------
+    */
+
+    const response = await fetch(
+      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
+
+
+    const result =
+      await response.json();
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SUCCESS
+    |--------------------------------------------------------------------------
+    */
+
+    if (
+      response.ok &&
+      result.success
+    ) {
+
+      setSubmitted(true);
+
+      setDocuments([]);
+
+      form.reset();
+
+      setSelectedState("");
+
+      return;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ERROR
+    |--------------------------------------------------------------------------
+    */
+
+    alert(
+      result.message ||
+      "Something went wrong. Please try again."
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Lead submission error:",
+      error
+    );
+
+    alert(
+      "Unable to submit your request. Please try again."
+    );
+  }
+};
 
   return (
     <main className="bounce-page">
@@ -1491,15 +1665,6 @@ const removeDocument = (index) => {
   </label>
 
 
-  {/* Hidden actual file input */}
-
-  <input
-    id="bounce-documents"
-    type="file"
-    multiple
-    hidden
-    onChange={handleDocumentsChange}
-  />
 
 
   {/* Upload Box */}

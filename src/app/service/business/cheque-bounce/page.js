@@ -761,12 +761,203 @@ export default function BusinessChequeBouncePage() {
      SUBMIT
   ========================================================= */
 
-  const handleSubmit = (event) => {
+ const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    event.preventDefault();
+  try {
+    const form = event.currentTarget;
 
-    setSubmitted(true);
-  };
+    const formData = new FormData(form);
+
+    /*
+    |--------------------------------------------------------------------------
+    | BASIC LEAD INFORMATION
+    |--------------------------------------------------------------------------
+    */
+
+    formData.set(
+      "name",
+      formData.get("contactPerson") || ""
+    );
+
+    formData.set(
+      "phone",
+      formData.get("mobile") || ""
+    );
+
+    formData.set(
+      "matter",
+      formData.get("matterDetails") || ""
+    );
+
+    formData.set(
+      "form_name",
+      "Business Cheque Bounce"
+    );
+
+    formData.set(
+      "page_url",
+      window.location.href
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADDITIONAL FORM DATA
+    |--------------------------------------------------------------------------
+    */
+
+    const additionalFields = {
+
+      category:
+        formData.get("category") || "",
+
+      matter:
+        formData.get("matter") || "",
+
+      businessName:
+        formData.get("businessName") || "",
+
+      contactPerson:
+        formData.get("contactPerson") || "",
+
+      email:
+        formData.get("email") || "",
+
+      state:
+        formData.get("state") || "",
+
+      city:
+        formData.get("city") || "",
+
+      chequeAmount:
+        formData.get("chequeAmount") || "",
+
+      bankName:
+        formData.get("bankName") || "",
+
+      bounceDate:
+        formData.get("bounceDate") || "",
+
+      noticeReceived:
+        formData.get("noticeReceived") || "",
+
+      transactionType:
+        formData.get("transactionType") || "",
+
+      counterpartyType:
+        formData.get("counterpartyType") || "",
+
+      matterDetails:
+        formData.get("matterDetails") || ""
+
+    };
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | REMOVE DUPLICATE FIELD
+    |--------------------------------------------------------------------------
+    */
+
+    formData.delete("fields");
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADDITIONAL DATA AS JSON
+    |--------------------------------------------------------------------------
+    */
+
+    formData.append(
+      "fields",
+      JSON.stringify(additionalFields)
+    );
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | DOCUMENTS
+    |--------------------------------------------------------------------------
+    */
+
+    documents.forEach((file) => {
+
+      formData.append(
+        "documents[]",
+        file
+      );
+
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SEND TO WORDPRESS
+    |--------------------------------------------------------------------------
+    */
+
+    const response = await fetch(
+      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      {
+        method: "POST",
+        body: formData
+      }
+    );
+
+
+    const result =
+      await response.json();
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SUCCESS
+    |--------------------------------------------------------------------------
+    */
+
+    if (
+      response.ok &&
+      result.success
+    ) {
+
+      setSubmitted(true);
+
+      setDocuments([]);
+
+      form.reset();
+
+      setSelectedState("");
+
+      return;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ERROR
+    |--------------------------------------------------------------------------
+    */
+
+    alert(
+      result.message ||
+      "Something went wrong. Please try again."
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "Lead submission error:",
+      error
+    );
+
+    alert(
+      "Unable to submit your request. Please try again."
+    );
+
+  }
+};
 
 
   const cities = selectedState

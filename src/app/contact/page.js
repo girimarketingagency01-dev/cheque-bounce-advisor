@@ -5,29 +5,75 @@ import "./page.css";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // Backend/database integration baad mein yahan connect kar sakte hain.
+  const form = e.currentTarget;
+  const formData = new FormData(form);
+
+  const data = {
+    name: formData.get("name"),
+    phone: formData.get("phone"),
+    email: formData.get("email"),
+    matter: formData.get("matter"),
+    message: formData.get("message"),
+
+    source: "Contact Page",
+
+    page_url: window.location.href,
+  };
+
+  try {
+    const response = await fetch(
+      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(data),
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.success) {
+      throw new Error(
+        result.message || "Lead submission failed"
+      );
+    }
+
     setSubmitted(true);
+
+    form.reset();
 
     setTimeout(() => {
       setSubmitted(false);
     }, 5000);
-  };
+
+  } catch (error) {
+
+    console.error("Leadify Error:", error);
+
+    alert(
+      "Your enquiry could not be submitted. Please try again."
+    );
+
+  }
+};
 
   return (
     <main className="contact-page">
 
-      {/* =====================================================
-          CONTACT WRAPPER
-      ===================================================== */}
       <section className="contact-wrapper">
 
-        {/* =====================================================
-            LEFT CONTACT PANEL
-        ===================================================== */}
+        {/* LEFT CONTACT PANEL */}
+
         <div className="contact-info">
 
           <div className="contact-info-sticky">
@@ -47,15 +93,13 @@ export default function ContactPage() {
               Advisor for information and assistance.
             </p>
 
-
             {/* HELPLINE */}
+
             <div className="contact-block">
 
               <span className="contact-label">
                 HELPLINE
               </span>
-
-              
 
               <a
                 href="tel:+919891188400"
@@ -67,8 +111,8 @@ export default function ContactPage() {
 
             </div>
 
-
             {/* EMAIL */}
+
             <div className="contact-block">
 
               <span className="contact-label">
@@ -84,8 +128,8 @@ export default function ContactPage() {
 
             </div>
 
-
             {/* ADDRESS */}
+
             <div className="contact-block">
 
               <span className="contact-label">
@@ -107,8 +151,8 @@ export default function ContactPage() {
 
             </div>
 
-
             {/* SOCIALS */}
+
             <div className="contact-social-section">
 
               <span className="contact-label">
@@ -127,10 +171,11 @@ export default function ContactPage() {
                     src="/instagram-icon.png"
                     alt="Instagram"
                   />
+
                   <span>Instagram</span>
+
                   <b>↗</b>
                 </a>
-
 
                 <a
                   href="https://www.facebook.com/Chequebounceadvisor"
@@ -142,10 +187,11 @@ export default function ContactPage() {
                     src="/facebook-icon.png"
                     alt="Facebook"
                   />
+
                   <span>Facebook</span>
+
                   <b>↗</b>
                 </a>
-
 
                 <a
                   href="https://x.com/"
@@ -170,10 +216,8 @@ export default function ContactPage() {
 
         </div>
 
+        {/* RIGHT CONTACT FORM */}
 
-        {/* =====================================================
-            RIGHT CONTACT FORM
-        ===================================================== */}
         <div className="contact-form-area">
 
           <div className="contact-form-card">
@@ -185,6 +229,7 @@ export default function ContactPage() {
               </span>
 
               <div>
+
                 <span className="contact-label dark">
                   SEND AN ENQUIRY
                 </span>
@@ -193,16 +238,17 @@ export default function ContactPage() {
                   Tell Us About
                   <span>Your Matter.</span>
                 </h2>
+
               </div>
 
             </div>
-
 
             <p className="contact-form-description">
               Share a few details about your requirement and
               our team can review the information you provide.
             </p>
 
+            {/* SUCCESS MESSAGE */}
 
             {submitted && (
               <div className="contact-success">
@@ -210,6 +256,13 @@ export default function ContactPage() {
               </div>
             )}
 
+            {/* ERROR MESSAGE */}
+
+            {error && (
+              <div className="contact-error">
+                {error}
+              </div>
+            )}
 
             <form
               className="contact-form"
@@ -217,6 +270,7 @@ export default function ContactPage() {
             >
 
               {/* NAME */}
+
               <div className="contact-field">
 
                 <label htmlFor="name">
@@ -233,8 +287,8 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* PHONE */}
+
               <div className="contact-field">
 
                 <label htmlFor="phone">
@@ -251,8 +305,8 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* EMAIL */}
+
               <div className="contact-field">
 
                 <label htmlFor="email">
@@ -268,8 +322,8 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* MATTER TYPE */}
+
               <div className="contact-field">
 
                 <label htmlFor="matter">
@@ -322,8 +376,8 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* MESSAGE */}
+
               <div className="contact-field contact-field-full">
 
                 <label htmlFor="message">
@@ -340,16 +394,22 @@ export default function ContactPage() {
 
               </div>
 
-
               {/* SUBMIT */}
+
               <div className="contact-submit-row">
 
                 <button
                   type="submit"
                   className="contact-submit-btn"
+                  disabled={submitting}
                 >
-                  Submit Enquiry
-                  <span>→</span>
+                  {submitting
+                    ? "Submitting..."
+                    : "Submit Enquiry"}
+
+                  <span>
+                    {submitting ? "..." : "→"}
+                  </span>
                 </button>
 
                 <p>
