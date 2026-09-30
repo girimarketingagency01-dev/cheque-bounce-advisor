@@ -1,9 +1,8 @@
----
+﻿---
 deployment:
   tasks:
     - export DEPLOYPATH=/home/adkgkgrj/cheque-bounce-advisor/
-    - /bin/cp -R . $DEPLOYPATH
-    - cd $DEPLOYPATH && npm install
-    - cd $DEPLOYPATH && npm run build
-    - /bin/mkdir -p $DEPLOYPATH/tmp
-    - /bin/touch $DEPLOYPATH/tmp/restart.txt
+    - /bin/cp -R . 
+    - cd  && npm install
+    - cd  && npm run build
+    - /bin/touch /tmp/restart.txt
