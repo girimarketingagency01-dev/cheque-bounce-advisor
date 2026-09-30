@@ -25,7 +25,7 @@ export default function Home() {
           <h1>
             Cheque Bounced?
             <br />
-            <span>Don't Panic.</span>
+            <span>Don&apos;t Panic.</span>
           </h1>
 
           <p>
