@@ -199,7 +199,7 @@
 .about-hero-visual {
   position: relative;
 
-  min-height: 430px;
+  min-height: 450px;
 
   display: flex;
 
@@ -944,7 +944,7 @@
   .about-hero {
     min-height: auto;
 
-    padding: 100px 0;
+    padding: 150px 0;
   }
 
 

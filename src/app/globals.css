@@ -121,15 +121,14 @@ a {
 
 .header-inner {
   width: 100%;
-
   min-height: 82px;
-
   padding: 0 50px;
+  box-sizing: border-box;
+  justify-content: space-between;
+
 
   display: flex;
-
   align-items: center;
-  justify-content: space-between;
 }
 
 
@@ -159,15 +158,16 @@ a {
 /* =========================================================
    DESKTOP NAV
 ========================================================= */
-
 .desktop-nav {
   display: flex;
-
   align-items: center;
-
+  justify-content: flex-end;
   gap: 34px;
-}
 
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 .desktop-nav > a:not(.talk-button) {
   color: #ffffff;
 
@@ -749,7 +749,7 @@ footer {
 
 @media (min-width: 1600px) {
   .header-inner {
-    width: min(1500px, calc(100% - 100px));
+  width: 100%;
   }
 
   .hero {
@@ -770,8 +770,10 @@ footer {
    ========================================================= */
 
 @media (max-width: 1200px) {
+
   .header-inner {
-    width: calc(100% - 48px);
+    padding-left: 35px;
+    padding-right: 35px;
   }
 
   .desktop-nav {
@@ -799,30 +801,167 @@ footer {
     width: 100%;
   }
 }
-
 /* =========================================================
    TABLET
    ========================================================= */
 
 @media (max-width: 900px) {
+
   .site-header {
     height: 74px;
   }
 
   .header-inner {
-    width: calc(100% - 32px);
+    width: 100%;
+    min-height: 76px;
+    padding: 0 25px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-link {
+    flex-shrink: 0;
   }
 
   .site-logo {
     width: 112px;
+    height: auto;
   }
 
+  /* Desktop menu completely hidden */
   .desktop-nav {
     display: none;
   }
 
+  /* 3-line mobile/tablet button stays on RIGHT */
   .mobile-menu-button {
     display: flex;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  /* =====================================================
+     TABLET + MOBILE DROPDOWN
+  ===================================================== */
+
+  .mobile-nav {
+    display: flex;
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 15px 25px 20px;
+
+    flex-direction: column;
+
+    background: #ffffff;
+
+    box-shadow: 0 18px 35px rgba(16, 24, 40, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .mobile-nav-open {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+  }
+
+  .mobile-nav > a:not(.mobile-talk-button) {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 5px;
+
+    color: #101828;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .mobile-talk-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 13px 20px;
+
+    border-radius: 50px;
+
+    background: #dfb72f;
+    color: #111111;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .mobile-social {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    padding-top: 18px;
+  }
+
+  .mobile-social a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #f3f4f6;
+
+    text-decoration: none;
+
+    overflow: hidden;
+  }
+
+  .mobile-social img {
+    width: 21px;
+    height: 21px;
+
+    object-fit: contain;
   }
 
   .hero {
@@ -887,8 +1026,10 @@ footer {
   }
 
   .header-inner {
-    width: calc(100% - 24px);
-  }
+  width: 100%;
+  padding-left: 18px;
+  padding-right: 18px;
+}
 
   .site-logo {
     width: 98px;
@@ -952,6 +1093,8 @@ footer {
     padding: 65px 22px;
   }
 }
+
+
 
 /* =========================================================
    VERY SMALL MOBILE
@@ -2630,10 +2773,10 @@ footer {
 
 
 /* =========================================================
-   SECTION 7 - FAQ
+   SECTION 7 - CBA FAQ
 ========================================================= */
 
-.faq-section {
+.cba-faq-section {
   width: 100%;
   min-height: 100vh;
 
@@ -2643,9 +2786,16 @@ footer {
   background: #ffffff;
 
   padding: 85px 0;
+
+  box-sizing: border-box;
 }
 
-.faq-container {
+
+/* =========================================================
+   FAQ CONTAINER
+========================================================= */
+
+.cba-faq-container {
   width: 100%;
   max-width: 1250px;
 
@@ -2660,6 +2810,8 @@ footer {
   gap: 80px;
 
   align-items: start;
+
+  box-sizing: border-box;
 }
 
 
@@ -2667,15 +2819,22 @@ footer {
    LEFT CONTENT
 ========================================================= */
 
-.faq-intro {
+.cba-faq-intro {
   position: sticky;
 
   top: 100px;
 
   padding-top: 15px;
+
+  min-width: 0;
 }
 
-.faq-intro .section-eyebrow {
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.cba-faq-eyebrow {
   display: inline-block;
 
   margin-bottom: 14px;
@@ -2689,7 +2848,16 @@ footer {
   letter-spacing: 1.8px;
 }
 
-.faq-intro h2 {
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.cba-faq-intro h2 {
+  display: block;
+
+  width: 100%;
+
   margin: 0;
 
   color: #101828;
@@ -2705,11 +2873,20 @@ footer {
   font-weight: 800;
 }
 
-.faq-intro h2 span {
+.cba-faq-intro h2 span {
   color: #c9151b;
 }
 
-.faq-intro p {
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.cba-faq-intro p {
+  display: block;
+
+  width: 100%;
+
   max-width: 430px;
 
   margin: 20px 0 0;
@@ -2728,17 +2905,26 @@ footer {
    FAQ LIST
 ========================================================= */
 
-.faq-list {
+.cba-faq-list {
   width: 100%;
+
+  min-width: 0;
 }
 
-.faq-item {
+
+/* =========================================================
+   FAQ ITEM
+========================================================= */
+
+.cba-faq-item {
   width: 100%;
 
   border-bottom: 1px solid #e4e7ec;
+
+  box-sizing: border-box;
 }
 
-.faq-item:first-child {
+.cba-faq-item:first-child {
   border-top: 1px solid #e4e7ec;
 }
 
@@ -2747,10 +2933,11 @@ footer {
    QUESTION
 ========================================================= */
 
-.faq-item summary {
+.cba-faq-item summary {
   display: flex;
 
   align-items: center;
+
   justify-content: space-between;
 
   gap: 25px;
@@ -2768,23 +2955,35 @@ footer {
   font-size: 15px;
 
   font-weight: 750;
+
+  box-sizing: border-box;
 }
 
-.faq-item summary::-webkit-details-marker {
+
+/* REMOVE DEFAULT ARROW */
+
+.cba-faq-item summary::-webkit-details-marker {
   display: none;
 }
 
-.faq-item summary::marker {
+.cba-faq-item summary::marker {
   display: none;
 }
 
-.faq-item summary b {
+
+/* =========================================================
+   PLUS BUTTON
+========================================================= */
+
+.cba-faq-item summary b {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   width: 30px;
+
   height: 30px;
 
   flex-shrink: 0;
@@ -2809,11 +3008,11 @@ footer {
    OPEN STATE
 ========================================================= */
 
-.faq-item[open] summary {
+.cba-faq-item[open] summary {
   color: #c9151b;
 }
 
-.faq-item[open] summary b {
+.cba-faq-item[open] summary b {
   transform: rotate(45deg);
 
   background: #c9151b;
@@ -2828,11 +3027,19 @@ footer {
    ANSWER
 ========================================================= */
 
-.faq-answer {
+.cba-faq-answer {
+  display: block;
+
+  width: 100%;
+
   padding: 0 55px 22px 5px;
+
+  box-sizing: border-box;
 }
 
-.faq-answer p {
+.cba-faq-answer p {
+  display: block;
+
   margin: 0;
 
   color: #667085;
@@ -2844,7 +3051,7 @@ footer {
   font-weight: 500;
 }
 
-.faq-answer strong {
+.cba-faq-answer strong {
   color: #101828;
 
   font-weight: 750;
@@ -2855,11 +3062,11 @@ footer {
    HOVER
 ========================================================= */
 
-.faq-item summary:hover {
+.cba-faq-item summary:hover {
   color: #c9151b;
 }
 
-.faq-item summary:hover b {
+.cba-faq-item summary:hover b {
   border-color: #c9151b;
 }
 
@@ -2870,13 +3077,13 @@ footer {
 
 @media (max-width: 1000px) {
 
-  .faq-section {
+  .cba-faq-section {
     min-height: auto;
 
     padding: 75px 0;
   }
 
-  .faq-container {
+  .cba-faq-container {
     padding: 0 35px;
 
     grid-template-columns: 1fr;
@@ -2884,18 +3091,19 @@ footer {
     gap: 45px;
   }
 
-  .faq-intro {
+  .cba-faq-intro {
     position: static;
 
     text-align: center;
   }
 
-  .faq-intro p {
+  .cba-faq-intro p {
     margin-left: auto;
+
     margin-right: auto;
   }
 
-  .faq-list {
+  .cba-faq-list {
     max-width: 800px;
 
     margin: 0 auto;
@@ -2909,27 +3117,27 @@ footer {
 
 @media (max-width: 600px) {
 
-  .faq-section {
+  .cba-faq-section {
     padding: 60px 0;
   }
 
-  .faq-container {
+  .cba-faq-container {
     padding: 0 20px;
 
     gap: 35px;
   }
 
-  .faq-intro h2 {
+  .cba-faq-intro h2 {
     font-size: 38px;
 
     letter-spacing: -1.8px;
   }
 
-  .faq-intro p {
+  .cba-faq-intro p {
     font-size: 13px;
   }
 
-  .faq-item summary {
+  .cba-faq-item summary {
     min-height: 65px;
 
     font-size: 14px;
@@ -2937,24 +3145,46 @@ footer {
     gap: 15px;
   }
 
-  .faq-item summary b {
+  .cba-faq-item summary b {
     width: 27px;
+
     height: 27px;
 
     font-size: 16px;
   }
 
-  .faq-answer {
+  .cba-faq-answer {
     padding: 0 35px 20px 5px;
   }
 
-  .faq-answer p {
+  .cba-faq-answer p {
     font-size: 12.5px;
 
     line-height: 1.65;
   }
 }
 
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .cba-faq-container {
+    padding: 0 16px;
+  }
+
+  .cba-faq-intro h2 {
+    font-size: 34px;
+
+    letter-spacing: -1.5px;
+  }
+
+  .cba-faq-item summary {
+    font-size: 13px;
+  }
+}
 
 
 
@@ -9983,3 +10213,6 @@ footer {
   margin-top: 2px;
   color: #888;
 }
+
+
+

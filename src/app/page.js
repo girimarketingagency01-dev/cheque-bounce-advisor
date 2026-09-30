@@ -661,14 +661,17 @@ export default function Home() {
     SECTION 7 - FAQ
 ===================================================== */}
 
-<section className="faq-section">
+<section className="cba-faq-section">
 
-  <div className="faq-container">
+  <div className="cba-faq-container">
 
-    {/* LEFT CONTENT */}
-    <div className="faq-intro">
+    {/* =================================================
+        LEFT CONTENT
+    ================================================= */}
 
-      <span className="section-eyebrow">
+    <div className="cba-faq-intro">
+
+      <span className="cba-faq-eyebrow">
         FREQUENTLY ASKED QUESTIONS
       </span>
 
@@ -686,16 +689,29 @@ export default function Home() {
     </div>
 
 
-    {/* RIGHT FAQ */}
-    <div className="faq-list">
+    {/* =================================================
+        RIGHT FAQ
+    ================================================= */}
 
-      <details className="faq-item" open>
+    <div className="cba-faq-list">
+
+
+      {/* FAQ 1 */}
+
+      <details className="cba-faq-item" open>
+
         <summary>
-          <span>How to withdraw cheque bounce case?</span>
+
+          <span>
+            How to withdraw cheque bounce case?
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             The complainant can withdraw the case in the event of reaching
             for an amicable settlement with the accused/other party.
@@ -705,17 +721,28 @@ export default function Home() {
             filed before the concerned Court for its consideration and
             compliance.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 2 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Assistance in Resolving Disputes</span>
+
+          <span>
+            Assistance in Resolving Disputes
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             A cheque bounce advisor can assist in resolving disputes by
             reviewing the circumstances surrounding the bounced cheque,
@@ -723,17 +750,28 @@ export default function Home() {
             settlement options, and providing legal advice on the best
             course of action to achieve a favorable resolution.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 3 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Steps to Take Upon Receiving a Notice</span>
+
+          <span>
+            Steps to Take Upon Receiving a Notice
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             Upon receiving a notice regarding a bounced cheque, it’s
             essential to seek advice from a cheque bounce advisor immediately.
@@ -742,17 +780,28 @@ export default function Home() {
             and guide you through the necessary steps to address the issue
             effectively.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 4 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Preventing Cheque Bounces</span>
+
+          <span>
+            Preventing Cheque Bounces
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             Common reasons for cheques to bounce include insufficient funds,
             signature mismatch, post-dated cheques, and technical errors.
@@ -760,17 +809,28 @@ export default function Home() {
             cheque bounces by ensuring sufficient funds, verifying recipient
             details, and following best practices for cheque issuance.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 5 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Legal Process for Handling Bounced Cheques</span>
+
+          <span>
+            Legal Process for Handling Bounced Cheques
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             The legal process for handling a bounced cheque typically
             involves sending a legal notice to the issuer, attempting to
@@ -779,17 +839,28 @@ export default function Home() {
             in detail, represent you in court proceedings, and help you
             navigate through the complexities of the legal system.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 6 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Consequences of Issuing a Bounced Cheque</span>
+
+          <span>
+            Consequences of Issuing a Bounced Cheque
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             Consequences of issuing a bounced cheque may include damage to
             your credit score, criminal charges, imprisonment, and financial
@@ -797,17 +868,28 @@ export default function Home() {
             consequences by offering legal advice, negotiating settlements,
             and representing your interests in legal proceedings.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 7 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Negotiating Settlements or Repayment Plans</span>
+
+          <span>
+            Negotiating Settlements or Repayment Plans
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             A cheque bounce advisor can assist in negotiating settlements
             or repayment plans with the recipient of the bounced cheque.
@@ -816,17 +898,28 @@ export default function Home() {
             legally binding agreements to ensure compliance with the terms
             of the settlement.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 8 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Required Documents and Evidence</span>
+
+          <span>
+            Required Documents and Evidence
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             To pursue legal action for a bounced cheque, you may need
             documents such as the bounced cheque itself, bank statements,
@@ -835,17 +928,28 @@ export default function Home() {
             organize these documents, assess their relevance to your case,
             and prepare a strong legal strategy.
           </p>
+
         </div>
+
       </details>
 
 
-      <details className="faq-item">
+      {/* FAQ 9 */}
+
+      <details className="cba-faq-item">
+
         <summary>
-          <span>Rights and Responsibilities of Parties Involved</span>
+
+          <span>
+            Rights and Responsibilities of Parties Involved
+          </span>
+
           <b>+</b>
+
         </summary>
 
-        <div className="faq-answer">
+        <div className="cba-faq-answer">
+
           <p>
             Both the cheque issuer and recipient have rights and
             responsibilities in the case of a bounced cheque. A cheque
@@ -853,8 +957,11 @@ export default function Home() {
             explain the legal obligations of each party, and ensure that
             your interests are protected throughout the legal process.
           </p>
+
         </div>
+
       </details>
+
 
     </div>
 

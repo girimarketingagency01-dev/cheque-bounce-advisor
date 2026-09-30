@@ -1,0 +1,1073 @@
+/* =========================================================
+   CBA INTRO ANIMATION
+========================================================= */
+
+.cba-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: #c8102e;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-manrope), Arial, sans-serif;
+
+  animation: cbaIntroBackground 0.6s ease-out both;
+}
+
+
+/* =========================================================
+   BRANDING
+========================================================= */
+
+.cba-intro-brand {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(90vw, 620px);
+
+  text-align: center;
+
+  z-index: 10;
+
+  transition:
+    top 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* Move branding upward */
+
+.cba-intro-brand-up {
+  top: 25%;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.cba-intro-logo {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+
+  animation:
+    cbaLogoReveal 0.8s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s
+    forwards;
+}
+
+
+.cba-intro-logo img {
+  display: block;
+
+  width: min(260px, 58vw);
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 12px 25px rgba(0, 0, 0, 0.18));
+}
+
+
+/* =========================================================
+   SHINING LINE
+========================================================= */
+
+.cba-intro-line {
+  width: 220px;
+  height: 2px;
+  margin: 18px auto 20px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.cba-intro-line span {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d4af37,
+    #f5d76e,
+    #d4af37,
+    transparent
+  );
+
+  animation: cbaGoldShine 1.8s ease-in-out infinite;
+}
+
+@keyframes cbaGoldShine {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+
+
+
+/* =========================================================
+   CHEQUE BOUNCE TYPEWRITER
+========================================================= */
+
+.cba-intro-title {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+
+  font-size: clamp(22px, 3vw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+
+  color: #ffffff;
+
+  clip-path: inset(0 100% 0 0);
+
+  animation:
+    cba-cheque-typewriter 1.15s steps(13, end) 1.15s forwards;
+}
+
+
+/* =========================================================
+   ADVISOR
+========================================================= */
+
+.cba-intro-advisor {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 8px;
+
+  overflow: visible;
+}
+
+
+.cba-typewriter {
+  display: inline-block;
+
+  width: max-content;
+  max-width: none;
+
+  white-space: nowrap;
+  overflow: visible;
+
+  font-size: clamp(18px, 2.2vw, 30px);
+  font-weight: 500;
+
+  letter-spacing: 0.28em;
+  line-height: 1.3;
+
+  color: #ffffff;
+
+  clip-path: inset(0 100% 0 0);
+
+  animation:
+    cba-advisor-typewriter 0.8s steps(7, end) 2.45s forwards;
+}
+
+
+/* =========================================================
+   TYPEWRITER ANIMATIONS
+========================================================= */
+
+@keyframes cba-cheque-typewriter {
+
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+
+}
+
+
+@keyframes cba-advisor-typewriter {
+
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+
+}
+
+/* =========================================================
+   CHEQUE
+========================================================= */
+.cba-intro-cheque {
+  position: absolute;
+  left: 50%;
+  bottom: -45%;
+  transform: translateX(-50%);
+
+  width: min(760px, 82vw);
+
+  opacity: 0;
+
+  transition:
+    bottom 1s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s ease;
+
+  z-index: 5;
+}
+
+.cba-intro-cheque-show {
+  bottom: 7%;
+  opacity: 1;
+}
+
+.cba-intro-real-cheque-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.cba-intro-real-cheque {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 18px 35px rgba(0, 0, 0, 0.28));
+}
+
+/* =========================================================
+   CHEQUE PAPER
+========================================================= */
+
+.cba-cheque-paper {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1.82 / 1;
+
+  padding: 38px 46px;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7f1dc,
+      #fffdf1 42%,
+      #eee7ce
+    );
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.35),
+    0 8px 20px rgba(0, 0, 0, 0.2);
+
+  color: #272727;
+
+  transform-style: preserve-3d;
+}
+
+
+/* subtle paper texture */
+
+.cba-cheque-paper::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.16;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(80, 70, 30, 0.08) 0,
+      rgba(80, 70, 30, 0.08) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+
+/* =========================================================
+   CHEQUE TOP
+========================================================= */
+
+.cba-cheque-top {
+  position: relative;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid rgba(40, 40, 40, 0.22);
+}
+
+
+.cba-cheque-bank {
+  font-size: clamp(16px, 2vw, 25px);
+
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+}
+
+
+.cba-cheque-type {
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   CHEQUE DETAILS
+========================================================= */
+
+.cba-cheque-details {
+  position: relative;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 34px;
+}
+
+
+.cba-cheque-pay {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.cba-cheque-pay span {
+  display: block;
+
+  width: 310px;
+
+  max-width: 38vw;
+
+  overflow: hidden;
+
+  color: rgba(0, 0, 0, 0.45);
+}
+
+
+.cba-cheque-amount {
+  min-width: 170px;
+
+  padding: 10px 14px;
+
+  border: 1px solid rgba(0, 0, 0, 0.22);
+
+  background: rgba(255, 255, 255, 0.35);
+
+  font-size: clamp(15px, 2vw, 24px);
+
+  font-weight: 800;
+
+  text-align: right;
+}
+
+
+.cba-cheque-amount span {
+  margin-right: 5px;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.cba-cheque-date {
+  position: relative;
+
+  margin-top: 25px;
+
+  display: flex;
+
+  gap: 12px;
+
+  align-items: center;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+
+.cba-cheque-date strong {
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   SIGNATURE
+========================================================= */
+
+.cba-cheque-signature {
+  position: absolute;
+
+  right: 46px;
+  bottom: 78px;
+
+  width: 190px;
+
+  text-align: center;
+
+  font-size: 9px;
+
+  opacity: 0.7;
+}
+
+
+.cba-signature-line {
+  width: 100%;
+
+  height: 1px;
+
+  margin-top: 5px;
+
+  background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   MICR
+========================================================= */
+
+.cba-cheque-micr {
+  position: absolute;
+
+  left: 46px;
+  right: 46px;
+  bottom: 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  font-family: "Courier New", monospace;
+
+  font-size: clamp(13px, 1.6vw, 20px);
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+
+  opacity: 0.72;
+}
+
+
+/* =========================================================
+   BOUNCE STAMP
+========================================================= */
+
+.cba-bounce-stamp {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 300px;
+  height: 110px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-9deg)
+    scale(2.2);
+
+  opacity: 0;
+
+  z-index: 20;
+
+  animation:
+    cbaStampHit 0.55s
+    cubic-bezier(0.17, 0.67, 0.28, 1.35)
+    forwards;
+}
+
+
+.cba-bounce-stamp-inner {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border: 8px solid #c8102e;
+
+  color: #c8102e;
+
+  font-size: 54px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  opacity: 0.9;
+
+  transform: scale(0.8);
+
+  box-shadow:
+    inset 0 0 0 3px rgba(200, 16, 46, 0.15);
+}
+
+
+/* =========================================================
+   INTRO EXIT
+========================================================= */
+
+.cba-intro-exit {
+  animation:
+    cbaIntroExit 0.55s
+    cubic-bezier(0.65, 0, 0.35, 1)
+    forwards;
+}
+
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes cbaIntroBackground {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes cbaLogoReveal {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.85);
+
+    filter:
+      blur(8px)
+      drop-shadow(0 12px 25px rgba(0, 0, 0, 0.18));
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:
+      blur(0)
+      drop-shadow(0 12px 25px rgba(0, 0, 0, 0.18));
+  }
+
+}
+
+
+@keyframes cbaLineDraw {
+
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+
+}
+
+
+@keyframes cbaLineShine {
+
+  0% {
+    left: -30%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+
+}
+
+
+@keyframes cbaTitleReveal {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(14px)
+      scale(0.97);
+
+    letter-spacing: 0.2em;
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    letter-spacing: 0.12em;
+  }
+
+}
+
+
+@keyframes cbaTypewriter {
+
+  from {
+    width: 0;
+
+    opacity: 1;
+  }
+
+  to {
+    width: 7ch;
+
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes cbaCursorBlink {
+
+  0%,
+  50% {
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+
+  51%,
+  100% {
+    border-color: transparent;
+  }
+
+}
+
+
+@keyframes cbaChequeSlide {
+
+  0% {
+    opacity: 0;
+
+    bottom: -420px;
+
+    transform:
+      translateX(-50%)
+      rotate(-6deg)
+      scale(0.94);
+  }
+
+  65% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(1deg)
+      scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+
+    bottom: 8%;
+
+    transform:
+      translateX(-50%)
+      rotate(-2deg)
+      scale(1);
+  }
+
+}
+
+
+@keyframes cbaStampHit {
+
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-9deg)
+      scale(2.2);
+  }
+
+  55% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-9deg)
+      scale(0.88);
+  }
+
+  72% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-9deg)
+      scale(1.06);
+  }
+
+  100% {
+    opacity: 0.9;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(-9deg)
+      scale(1);
+  }
+
+}
+
+
+@keyframes cbaIntroExit {
+
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+
+    visibility: hidden;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .cba-intro-brand-up {
+    top: 25%;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.82);
+  }
+
+
+  .cba-intro-cheque {
+    width: 92vw;
+  }
+
+
+  .cba-cheque-paper {
+    padding: 28px 30px;
+  }
+
+
+  .cba-cheque-signature {
+    right: 30px;
+  }
+
+
+  .cba-cheque-micr {
+    left: 30px;
+    right: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .cba-intro-brand {
+    width: 92vw;
+  }
+
+
+  .cba-intro-brand-up {
+    top: 35%;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.72);
+  }
+
+
+  .cba-intro-logo img {
+    width: min(230px, 62vw);
+  }
+
+
+  .cba-intro-line {
+    margin-top: 18px;
+    margin-bottom: 15px;
+  }
+
+
+  .cba-intro-title {
+    font-size: 25px;
+
+    letter-spacing: 0.09em;
+  }
+
+
+  .cba-intro-advisor {
+    font-size: 13px;
+
+    letter-spacing: 0.24em;
+  }
+
+
+  .cba-intro-cheque {
+    width: 96vw;
+
+    bottom: -300px;
+  }
+
+
+  .cba-cheque-paper {
+    padding: 20px;
+
+    border-radius: 4px;
+  }
+
+
+  .cba-cheque-top {
+    padding-bottom: 10px;
+  }
+
+
+  .cba-cheque-bank {
+    font-size: 12px;
+  }
+
+
+  .cba-cheque-type {
+    font-size: 7px;
+  }
+
+
+  .cba-cheque-details {
+    margin-top: 20px;
+
+    gap: 8px;
+  }
+
+
+  .cba-cheque-pay {
+    font-size: 7px;
+
+    gap: 5px;
+  }
+
+
+  .cba-cheque-pay span {
+    width: 130px;
+  }
+
+
+  .cba-cheque-amount {
+    min-width: 100px;
+
+    padding: 6px;
+
+    font-size: 11px;
+  }
+
+
+  .cba-cheque-date {
+    margin-top: 15px;
+
+    font-size: 7px;
+  }
+
+
+  .cba-cheque-date strong {
+    font-size: 8px;
+  }
+
+
+  .cba-cheque-signature {
+    right: 20px;
+    bottom: 53px;
+
+    width: 100px;
+
+    font-size: 6px;
+  }
+
+
+  .cba-cheque-micr {
+    left: 20px;
+    right: 20px;
+    bottom: 15px;
+
+    font-size: 8px;
+  }
+
+
+  .cba-bounce-stamp {
+    width: 170px;
+    height: 62px;
+  }
+
+
+  .cba-bounce-stamp-inner {
+    border-width: 5px;
+
+    font-size: 29px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cba-intro *,
+  .cba-intro {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition: none !important;
+  }
+
+}
+
+
+
+
+@media (max-width: 768px) {
+
+  .cba-intro-cheque {
+    width: 90vw;
+    bottom: -35%;
+  }
+
+  .cba-intro-cheque-show {
+    bottom: 10%;
+  }
+
+  .cba-intro-line {
+    width: 170px;
+  }
+
+  .cba-typewriter {
+    font-size: 17px;
+    letter-spacing: 3px;
+  }
+
+}
+
+
+
+
+@media (max-width: 480px) {
+
+  .cba-intro-cheque {
+    width: 94vw;
+  }
+
+  .cba-intro-cheque-show {
+    bottom: 12%;
+  }
+
+  .cba-typewriter {
+    font-size: 16px;
+  }
+
+}
