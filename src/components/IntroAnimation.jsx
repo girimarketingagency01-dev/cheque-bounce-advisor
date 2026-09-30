@@ -10,25 +10,25 @@ export default function IntroAnimation() {
   const [stamp, setStamp] = useState(false);
 
   useEffect(() => {
-    // Show cheque after the branding moves upward
+    // CHEQUE SCENE START
     const chequeTimer = setTimeout(() => {
-  setShowCheque(true);
-}, 2700);
+      setShowCheque(true);
+    }, 2700);
 
-// Stamp appears after cheque settles
-const stampTimer = setTimeout(() => {
-  setStamp(true);
-}, 4000);
+    // BOUNCE STAMP
+    const stampTimer = setTimeout(() => {
+      setStamp(true);
+    }, 4000);
 
-// Start exit after longer cheque scene
-const exitTimer = setTimeout(() => {
-  setExit(true);
-}, 5400);
+    // START EXIT
+    const exitTimer = setTimeout(() => {
+      setExit(true);
+    }, 5400);
 
-// Remove intro completely
-const removeTimer = setTimeout(() => {
-  setVisible(false);
-}, 5900);
+    // REMOVE INTRO
+    const removeTimer = setTimeout(() => {
+      setVisible(false);
+    }, 5900);
 
     return () => {
       clearTimeout(chequeTimer);
@@ -38,6 +38,7 @@ const removeTimer = setTimeout(() => {
     };
   }, []);
 
+  // Intro completely removed after animation
   if (!visible) {
     return null;
   }
@@ -60,75 +61,69 @@ const removeTimer = setTimeout(() => {
       >
 
         {/* LOGO */}
-
         <div className="cba-intro-logo">
-
           <img
             src="/logoanimation.png"
             alt="Cheque Bounce Advisor"
           />
-
         </div>
 
 
-        {/* SHINING LINE */}
-
+        {/* GOLD SHINING LINE */}
         <div className="cba-intro-line">
-
           <span />
-
         </div>
 
 
         {/* CHEQUE BOUNCE */}
-
         <div className="cba-intro-title">
           CHEQUE BOUNCE
         </div>
 
 
-        {/* TYPEWRITER TEXT */}
-
+        {/* TYPEWRITER */}
         <div className="cba-intro-advisor">
-
           <span className="cba-typewriter">
             ADVISOR
           </span>
-
         </div>
 
       </div>
 
 
       {/* =====================================================
-    REAL CHEQUE
-===================================================== */}
+          REAL CHEQUE
+      ===================================================== */}
 
-<div
-  className={`cba-intro-cheque ${
-    showCheque ? "cba-intro-cheque-show" : ""
-  }`}
->
-  <div className="cba-intro-real-cheque-wrap">
+      <div
+        className={`cba-intro-cheque ${
+          showCheque ? "cba-intro-cheque-show" : ""
+        }`}
+      >
 
-    <img
-      src="/real-cheque.png"
-      alt="Cheque"
-      className="cba-intro-real-cheque"
-    />
+        <div className="cba-intro-real-cheque-wrap">
 
-    {/* BOUNCE STAMP */}
+          <img
+            src="/real-cheque.png"
+            alt="Cheque"
+            className="cba-intro-real-cheque"
+          />
 
-    {stamp && (
-      <div className="cba-bounce-stamp">
-        <div className="cba-bounce-stamp-inner">
-          BOUNCE
+
+          {/* BOUNCE STAMP */}
+
+          {stamp && (
+            <div className="cba-bounce-stamp">
+              <div className="cba-bounce-stamp-inner">
+                BOUNCE
+              </div>
+            </div>
+          )}
+
         </div>
-      </div>
-    )}
 
-  </div>
-</div>
+      </div>
+
     </div>
   );
 }
