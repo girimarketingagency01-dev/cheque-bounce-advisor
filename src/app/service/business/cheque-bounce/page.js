@@ -709,6 +709,11 @@ export default function BusinessChequeBouncePage() {
 
   const [documents, setDocuments] = useState([]);
 
+  const ACCEPTED_FILE_TYPES =
+  ".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
   const [isDragging, setIsDragging] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
@@ -718,17 +723,57 @@ export default function BusinessChequeBouncePage() {
      DOCUMENT HANDLERS
   ========================================================= */
 
-  const addDocuments = (files) => {
+ const addDocuments = (files) => {
 
-    const newFiles = Array.from(files || []);
+  const newFiles = Array.from(files || []);
 
-    if (!newFiles.length) return;
+  if (!newFiles.length) {
+    return;
+  }
 
-    setDocuments((prev) => [
-      ...prev,
-      ...newFiles,
-    ]);
-  };
+
+  const validFiles = newFiles.filter((file) => {
+
+    if (file.size > MAX_FILE_SIZE) {
+
+      alert(
+        `${file.name} is larger than 10 MB.`
+      );
+
+      return false;
+    }
+
+    return true;
+
+  });
+
+
+  setDocuments((previous) => {
+
+    const existingKeys = new Set(
+      previous.map(
+        (file) =>
+          `${file.name}-${file.size}-${file.lastModified}`
+      )
+    );
+
+
+    const uniqueFiles = validFiles.filter(
+      (file) =>
+        !existingKeys.has(
+          `${file.name}-${file.size}-${file.lastModified}`
+        )
+    );
+
+
+    return [
+      ...previous,
+      ...uniqueFiles,
+    ];
+
+  });
+
+};
 
 
   const handleDocumentsChange = (e) => {
@@ -1283,15 +1328,17 @@ export default function BusinessChequeBouncePage() {
                   </option>
 
                   {cities.map((city) => (
+  <option
+    key={city}
+    value={city}
+  >
+    {city}
+  </option>
+))}
 
-                    <option
-                      key={city}
-                      value={city}
-                    >
-                      {city}
-                    </option>
-
-                  ))}
+<option value="Other">
+  Other
+</option>
 
                 </select>
 
@@ -1559,12 +1606,13 @@ export default function BusinessChequeBouncePage() {
   >
 
     <input
-      id="businessDocuments"
-      type="file"
-      multiple
-      hidden
-      onChange={handleDocumentsChange}
-    />
+  id="businessDocuments"
+  type="file"
+  multiple
+  hidden
+  accept={ACCEPTED_FILE_TYPES}
+  onChange={handleDocumentsChange}
+/>
 
     <label
       htmlFor="businessDocuments"
@@ -1642,9 +1690,10 @@ export default function BusinessChequeBouncePage() {
 
 
   <small className="document-upload-note">
-    You may upload relevant cheque copies, bank statements,
-    notices, agreements or other supporting documents.
-  </small>
+  Accepted formats: PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSX.
+    <span>Maximum file size: 10 MB per file</span>
+
+</small>
 
 </div>
 

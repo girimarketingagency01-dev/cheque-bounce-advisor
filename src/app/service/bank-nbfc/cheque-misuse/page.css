@@ -1791,3 +1791,25 @@
   }
 
 }
+
+
+
+
+
+
+/* =========================================================
+   DOCUMENT UPLOAD NOTE
+========================================================= */
+
+.bank-misuse-document-upload-note {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #777;
+}
+
+.bank-misuse-document-upload-note span {
+  display: block;
+  margin-top: 2px;
+  color: #888;
+}

@@ -393,19 +393,36 @@ export default function IndividualChequeMisusePage() {
   const [documents, setDocuments] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
 
+  const ACCEPTED_FILE_TYPES =
+  ".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
   const cities = selectedState
     ? locationData[selectedState] || []
     : [];
 
 
     const addDocuments = (files) => {
-  const newFiles = Array.from(files);
+  const newFiles = Array.from(files || []);
 
   if (!newFiles.length) return;
 
+  const validFiles = newFiles.filter((file) => {
+
+    if (file.size > MAX_FILE_SIZE) {
+      alert(`${file.name} is larger than 10 MB.`);
+      return false;
+    }
+
+    return true;
+  });
+
+  if (!validFiles.length) return;
+
   setDocuments((prev) => [
     ...prev,
-    ...newFiles,
+    ...validFiles,
   ]);
 };
 
@@ -1077,15 +1094,17 @@ const handleSubmit = async (event) => {
                   </option>
 
                   {cities.map((city) => (
+  <option
+    key={city}
+    value={city}
+  >
+    {city}
+  </option>
+))}
 
-                    <option
-                      key={city}
-                      value={city}
-                    >
-                      {city}
-                    </option>
-
-                  ))}
+<option value="Other">
+  Other
+</option>
 
                 </select>
 
@@ -1146,6 +1165,7 @@ const handleSubmit = async (event) => {
     type="file"
     multiple
     hidden
+    accept={ACCEPTED_FILE_TYPES}
     onChange={handleDocumentsChange}
   />
 
@@ -1180,10 +1200,10 @@ const handleSubmit = async (event) => {
 
   </div>
 
-  <small>
-    You may upload relevant cheque, bank statement,
-    notice or other supporting documents.
-  </small>
+<div className="individual-document-upload-note">
+  Accepted formats: PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSX
+  <span>Maximum file size: 10 MB per file</span>
+</div>
 
 </div>
 

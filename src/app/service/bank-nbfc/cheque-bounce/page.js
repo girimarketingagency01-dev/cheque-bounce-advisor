@@ -904,6 +904,11 @@ export default function BankNbfcChequeBouncePage() {
   const [dragging, setDragging] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  const ACCEPTED_FILE_TYPES =
+  ".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
   const cities = selectedState
     ? locationData[selectedState] || []
     : [];
@@ -922,34 +927,54 @@ export default function BankNbfcChequeBouncePage() {
      DOCUMENT HANDLING
   ======================================================= */
 
-  const addDocuments = (files) => {
+const addDocuments = (files) => {
 
-    const incomingFiles = Array.from(files || []);
+  const incomingFiles = Array.from(files || []);
 
-    if (!incomingFiles.length) {
-      return;
+  if (!incomingFiles.length) {
+    return;
+  }
+
+  const validFiles = incomingFiles.filter((file) => {
+
+    if (file.size > MAX_FILE_SIZE) {
+
+      alert(
+        `${file.name} is larger than 10 MB.`
+      );
+
+      return false;
     }
 
-    setDocuments((previous) => {
+    return true;
+  });
 
-      const existingKeys = new Set(
-        previous.map(
-          (file) =>
-            `${file.name}-${file.size}-${file.lastModified}`
-        )
-      );
+  if (!validFiles.length) {
+    return;
+  }
 
-      const uniqueFiles = incomingFiles.filter(
+  setDocuments((previous) => {
+
+    const existingKeys = new Set(
+      previous.map(
         (file) =>
-          !existingKeys.has(
-            `${file.name}-${file.size}-${file.lastModified}`
-          )
-      );
+          `${file.name}-${file.size}-${file.lastModified}`
+      )
+    );
 
-      return [...previous, ...uniqueFiles];
-    });
-  };
+    const uniqueFiles = validFiles.filter(
+      (file) =>
+        !existingKeys.has(
+          `${file.name}-${file.size}-${file.lastModified}`
+        )
+    );
 
+    return [
+      ...previous,
+      ...uniqueFiles
+    ];
+  });
+};
 
   const handleDocumentsChange = (event) => {
 
@@ -993,16 +1018,203 @@ export default function BankNbfcChequeBouncePage() {
   };
 
 
-  /* =======================================================
-     FORM SUBMIT
-  ======================================================= */
+/* =======================================================
+   FORM SUBMIT
+======================================================= */
 
-  const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    event.preventDefault();
+  try {
+    const form = event.currentTarget;
 
-    setSubmitted(true);
-  };
+    const formData = new FormData(form);
+
+
+    /* -----------------------------------------------
+       BASIC LEAD INFORMATION
+    ----------------------------------------------- */
+
+    formData.set(
+      "name",
+      formData.get("contactPerson") || ""
+    );
+
+    formData.set(
+      "phone",
+      formData.get("mobile") || ""
+    );
+
+    formData.set(
+      "matter",
+      formData.get("matterDetails") || ""
+    );
+
+    formData.set(
+      "form_name",
+      "Bank NBFC Cheque Bounce"
+    );
+
+    formData.set(
+      "page_url",
+      window.location.href
+    );
+
+
+    /* -----------------------------------------------
+       ADDITIONAL FORM DATA
+    ----------------------------------------------- */
+
+    const additionalFields = {
+
+      category:
+        formData.get("category") || "",
+
+      matter:
+        "Cheque Bounce",
+
+      institutionType:
+        formData.get("institutionType") || "",
+
+      institutionName:
+        formData.get("institutionName") || "",
+
+      branchName:
+        formData.get("branchName") || "",
+
+      branchReference:
+        formData.get("branchReference") || "",
+
+      contactPerson:
+        formData.get("contactPerson") || "",
+
+      state:
+        formData.get("state") || "",
+
+      city:
+        formData.get("city") || "",
+
+      chequeAmount:
+        formData.get("chequeAmount") || "",
+
+      chequeNumber:
+        formData.get("chequeNumber") || "",
+
+      drawerName:
+        formData.get("drawerName") || "",
+
+      chequeDate:
+        formData.get("chequeDate") || "",
+
+      bounceDate:
+        formData.get("bounceDate") || "",
+
+      returnReason:
+        formData.get("returnReason") || "",
+
+      noticeStatus:
+        formData.get("noticeStatus") || "",
+
+      matterStatus:
+        formData.get("matterStatus") || "",
+
+      matterDetails:
+        formData.get("matterDetails") || "",
+
+    };
+
+
+    /* -----------------------------------------------
+       REMOVE OLD FIELDS VALUE
+    ----------------------------------------------- */
+
+    formData.delete("fields");
+
+
+    /* -----------------------------------------------
+       ADD FIELDS AS JSON
+    ----------------------------------------------- */
+
+    formData.append(
+      "fields",
+      JSON.stringify(additionalFields)
+    );
+
+
+    /* -----------------------------------------------
+       ADD DOCUMENTS
+    ----------------------------------------------- */
+
+    documents.forEach((file) => {
+
+      formData.append(
+        "documents[]",
+        file
+      );
+
+    });
+
+
+    /* -----------------------------------------------
+       SEND TO WORDPRESS
+    ----------------------------------------------- */
+
+    const response = await fetch(
+      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+
+    const result = await response.json();
+
+
+    /* -----------------------------------------------
+       SUCCESS
+    ----------------------------------------------- */
+
+    if (
+      response.ok &&
+      result.success
+    ) {
+
+      setSubmitted(true);
+
+      setDocuments([]);
+
+      form.reset();
+
+      setSelectedState("");
+
+      return;
+    }
+
+
+    /* -----------------------------------------------
+       ERROR
+    ----------------------------------------------- */
+
+    alert(
+      result.message ||
+      "Something went wrong. Please try again."
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "Lead submission error:",
+      error
+    );
+
+    alert(
+      "Unable to submit your request. Please try again."
+    );
+
+  }
+};
 
 
   return (
@@ -1343,15 +1555,17 @@ export default function BankNbfcChequeBouncePage() {
                   </option>
 
                   {cities.map((city) => (
+  <option
+    key={city}
+    value={city}
+  >
+    {city}
+  </option>
+))}
 
-                    <option
-                      key={city}
-                      value={city}
-                    >
-                      {city}
-                    </option>
-
-                  ))}
+<option value="Other">
+  Other
+</option>
 
                 </select>
 
@@ -1681,11 +1895,15 @@ export default function BankNbfcChequeBouncePage() {
       type="file"
       multiple
       hidden
+      accept={ACCEPTED_FILE_TYPES}
       onChange={handleDocumentsChange}
-      accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
     />
 
   </label>
+  <div className="bank-bounce-document-upload-note">
+  Accepted formats: PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSX
+  <span>Maximum file size: 10 MB per file</span>
+</div>
 
 
   {/* =================================================

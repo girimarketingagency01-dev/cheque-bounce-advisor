@@ -9964,3 +9964,22 @@ footer {
   }
 
 }
+
+
+
+/* =========================================================
+   DOCUMENT UPLOAD NOTE
+========================================================= */
+
+.individual-document-upload-note {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #777;
+}
+
+.individual-document-upload-note span {
+  display: block;
+  margin-top: 2px;
+  color: #888;
+}

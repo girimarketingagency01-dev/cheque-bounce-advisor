@@ -37,6 +37,11 @@ export default function BusinessChequeMisusePage() {
 
   const [isDragging, setIsDragging] = useState(false);
 
+  const ACCEPTED_FILE_TYPES =
+  ".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
 
   /* =======================================================
      LOAD INDIA STATE + DISTRICT DATA
@@ -233,56 +238,65 @@ export default function BusinessChequeMisusePage() {
      DOCUMENT CHANGE
   ======================================================= */
 
-  const addDocuments = (fileList) => {
+const addDocuments = (fileList) => {
 
-    if (!fileList) {
-      return;
+  if (!fileList) {
+    return;
+  }
+
+
+  const newFiles = Array.from(fileList);
+
+
+  if (!newFiles.length) {
+    return;
+  }
+
+
+  const validFiles = newFiles.filter((file) => {
+
+    if (file.size > MAX_FILE_SIZE) {
+
+      alert(
+        `${file.name} is larger than 10 MB.`
+      );
+
+      return false;
     }
 
+    return true;
 
-    const newFiles =
-      Array.from(fileList);
-
-
-    if (!newFiles.length) {
-      return;
-    }
+  });
 
 
-    setDocuments((previous) => {
+  setDocuments((previous) => {
 
-      /*
-        Same file ko duplicate add hone se rokna
-      */
-
-      const existingKeys =
-        new Set(
-          previous.map(
-            (file) =>
-              `${file.name}-${file.size}-${file.lastModified}`
-          )
-        );
+    const existingKeys = new Set(
+      previous.map(
+        (file) =>
+          `${file.name}-${file.size}-${file.lastModified}`
+      )
+    );
 
 
-      const filteredFiles =
-        newFiles.filter((file) => {
+    const filteredFiles = validFiles.filter((file) => {
 
-          const key =
-            `${file.name}-${file.size}-${file.lastModified}`;
+      const key =
+        `${file.name}-${file.size}-${file.lastModified}`;
 
-          return !existingKeys.has(key);
-
-        });
-
-
-      return [
-        ...previous,
-        ...filteredFiles,
-      ];
+      return !existingKeys.has(key);
 
     });
 
-  };
+
+    return [
+      ...previous,
+      ...filteredFiles,
+    ];
+
+  });
+
+};
 
 
   /* =======================================================
@@ -386,66 +400,189 @@ export default function BusinessChequeMisusePage() {
   };
 
 
-  /* =======================================================
-     FORM SUBMIT
-  ======================================================= */
+/* =======================================================
+   FORM SUBMIT
+======================================================= */
 
-  const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    event.preventDefault();
+  try {
+    const form = event.currentTarget;
+
+    const formData = new FormData(form);
+
+    /* -----------------------------------------------
+       BASIC LEAD INFORMATION
+    ----------------------------------------------- */
+
+    formData.set(
+      "name",
+      formData.get("contactPerson") || ""
+    );
+
+    formData.set(
+      "phone",
+      formData.get("mobile") || ""
+    );
+
+    formData.set(
+      "matter",
+      formData.get("matterDetails") || ""
+    );
+
+    formData.set(
+      "form_name",
+      "Business Cheque Misuse"
+    );
+
+    formData.set(
+      "page_url",
+      window.location.href
+    );
 
 
     /* -----------------------------------------------
-       STATE VALIDATION
+       ADDITIONAL FORM DATA
+    ----------------------------------------------- */
+
+    const additionalFields = {
+
+      category:
+        formData.get("category") || "",
+
+      matter:
+        "Cheque Misuse",
+
+      businessName:
+        formData.get("businessName") || "",
+
+      contactPerson:
+        formData.get("contactPerson") || "",
+
+      state:
+        formData.get("state") || "",
+
+      city:
+        formData.get("city") || "",
+
+      chequeAmount:
+        formData.get("chequeAmount") || "",
+
+      bankName:
+        formData.get("bankName") || "",
+
+      chequeNumber:
+        formData.get("chequeNumber") || "",
+
+      chequeDate:
+        formData.get("chequeDate") || "",
+
+      chequePurpose:
+        formData.get("chequePurpose") || "",
+
+      noticeReceived:
+        formData.get("noticeReceived") || "",
+
+      matterDetails:
+        formData.get("matterDetails") || "",
+
+    };
+
+
+    /* -----------------------------------------------
+       REMOVE OLD FIELDS VALUE
+    ----------------------------------------------- */
+
+    formData.delete("fields");
+
+
+    /* -----------------------------------------------
+       ADD FIELDS AS JSON
+    ----------------------------------------------- */
+
+    formData.append(
+      "fields",
+      JSON.stringify(additionalFields)
+    );
+
+
+    /* -----------------------------------------------
+       ADD DOCUMENTS
+    ----------------------------------------------- */
+
+    documents.forEach((file) => {
+
+      formData.append(
+        "documents[]",
+        file
+      );
+
+    });
+
+
+    /* -----------------------------------------------
+       SEND TO WORDPRESS
+    ----------------------------------------------- */
+
+    const response = await fetch(
+      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+
+
+    const result = await response.json();
+
+
+    /* -----------------------------------------------
+       SUCCESS
     ----------------------------------------------- */
 
     if (
-      !selectedState ||
-      !locationData[selectedState]
+      response.ok &&
+      result.success
     ) {
 
-      alert(
-        "Please select a valid state."
-      );
+      setSubmitted(true);
+
+      setDocuments([]);
+
+      form.reset();
+
+      setSelectedState("");
+
+      setSelectedCity("");
 
       return;
-
     }
 
 
     /* -----------------------------------------------
-       CITY VALIDATION
+       ERROR
     ----------------------------------------------- */
 
-    if (
-      !selectedCity ||
-      !locationData[selectedState]?.includes(
-        selectedCity
-      )
-    ) {
-
-      alert(
-        "Please select a valid city / district."
-      );
-
-      return;
-
-    }
+    alert(
+      result.message ||
+      "Something went wrong. Please try again."
+    );
 
 
-    /* -----------------------------------------------
-       FORM SUBMIT
-    ----------------------------------------------- */
+  } catch (error) {
 
-    setSubmitted(true);
+    console.error(
+      "Lead submission error:",
+      error
+    );
 
-    /*
-      Future:
-      Yahin par API / email / CRM submission
-      add kar sakte hain.
-    */
+    alert(
+      "Unable to submit your request. Please try again."
+    );
 
-  };
+  }
+};
 
 
   /* =======================================================
@@ -830,15 +967,17 @@ export default function BusinessChequeMisusePage() {
 
 
                   {cities.map((city) => (
+  <option
+    key={city}
+    value={city}
+  >
+    {city}
+  </option>
+))}
 
-                    <option
-                      key={city}
-                      value={city}
-                    >
-                      {city}
-                    </option>
-
-                  ))}
+<option value="Other">
+  Other
+</option>
 
                 </select>
 
@@ -1096,6 +1235,7 @@ export default function BusinessChequeMisusePage() {
     type="file"
     multiple
     hidden
+    accept={ACCEPTED_FILE_TYPES}
     onChange={(e) => {
       addDocuments(e.target.files);
 
@@ -1199,7 +1339,10 @@ export default function BusinessChequeMisusePage() {
     </div>
 
   )}
-
+  <small className="business-document-upload-note">
+    Accepted formats: PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSX.
+  <span>Maximum file size: 10 MB per file</span>
+  </small>
 </div>
             {/* =================================================
                 07 CONFIRMATION

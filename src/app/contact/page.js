@@ -194,14 +194,15 @@ const handleSubmit = async (e) => {
                 </a>
 
                 <a
-                  href="https://x.com/"
+                  href="https://x.com/mychequebounce"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-social"
                 >
-                  <span className="contact-x-icon">
-                    X
-                  </span>
+                  <img
+                    src="/twitter-icon.png"
+                    alt="Twitter"
+                  />
 
                   <span>Twitter / X</span>
 

@@ -233,14 +233,7 @@ const STATES = {
   ],
 };
 
-/* =========================================================
-   ACCEPTED DOCUMENT TYPES
-========================================================= */
 
-const ACCEPTED_TYPES =
-  ".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx";
-
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
 
 /* =========================================================
@@ -251,6 +244,11 @@ export default function BankNbfcChequeMisusePage() {
   const [documents, setDocuments] = useState([]);
   const [dragging, setDragging] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const ACCEPTED_FILE_TYPES =
+  ".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
   const [formData, setFormData] = useState({
     institutionType: "",
@@ -297,23 +295,54 @@ export default function BankNbfcChequeMisusePage() {
      DOCUMENT HANDLERS
   ========================================================= */
 
-  const addDocuments = (files) => {
-    const incomingFiles = Array.from(files || []);
+ const addDocuments = (files) => {
 
-    const validFiles = incomingFiles.filter((file) => {
-      if (file.size > MAX_FILE_SIZE) {
-        alert(`${file.name} is larger than 10 MB.`);
-        return false;
-      }
+  const incomingFiles = Array.from(files || []);
 
-      return true;
-    });
+  if (!incomingFiles.length) {
+    return;
+  }
 
-    setDocuments((previous) => [
+  const validFiles = incomingFiles.filter((file) => {
+
+    if (file.size > MAX_FILE_SIZE) {
+
+      alert(
+        `${file.name} is larger than 10 MB.`
+      );
+
+      return false;
+    }
+
+    return true;
+  });
+
+  if (!validFiles.length) {
+    return;
+  }
+
+  setDocuments((previous) => {
+
+    const existingKeys = new Set(
+      previous.map(
+        (file) =>
+          `${file.name}-${file.size}-${file.lastModified}`
+      )
+    );
+
+    const uniqueFiles = validFiles.filter(
+      (file) =>
+        !existingKeys.has(
+          `${file.name}-${file.size}-${file.lastModified}`
+        )
+    );
+
+    return [
       ...previous,
-      ...validFiles,
-    ]);
-  };
+      ...uniqueFiles
+    ];
+  });
+};
 
 
   const handleDocumentsChange = (event) => {
@@ -355,16 +384,221 @@ export default function BankNbfcChequeMisusePage() {
      SUBMIT
   ========================================================= */
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-    if (!formData.consent) {
-      alert("Please confirm the consent before submitting.");
-      return;
+  if (!formData.consent) {
+    alert("Please confirm the consent before submitting.");
+    return;
+  }
+
+  try {
+    const leadFormData = new FormData();
+
+    /* =====================================================
+       MAIN LEAD IDENTIFICATION
+    ===================================================== */
+
+    leadFormData.append(
+      "name",
+      formData.customerName
+    );
+
+    leadFormData.append(
+      "phone",
+      formData.mobile
+    );
+
+    leadFormData.append(
+      "matter",
+      "Cheque Misuse"
+    );
+
+    leadFormData.append(
+      "form_name",
+      "Bank NBFC Cheque Misuse"
+    );
+
+    leadFormData.append(
+      "page_url",
+      window.location.href
+    );
+
+
+    /* =====================================================
+       ALL FORM FIELDS
+    ===================================================== */
+
+    const fields = {
+      category: "Bank / NBFC",
+
+      matter: "Cheque Misuse",
+
+      source:
+        "Bank NBFC Cheque Misuse Assistance",
+
+      institutionType:
+        formData.institutionType,
+
+      institutionName:
+        formData.institutionName,
+
+      branchOffice:
+        formData.branchOffice,
+
+      customerType:
+        formData.customerType,
+
+      customerName:
+        formData.customerName,
+
+      accountReference:
+        formData.accountReference,
+
+      mobile:
+        formData.mobile,
+
+      email:
+        formData.email,
+
+      chequeNumber:
+        formData.chequeNumber,
+
+      chequeAmount:
+        formData.chequeAmount,
+
+      chequeDate:
+        formData.chequeDate,
+
+      chequeStatus:
+        formData.chequeStatus,
+
+      misuseDetails:
+        formData.misuseDetails,
+
+      matterDescription:
+        formData.matterDescription,
+
+      state:
+        formData.state,
+
+      city:
+        formData.city,
+
+      matterLocation:
+        formData.matterLocation,
+
+      consent:
+        formData.consent,
+
+      page_url:
+        window.location.href,
+    };
+
+
+    leadFormData.append(
+      "fields",
+      JSON.stringify(fields)
+    );
+
+
+    /* =====================================================
+       DOCUMENTS
+    ===================================================== */
+
+    documents.forEach((file) => {
+
+      leadFormData.append(
+        "documents[]",
+        file
+      );
+
+    });
+
+
+    /* =====================================================
+       SEND LEAD
+    ===================================================== */
+
+    const response = await fetch(
+      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      {
+        method: "POST",
+        body: leadFormData,
+      }
+    );
+
+
+    const result = await response.json();
+
+
+    /* =====================================================
+       RESPONSE CHECK
+    ===================================================== */
+
+    if (!response.ok) {
+
+      throw new Error(
+        result?.message ||
+        "Unable to submit the request."
+      );
+
     }
 
+
+    /* =====================================================
+       SUCCESS
+    ===================================================== */
+
     setSubmitted(true);
-  };
+
+    /* Clear form */
+
+    setFormData({
+      institutionType: "",
+      institutionName: "",
+      branchOffice: "",
+
+      customerType: "",
+      customerName: "",
+      accountReference: "",
+      mobile: "",
+      email: "",
+
+      chequeNumber: "",
+      chequeAmount: "",
+      chequeDate: "",
+      chequeStatus: "",
+
+      misuseDetails: "",
+      matterDescription: "",
+
+      state: "",
+      city: "",
+      matterLocation: "",
+
+      consent: false,
+    });
+
+
+    /* Clear uploaded documents */
+
+    setDocuments([]);
+
+  } catch (error) {
+
+    console.error(
+      "Bank/NBFC cheque misuse submission error:",
+      error
+    );
+
+    alert(
+      error?.message ||
+      "Something went wrong while submitting your request. Please try again."
+    );
+
+  }
+};
 
 
   const cities =
@@ -1023,13 +1257,17 @@ export default function BankNbfcChequeMisusePage() {
                   </option>
 
                   {cities.map((city) => (
-                    <option
-                      key={city}
-                      value={city}
-                    >
-                      {city}
-                    </option>
-                  ))}
+  <option
+    key={city}
+    value={city}
+  >
+    {city}
+  </option>
+))}
+
+<option value="Other">
+  Other
+</option>
 
                 </select>
 
@@ -1105,11 +1343,16 @@ export default function BankNbfcChequeMisusePage() {
                   multiple
                   hidden
                   onChange={handleDocumentsChange}
-                  accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
+                  accept={ACCEPTED_FILE_TYPES}
                 />
 
               </div>
 
+
+<div className="bank-misuse-document-upload-note">
+  Accepted formats: PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSX
+  <span>Maximum file size: 10 MB per file</span>
+</div>
               {documents.length > 0 && (
 
                 <div className="bank-misuse-document-list">

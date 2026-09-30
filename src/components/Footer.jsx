@@ -55,6 +55,20 @@ export default function Footer() {
     />
   </a>
 
+  {/* Replace # with your actual Twitter URL */}
+             <a
+    href="https://x.com/mychequebounce"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Twitter"
+
+  >
+    <img
+      src="/twitter-icon.png"
+      alt="Twitter"
+    />
+  </a>
+
           </div>
 
         </div>

@@ -916,16 +916,64 @@ export default function IndividualChequeBouncePage() {
   const [documents, setDocuments] = useState([]);
   const [isDragging, setIsDragging] = useState(false);
 
+  const ACCEPTED_FILE_TYPES =
+  ".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx";
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
 
   const addDocuments = (files) => {
-  const newFiles = Array.from(files);
 
-  if (!newFiles.length) return;
+  const newFiles = Array.from(files || []);
 
-  setDocuments((prev) => [
-    ...prev,
-    ...newFiles,
-  ]);
+  if (!newFiles.length) {
+    return;
+  }
+
+
+  const validFiles = newFiles.filter((file) => {
+
+    if (file.size > MAX_FILE_SIZE) {
+
+      alert(
+        `${file.name} is larger than 10 MB.`
+      );
+
+      return false;
+    }
+
+    return true;
+
+  });
+
+
+  setDocuments((previous) => {
+
+    const existingKeys = new Set(
+      previous.map(
+        (file) =>
+          `${file.name}-${file.size}-${file.lastModified}`
+      )
+    );
+
+
+    const uniqueFiles = validFiles.filter((file) => {
+
+      const key =
+        `${file.name}-${file.size}-${file.lastModified}`;
+
+      return !existingKeys.has(key);
+
+    });
+
+
+    return [
+      ...previous,
+      ...uniqueFiles,
+    ];
+
+  });
+
 };
 
 
@@ -1497,15 +1545,17 @@ const handleSubmit = async (event) => {
                   </option>
 
                   {cities.map((city) => (
+  <option
+    key={city}
+    value={city}
+  >
+    {city}
+  </option>
+))}
 
-                    <option
-                      key={city}
-                      value={city}
-                    >
-                      {city}
-                    </option>
-
-                  ))}
+<option value="Other">
+  Other
+</option>
 
                 </select>
 
@@ -1674,6 +1724,7 @@ const handleSubmit = async (event) => {
   type="file"
   multiple
   hidden
+  accept={ACCEPTED_FILE_TYPES}
   onChange={handleDocumentsChange}
 />
 
@@ -1762,11 +1813,10 @@ const handleSubmit = async (event) => {
   )}
 
 
-  <small className="document-help-text">
-    You may upload multiple relevant documents.
-    Each document can be added separately using the +
-    button.
-  </small>
+<small className="individual-document-upload-note">
+  Accepted formats: PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSX.
+  <span>Maximum file size: 10 MB per file</span>
+</small>
 
 </div>
 
