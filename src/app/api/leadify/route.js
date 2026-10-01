@@ -1,15 +1,26 @@
 export async function POST(request) {
   try {
-    const body = await request.json();
+    const contentType = request.headers.get("content-type") || "";
+
+    let body;
+    let headers = {};
+
+    if (contentType.includes("multipart/form-data")) {
+      body = await request.formData();
+    } else {
+      body = await request.text();
+
+      headers["Content-Type"] =
+        request.headers.get("content-type") ||
+        "application/json";
+    }
 
     const response = await fetch(
       "https://chequebounceadvisor.com/old-web/wp-json/leadify/v1/lead",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
+        headers,
+        body,
         cache: "no-store",
       }
     );
