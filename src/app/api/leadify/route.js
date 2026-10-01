@@ -40,7 +40,8 @@ export async function POST(request) {
     return Response.json(
       {
         success: false,
-        message: "Could not connect to Leadify.",
+        message: error?.message || String(error),
+        error: String(error),
       },
       {
         status: 500,
