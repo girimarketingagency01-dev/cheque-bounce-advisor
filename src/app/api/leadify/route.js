@@ -6,7 +6,15 @@ export async function POST(request) {
     let headers = {};
 
     if (contentType.includes("multipart/form-data")) {
-      body = await request.formData();
+      const incomingFormData = await request.formData();
+
+      const formData = new FormData();
+
+      for (const [key, value] of incomingFormData.entries()) {
+        formData.append(key, value);
+      }
+
+      body = formData;
     } else {
       body = await request.text();
 
@@ -25,7 +33,18 @@ export async function POST(request) {
       }
     );
 
-    const data = await response.json();
+    const responseText = await response.text();
+
+    let data;
+
+    try {
+      data = JSON.parse(responseText);
+    } catch {
+      data = {
+        success: false,
+        message: responseText || "Leadify returned an invalid response.",
+      };
+    }
 
     return Response.json(data, {
       status: response.status,
