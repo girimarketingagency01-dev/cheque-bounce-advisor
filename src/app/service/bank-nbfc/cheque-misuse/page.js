@@ -521,7 +521,7 @@ const handleSubmit = async (event) => {
     ===================================================== */
 
     const response = await fetch(
-      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      "/api/leadify",
       {
         method: "POST",
         body: leadFormData,

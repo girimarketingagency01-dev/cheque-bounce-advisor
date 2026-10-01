@@ -3,7 +3,7 @@ export async function POST(request) {
     const body = await request.json();
 
     const response = await fetch(
-      "https://chequebounceadvisor.com/wp-json/leadify/v1/lead",
+      "https://chequebounceadvisor.com/old-web/wp-json/leadify/v1/lead",
       {
         method: "POST",
         headers: {
