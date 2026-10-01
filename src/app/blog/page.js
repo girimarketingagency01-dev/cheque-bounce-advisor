@@ -4,7 +4,7 @@ import "./page.css";
 const POSTS_PER_PAGE = 6;
 
 async function getBlogs(page = 1) {
-  const apiUrl = `https://chequebounceadvisor.com/wp-json/wp/v2/posts?_embed&per_page=${POSTS_PER_PAGE}&page=${page}&orderby=date&order=desc`;
+  const apiUrl = `https://chequebounceadvisor.com/old-web/wp-json/wp/v2/posts?_embed&per_page=${POSTS_PER_PAGE}&page=${page}&orderby=date&order=desc`;
 
   try {
     const response = await fetch(apiUrl, {

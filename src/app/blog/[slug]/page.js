@@ -3,7 +3,7 @@ import "./page.css";
 
 async function getPost(slug) {
   const apiUrl =
-    `https://chequebounceadvisor.com/wp-json/wp/v2/posts` +
+    `https://chequebounceadvisor.com/old-web/wp-json/wp/v2/posts` +
     `?slug=${encodeURIComponent(slug)}&_embed`;
 
   try {
@@ -32,7 +32,7 @@ async function getPost(slug) {
 
 async function getMorePosts(currentSlug) {
   const apiUrl =
-    `https://chequebounceadvisor.com/wp-json/wp/v2/posts` +
+    `https://chequebounceadvisor.com/old-web/wp-json/wp/v2/posts` +
     `?per_page=7&orderby=date&order=desc&_embed`;
 
   try {
