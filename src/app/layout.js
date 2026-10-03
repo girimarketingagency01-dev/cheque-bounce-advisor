@@ -2,8 +2,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-
+import CBAChatWidget from "@/components/CBAChatWidget";
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
@@ -28,6 +27,8 @@ export default function RootLayout({ children }) {
         </main>
 
         <Footer />
+
+        <CBAChatWidget/>
       </body>
     </html>
   );
