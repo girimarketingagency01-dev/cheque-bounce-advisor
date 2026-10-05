@@ -311,7 +311,7 @@ export default function BusinessPage() {
 
 
           <Link
-            href="/service/business/contact/"
+            href="/contact/"
             className="business-custom-btn"
           >
             GET CUSTOMIZED ASSISTANCE
