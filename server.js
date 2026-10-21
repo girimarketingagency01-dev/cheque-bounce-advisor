@@ -1,21 +1,18 @@
-const { createServer } = require('http');
-const next = require('next');
 
-const hostname = '0.0.0.0';
-const port = parseInt(process.env.PORT, 10) || 3000;
+const { createServer } = require("http");
+const next = require("next");
 
-const app = next({
-  dev: false,
-  hostname,
-  port,
-});
-
+const app = next({ dev: false });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
-  createServer((req, res) => {
+  const server = createServer((req, res) => {
     handle(req, res);
-  }).listen(port, hostname, () => {
-    console.log(`> Ready on http://${hostname}:${port}`);
+  });
+
+  const port = process.env.PORT || 3000;
+
+  server.listen(port, "0.0.0.0", () => {
+    console.log(`Next.js server running on port ${port}`);
   });
 });
