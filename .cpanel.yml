@@ -1,8 +1,5 @@
+
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/adkgkgrj/cheque-bounce-advisor/
-    - /bin/cp -R . $DEPLOYPATH
-    - source /home/adkgkgrj/nodevenv/cheque-bounce-advisor/20/bin/activate && cd $DEPLOYPATH && npm install
-    - source /home/adkgkgrj/nodevenv/cheque-bounce-advisor/20/bin/activate && cd $DEPLOYPATH && npm run build -- --webpack
-    - /bin/touch $DEPLOYPATH/tmp/restart.txt
+    - /bin/bash -c 'source /home/adkgkgrj/nodevenv/cheque-bounce-advisor/22/bin/activate && cd /home/adkgkgrj/cheque-bounce-advisor && npm install --include=dev && npm run build && mkdir -p tmp && touch tmp/restart.txt'
