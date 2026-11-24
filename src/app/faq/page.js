@@ -412,7 +412,7 @@ export default function FAQPage() {
 
       </main>
 
-      <Footer />
+      
     </>
   );
 }
