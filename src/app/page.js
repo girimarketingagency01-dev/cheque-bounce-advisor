@@ -627,7 +627,7 @@ export default function Home() {
     SECTION 6 - REAL STORIES, REAL RESULTS
 ===================================================== */}
 
-<section className="stories-section">
+<section id="testimonials" className="stories-section">
 
   <div className="stories-container">
 
