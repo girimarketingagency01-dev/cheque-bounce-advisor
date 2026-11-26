@@ -63,12 +63,12 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/can-compromise-be-reached-in-cheque-bounce-case-even-after-conviction/",
+        source: "/can-compromise-be-reached-in-cheque-bounce-case-even-after-conviction",
         destination: "/blog/compromise-in-cheque-bounce-case-after-conviction",
         permanent: true,
       },
       {
-        source: "/how-to-file-a-cheque-bounce-case-2/",
+        source: "/how-to-file-a-cheque-bounce-case-2",
         destination: "/blog/how-to-file-a-cheque-bounce-case",
         permanent: true,
       },
