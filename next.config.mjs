@@ -72,6 +72,11 @@ const nextConfig = {
         destination: "/blog/how-to-file-a-cheque-bounce-case",
         permanent: true,
       },
+      {
+        source: "/how-to-clear-cheque-bounce",
+        destination: "/blog/how-to-clear-cheque-bounce",
+        permanent: true,
+      },
     ];
   },
 };
