@@ -45,20 +45,26 @@ export default function RootLayout({ children }) {
     gtag('config', 'AW-17978580373');
 
     window.gtag_report_conversion = function(url) {
-      var callback = function() {
-        if (typeof url !== 'undefined') {
-          window.location.href = url;
-        }
-      };
+  var navigated = false;
 
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17978580373/C_nSCKvv_8AdEJW77fxC',
-        'event_callback': callback
-      });
+  var callback = function() {
+    if (navigated) return;
+    navigated = true;
 
-      setTimeout(callback, 1500);
-      return false;
-    };
+    if (typeof url !== 'undefined') {
+      window.location.href = url;
+    }
+  };
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17978580373/C_nSCKvv_8AdEJW77fxC',
+    'event_callback': callback
+  });
+
+  setTimeout(callback, 1500);
+
+  return false;
+};
   `}
 </Script>
 
