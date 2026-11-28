@@ -968,6 +968,10 @@ const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
       setSubmitted(true);
 
+      if (typeof window.gtag_report_form_conversion === "function") {
+      window.gtag_report_form_conversion("RQqICIzvksEdEJW77fxC");
+      }
+
       setDocuments([]);
 
       form.reset();

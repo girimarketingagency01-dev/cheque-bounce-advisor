@@ -50,6 +50,10 @@ const handleSubmit = async (e) => {
 
     setSubmitted(true);
 
+    if (typeof window.gtag_report_form_conversion === "function") {
+    window.gtag_report_form_conversion("lfvQCIWPk8EdEJW77fxC");
+    }
+
     form.reset();
 
     setTimeout(() => {

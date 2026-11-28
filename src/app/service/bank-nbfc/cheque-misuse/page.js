@@ -552,6 +552,10 @@ const handleSubmit = async (event) => {
 
     setSubmitted(true);
 
+    if (typeof window.gtag_report_form_conversion === "function") {
+    window.gtag_report_form_conversion("UmJGCJn2k8EdEJW77fxC");
+    }
+
     /* Clear form */
 
     setFormData({

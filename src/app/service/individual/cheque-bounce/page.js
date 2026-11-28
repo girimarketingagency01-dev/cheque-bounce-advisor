@@ -1170,9 +1170,13 @@ const handleSubmit = async (event) => {
     if (
       response.ok &&
       result.success
-    ) {
+    ) { 
 
       setSubmitted(true);
+
+      if (typeof window.gtag_report_form_conversion === "function") {
+      window.gtag_report_form_conversion("tdpDCImbjsEdEJW77fxC");
+      }
 
       setDocuments([]);
 

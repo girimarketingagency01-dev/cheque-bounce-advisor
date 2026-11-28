@@ -1182,6 +1182,10 @@ const handleSubmit = async (event) => {
 
       setSubmitted(true);
 
+      if (typeof window.gtag_report_form_conversion === "function") {
+      window.gtag_report_form_conversion("WMISCK-Ak8EdEJW77fxC");
+      }
+
       setDocuments([]);
 
       form.reset();
