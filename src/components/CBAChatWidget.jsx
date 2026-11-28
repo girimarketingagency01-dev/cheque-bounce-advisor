@@ -1,15 +1,20 @@
 
 "use client";
 
-import { useState } from "react";
+import { useRef } from "react";
 
 const HELPLINE = "+919891188400";
 
 export default function CBAChatWidget() {
-  const [visible] = useState(true);
+  const callClicked = useRef(false);
 
   const handleCallClick = (e) => {
     e.preventDefault();
+
+    // Prevent duplicate conversion on repeated clicks
+    if (callClicked.current) return;
+
+    callClicked.current = true;
 
     const callUrl = `tel:${HELPLINE}`;
 
@@ -19,8 +24,6 @@ export default function CBAChatWidget() {
       window.location.href = callUrl;
     }
   };
-
-  if (!visible) return null;
 
   return (
     <div className="cba-chat-widget">
@@ -73,9 +76,7 @@ export default function CBAChatWidget() {
           color: #ffffff;
           text-decoration: none;
           box-shadow: 0 8px 25px rgba(215, 25, 32, 0.38);
-          transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
           animation: launcherAppear 0.55s ease both;
           overflow: visible;
         }
