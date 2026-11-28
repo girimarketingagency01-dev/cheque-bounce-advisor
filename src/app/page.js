@@ -1,12 +1,10 @@
 import Image from "next/image";
 import StoriesCarousel from "@/components/StoriesCarousel";
-import IntroAnimation from "@/components/IntroAnimation";
-
 export default function Home() {
   return (
     
      <>
-      <IntroAnimation />
+        
 
     <div className="home-page">
 
