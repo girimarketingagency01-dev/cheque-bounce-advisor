@@ -34,15 +34,34 @@ export default function RootLayout({ children }) {
           src="https://www.googletagmanager.com/gtag/js?id=AW-17978580373"
           strategy="afterInteractive"
         />
-        <Script id="google-ads-tag" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', 'AW-17978580373');
-          `}
-        </Script>
+        
+<Script id="google-ads-tag" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', 'AW-17978580373');
+
+    window.gtag_report_conversion = function(url) {
+      var callback = function() {
+        if (typeof url !== 'undefined') {
+          window.location.href = url;
+        }
+      };
+
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17978580373/C_nSCKvv_8AdEJW77fxC',
+        'event_callback': callback
+      });
+
+      setTimeout(callback, 1500);
+      return false;
+    };
+  `}
+</Script>
+
 
         <Header />
 
